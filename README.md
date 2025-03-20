@@ -1,4 +1,4 @@
-💻 A computer engineer who wants to become front-end software developer.
+A computer engineer who wants to become a front-end developer.
 - 👀 I’m interested in web development
 - 🌱 I’m currently learning React
 <br/>
