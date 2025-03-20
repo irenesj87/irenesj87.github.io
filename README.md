@@ -8,7 +8,7 @@
 <br/>
 <div align="center">
   
-  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,nodejs,java,vscode&theme=light)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,vscode&theme=light)](https://skillicons.dev)
 
 </div>
 
