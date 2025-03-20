@@ -18,7 +18,7 @@ A computer engineer who wants to become a front-end developer.
 <br/>
 <div align="center">
   
-  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact)
+  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact&theme=transparent)
 </div>
 
 
