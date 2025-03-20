@@ -1,4 +1,4 @@
-- 👋🏻 Hi
+A computer engineer who wants to become a web developer.
 - 👀 I’m interested in web development
 - 🌱 I’m currently learning React
 <br/>
