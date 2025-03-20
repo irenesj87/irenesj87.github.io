@@ -13,7 +13,7 @@ A computer engineer who wants to become a front-end developer.
 </div>
 
 <h3 align="center">
- :octocat: 📈 <ins>My GitHub Stats</ins>
+ :octocat:📈 <ins>My GitHub Stats</ins>
 </h3>
 <br/>
 <div align="center">
