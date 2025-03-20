@@ -2,25 +2,26 @@
 - 👀 I’m interested in web development
 - 🌱 I’m currently learning React
 
-<p align="center">
-  💻 My Tech Stack
-</p>
+<br/>
 
+<h3 align="center">
+  💻 My Tech Stack
+</h3>
+<hr/>
 <div align="center">
   
   [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,nodejs,java,vscode&theme=light)](https://skillicons.dev)
 
 </div>
 
-<p align="center">
+<h3 align="center">
   📈 My Stats
-</p>
-
+</h3>
+<hr/>
 <div align="center">
   
   ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact)
 </div>
-
 
 
 <!---
