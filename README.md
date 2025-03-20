@@ -6,7 +6,10 @@
   My Stats
 </p>
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact)
+<div align="center">
+  
+  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact)
+</div>
 
 <p align="center">
   My Tech Stack
@@ -14,7 +17,7 @@
 
 <div align="center">
   
-  [![My Skills](https://skillicons.dev/icons?i=html,css,javascript,react,nodejs&theme=light)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,nodejs,java&theme=light)](https://skillicons.dev)
 
 </div>
 
