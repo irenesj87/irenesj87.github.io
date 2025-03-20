@@ -11,7 +11,7 @@ Hi 👋🏻, I´m a computer engineer who wants to become a front-end developer
   [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,vscode&theme=light)](https://skillicons.dev)
 
 </div>
-
+<br/>
 <h3 align="center">
  :octocat:📈 <ins>My GitHub Stats</ins>
 </h3>
