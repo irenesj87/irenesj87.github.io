@@ -2,12 +2,10 @@
 - 👀 I’m interested in web development
 - 🌱 I’m currently learning React
 
-<br/>
-
 <h3 align="center">
   💻 My Tech Stack
 </h3>
-<hr/>
+<br/>
 <div align="center">
   
   [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,nodejs,java,vscode&theme=light)](https://skillicons.dev)
@@ -15,9 +13,10 @@
 </div>
 
 <h3 align="center">
-  📈 My Stats
+  📈 My GitHub Stats
 </h3>
-<hr/>
+<br/>
+
 <div align="center">
   
   ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact)
