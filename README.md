@@ -1,6 +1,6 @@
-A computer engineer who wants to become a front-end developer.
-- 👀 I’m interested in web development
+Hi 👋🏻, I´m a computer engineer who wants to become a front-end developer
 - 🌱 I’m currently learning React
+- 💬 Ask me about HTML, CSSS and JavaScript
 <br/>
  <h3 align="center">
   🛠️ <ins>Languages and Tools</ins>
