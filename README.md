@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning React
 
 <h3 align="center">
-  💻 My Tech Stack
+  💻 <ins>My Tech Stack</ins>
 </h3>
 <br/>
 <div align="center">
@@ -13,7 +13,7 @@
 </div>
 
 <h3 align="center">
-  📈 My GitHub Stats
+  📈 <ins>My GitHub Stats</ins>
 </h3>
 <br/>
 
