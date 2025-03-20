@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning React
 <br/>
  <h3 align="center">
-  💻 <ins>My Tech Stack</ins>
+  🛠️ <ins>Languages and Tools I use</ins>
 </h3>
 <br/>
 <div align="center">
