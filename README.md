@@ -13,7 +13,7 @@ Hi 👋🏻, I´m a computer engineer who wants to become a front-end developer
 </div>
 <br/>
 <h3 align="center">
- :octocat:📈 <ins>My GitHub Stats</ins>
+ :octocat:📈 <ins>GitHub Stats</ins>
 </h3>
 <br/>
 <div align="center">
