@@ -1,4 +1,4 @@
-A computer engineer who wants to become a web developer.
+💻 A computer engineer who wants to become front-end software developer.
 - 👀 I’m interested in web development
 - 🌱 I’m currently learning React
 <br/>
@@ -8,7 +8,7 @@ A computer engineer who wants to become a web developer.
 <br/>
 <div align="center">
   
-  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,vscode&theme=light&perline=4)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,vscode&theme=light)](https://skillicons.dev)
 
 </div>
 
