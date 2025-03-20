@@ -3,12 +3,12 @@ A computer engineer who wants to become a web developer.
 - 🌱 I’m currently learning React
 <br/>
  <h3 align="center">
-  🛠️ <ins>Languages and Tools I use</ins>
+  🛠️ <ins>Languages and Tools</ins>
 </h3>
 <br/>
 <div align="center">
   
-  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,vscode&theme=light)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,vscode&theme=light&perline=4)](https://skillicons.dev)
 
 </div>
 
