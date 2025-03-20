@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning React
 <br/>
  <h3 align="center">
-  💻 <ins>My Teck Stats</ins>
+  💻 <ins>My Tech Stack</ins>
 </h3>
 <br/>
 <div align="center">
