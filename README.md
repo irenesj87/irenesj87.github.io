@@ -1,4 +1,4 @@
-Hi 👋🏻, I´m a computer engineer who wants to become a front-end developer
+Hi 👋🏻,I'm a Computer Engineer passionate about web development. I'm proficient in HTML, CSS, and JavaScript.
 - 🌱 I’m currently learning React
 - 💬 Ask me about HTML, CSS and JavaScript
 <br/>
