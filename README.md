@@ -3,7 +3,7 @@ Hi 👋🏻,
 - 💬 Ask me about HTML, CSS and JavaScript
 <br/>
  <h3 align="center">
-  🛠️ <ins>Languages and Tools</ins>
+  🛠️ <ins>Languages and Tools I use</ins>
 </h3>
 <br/>
 <div align="center">
@@ -13,7 +13,7 @@ Hi 👋🏻,
 </div>
 <br/>
 <h3 align="center">
- 📈 <ins>GitHub Stats</ins>
+ 📈 <ins>My GitHub Stats</ins>
 </h3>
 <br/>
 <div align="center">
