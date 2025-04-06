@@ -1,4 +1,4 @@
-Hi 👋🏻,
+Hi 👋🏻
 - 🌱 I’m currently learning React
 - 💬 Ask me about HTML, CSS and JavaScript
 <br/>
