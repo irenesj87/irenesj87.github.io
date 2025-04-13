@@ -1,5 +1,5 @@
 ### Hi 👋🏻,
- - 🌱 I’m currently learning React
+ - 🌱 I’m currently learning React.js
  - 💬 Ask me about HTML, CSS and JavaScript
 <br/>
 <div align="center">
@@ -17,6 +17,7 @@
 <div align="center">
  
  ## 📈 My GitHub Stats
+ 
 </div>
 <br/>
 <div align="center">
