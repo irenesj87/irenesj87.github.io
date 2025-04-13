@@ -1,6 +1,6 @@
-Hi 👋🏻
-- 🌱 I’m currently learning React
-- 💬 Ask me about HTML, CSS and JavaScript
+### Hi 👋🏻
+### - 🌱 I’m currently learning React
+### - 💬 Ask me about HTML, CSS and JavaScript
 <br/>
  <h3 align="center">
   🛠️ <ins>Languages and Tools I use</ins>
