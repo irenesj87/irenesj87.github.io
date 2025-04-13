@@ -1,10 +1,12 @@
-### Hi 👋🏻
-### - 🌱 I’m currently learning React
-### - 💬 Ask me about HTML, CSS and JavaScript
+### Hi 👋🏻,
+ - 🌱 I’m currently learning React
+ - 💬 Ask me about HTML, CSS and JavaScript
 <br/>
- <h3 align="center">
-  🛠️ <ins>Languages and Tools I use</ins>
-</h3>
+<div align="center">
+ 
+ ## 🛠️ Languages and Tools I use
+ 
+</div>
 <br/>
 <div align="center">
   
@@ -12,9 +14,10 @@
 
 </div>
 <br/>
-<h3 align="center">
- 📈 <ins>My GitHub Stats</ins>
-</h3>
+<div align="center">
+ 
+ ## 📈 My GitHub Stats
+</div>
 <br/>
 <div align="center">
   
