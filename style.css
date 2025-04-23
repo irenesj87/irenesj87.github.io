@@ -98,7 +98,8 @@ body {
 	letter-spacing: 5px;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a:focus {
 	background-color: #eee; /* Subtle hover effect */
 }
 
