@@ -22,7 +22,7 @@
 <br/>
 <div align="center">
   
-  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesjv&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact&theme=transparent)
+  ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=irenesj87&show_icons=true&theme=transparent&hide=contribs,prs) ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=irenesjv&layout=compact&theme=transparent)
 </div>
 
 
