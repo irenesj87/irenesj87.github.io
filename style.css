@@ -1,8 +1,6 @@
-/* --- Existing Body Styles --- */
 body {
 	/* Start with wider margins for desktop */
-	margin-left: 25%;
-	margin-right: 25%;
+	margin: 0;
 	padding: 0;
 	font-family: Arial, sans-serif;
 	background-color: #ffffff;
@@ -14,9 +12,11 @@ body {
 	/* Keep the side margins for screens wider than max-width */
 	padding-left: 5%; /* Add some padding for when margins collapse */
 	padding-right: 5%; /* Add some padding for when margins collapse */
+	/*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
+	box-sizing: border-box;
 }
 
-/* --- Updated Header Styles --- */
+/* --- Header Styles --- */
 .title-container h1 {
 	text-align: center;
 	font-size: 30px;
@@ -88,7 +88,7 @@ body {
 }
 
 .navbar a {
-	color: black;
+	color: rgb(73, 71, 71);
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: 8px 10px; /* Slightly reduced padding */
@@ -100,6 +100,31 @@ body {
 
 .navbar a:hover {
 	background-color: #eee; /* Subtle hover effect */
+}
+
+/* --- Content Section Visibility --- */
+.content-section {
+	display: none; /* Hide all sections by default */
+	/* Add any other common styles for these sections if needed */
+	padding: 40px 30px; /* Keep your existing padding or adjust */
+	min-height: auto;
+}
+
+.content-section.active-section {
+	display: block; /* Show the active section */
+}
+
+/* --- Keep your existing section-specific styles --- */
+/* You might adjust these if they conflict, but often they are fine */
+.home-section {
+	text-align: center;
+	/* background-color: transparent; */ /* Already handled by .content-section potentially */
+	margin-bottom: 0;
+}
+
+.home-section h2 {
+	margin-bottom: 20px;
+	font-size: 2.2rem;
 }
 
 /* --- Main Content & Sections (Mostly unchanged, but padding might adjust in media queries) --- */
@@ -135,38 +160,21 @@ main section {
 	box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.contact-section {
-	text-align: center;
-	padding: 40px 30px; /* Added padding consistency */
-	background-color: transparent;
-	margin-bottom: 0;
-}
-
-.contact-section h2 {
-	margin-bottom: 20px;
-	font-size: 1.8rem; /* Slightly reduced default size */
-}
-
-.contact-section p {
-	font-size: 1.1rem;
-	line-height: 1.6;
-	max-width: 600px;
-	margin: 0 auto 30px auto;
-	padding: 0 15px; /* Add padding */
-	box-sizing: border-box;
+#about h1 {
+	text-transform: uppercase;
 }
 
 /* --- Footer --- */
 footer {
-	background-color: #a8dfdf;
-	color: #fff;
 	text-align: center;
+	text-transform: uppercase;
 	padding: 20px;
+	border-top: #ccc 1px solid;
 }
 
-/* --- Media Queries for Responsiveness --- */
+/* --- Media Queries para responsividad--- */
 
-/* Medium Screens (Tablets, smaller desktops) */
+/* Breakpoints medios */
 @media (max-width: 1024px) {
 	body {
 		/* Reduce side margins */
@@ -191,7 +199,7 @@ footer {
 	}
 }
 
-/* Small Screens (Tablets in portrait, large phones) */
+/* Breakpoints pequeños */
 @media (max-width: 768px) {
 	body {
 		/* Further reduce side margins */
@@ -237,9 +245,14 @@ footer {
 	.contact-section h2 {
 		font-size: 1.6rem;
 	}
+
+	.content-section {
+		padding: 30px 20px; /* Adjust padding inside media query */
+	}
+	/* ... other media query adjustments ... */
 }
 
-/* Extra Small Screens (Most phones) */
+/* Breakpoints muy pequeños */
 @media (max-width: 480px) {
 	body {
 		/* Remove side margins completely */
@@ -288,5 +301,9 @@ footer {
 	.contact-section p {
 		font-size: 0.95rem;
 		padding: 0 5px;
+	}
+
+	.content-section {
+		padding: 25px 15px; /* Adjust padding inside media query */
 	}
 }
