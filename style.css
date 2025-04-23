@@ -4,12 +4,11 @@ body {
 	padding: 0;
 	font-family: Arial, sans-serif;
 	background-color: #ffffff;
-	/* Add a max-width to prevent it getting too wide on very large screens */
+	/* Add a max-width to prevent it getting too wide */
 	max-width: 1400px; /* Adjust as needed */
 	/* Center the body itself when max-width is reached */
 	margin-left: auto;
 	margin-right: auto;
-	/* Keep the side margins for screens wider than max-width */
 	padding-left: 5%; /* Add some padding for when margins collapse */
 	padding-right: 5%; /* Add some padding for when margins collapse */
 	/*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
@@ -115,56 +114,6 @@ body {
 	display: block; /* Show the active section */
 }
 
-/* --- Keep your existing section-specific styles --- */
-/* You might adjust these if they conflict, but often they are fine */
-.home-section {
-	text-align: center;
-	/* background-color: transparent; */ /* Already handled by .content-section potentially */
-	margin-bottom: 0;
-}
-
-.home-section h2 {
-	margin-bottom: 20px;
-	font-size: 2.2rem;
-}
-
-/* --- Main Content & Sections (Mostly unchanged, but padding might adjust in media queries) --- */
-main {
-	display: block;
-	background-color: #fff;
-}
-
-main section {
-	padding: 40px 30px;
-	min-height: auto;
-	border-bottom: none;
-}
-
-.home-section {
-	text-align: center;
-	padding: 50px 30px; /* Slightly reduced padding */
-	background-color: transparent;
-	margin-bottom: 0;
-}
-
-.home-section h2 {
-	margin-bottom: 20px;
-	font-size: 2.2rem; /* Slightly reduced default size */
-}
-
-.home-section p {
-	font-size: 1.1rem;
-	line-height: 1.6;
-	max-width: 600px;
-	margin: 0 auto 20px auto;
-	padding: 0 15px; /* Add padding to prevent text touching edges on small screens */
-	box-sizing: border-box; /* Include padding in width calculation */
-}
-
-#about h1 {
-	text-transform: uppercase;
-}
-
 /* --- Footer --- */
 footer {
 	text-align: center;
@@ -174,7 +123,6 @@ footer {
 }
 
 /* --- Media Queries para responsividad--- */
-
 /* Breakpoints medios */
 @media (max-width: 1024px) {
 	body {
