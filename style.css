@@ -150,6 +150,7 @@ main {
 	/* Add some padding inside the section */
 	padding-top: 20px; /* Adjust as needed */
 	padding-bottom: 40px; /* Adjust as needed */
+	padding-left: 60px;
 }
 
 .cv-section {
@@ -241,7 +242,7 @@ footer h2 {
 .contact-methods a {
 	color: #a0d2eb; /* A nice link color */
 	text-decoration: none; /* Remove underline */
-	font-size: 1.1em;
+	font-size: 2rem;
 	transition: color 0.3s ease; /* Smooth color change on hover */
 }
 
@@ -310,11 +311,13 @@ footer h2 {
 	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
+	#curriculum,
 	.content-section,
 	footer {
 		padding-left: 15px; /* Example adjustment */
 		padding-right: 15px; /* Example adjustment */
 	}
+
 	/* Reset specific padding if needed, e.g.: */
 	.content-section {
 		padding-top: 25px;
