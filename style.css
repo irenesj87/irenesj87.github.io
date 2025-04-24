@@ -1,21 +1,34 @@
+html {
+    height: 100%;
+    background-color: #f0f0f0; /* Keep your background color */
+    margin: 0; /* Reset margin on html */
+    padding: 0; /* Reset padding on html */
+}
+
 body {
-	/* Start with wider margins for desktop */
-	margin: 0;
-	padding: 0;
+	
 	font-family: Arial, sans-serif;
 	background-color: #ffffff;
 	/* Add a max-width to prevent it getting too wide */
 	max-width: 1400px; /* Adjust as needed */
 	/* Center the body itself when max-width is reached */
+	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 5%; /* Add some padding for when margins collapse */
-	padding-right: 5%; /* Add some padding for when margins collapse */
-	/*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
 	box-sizing: border-box;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 /* --- Header Styles --- */
+.title-container {
+	/* Add horizontal padding here */
+	padding-left: 30px; /* Adjust value as needed */
+	padding-right: 30px; /* Adjust value as needed */
+}
+
 .title-container h1 {
 	text-align: center;
 	font-size: 30px;
@@ -62,24 +75,37 @@ body {
 	width: 90px;
 }
 
+main {
+	flex-grow: 1;
+}
+
 /* --- Navbar Styles --- */
 .navbar {
-	padding: 10px 0;
+	padding: 10px 30px;
 	background-color: #fff;
 	width: 100%; /* Ensure navbar takes full width within its container */
 	box-sizing: border-box; /* Include padding in width calculation */
-	border-bottom: #ccc 1px solid;
+	
 }
 
 .navbar ul {
 	list-style: none;
-	padding: 0 10px; /* Add slight horizontal padding */
+	padding: 0; /* Add slight horizontal padding */
 	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap; /* Allow nav items to wrap on small screens */
 	gap: 10px; /* Add spacing between wrapped nav items */
+	border-bottom: #ccc 1px solid;
+	padding-bottom: 10px;
+}
+
+.content-section {
+	display: none;
+	/* Ensure horizontal padding exists */
+	padding: 40px 30px; /* Keep or adjust horizontal padding */
+	min-height: auto;
 }
 
 .navbar li {
@@ -114,145 +140,188 @@ body {
 	display: block; /* Show the active section */
 }
 
-/* --- Footer --- */
-footer {
-	text-align: center;
+#home h1 {
 	text-transform: uppercase;
-	padding: 20px;
-	border-top: #ccc 1px solid;
 }
+
+/* --- Curriculum Section Styles --- */
+
+#curriculum {
+	/* Add some padding inside the section */
+	padding-top: 20px; /* Adjust as needed */
+	padding-bottom: 40px; /* Adjust as needed */
+}
+
+.cv-section {
+	/* Add space below each article (subsection) */
+	margin-bottom: 30px;
+}
+
+.cv-section h3 {
+	/* Style the subsection titles */
+	font-size: 1.4em; /* Make them slightly larger */
+	color: #333; /* Example color - choose your own */
+	margin-bottom: 15px; /* Space below the title */
+	border-bottom: 1px solid #eee; /* Optional subtle separator */
+	padding-bottom: 5px; /* Space between text and border */
+}
+
+.cv-section ul {
+	/* Style the lists */
+	list-style-type: disc; /* Standard bullet points */
+	padding-left: 25px; /* Indent the list items */
+	margin-top: 0; /* Remove default top margin */
+}
+
+.cv-section ul li {
+	/* Add space below each list item */
+	margin-bottom: 8px;
+	line-height: 1.5; /* Improve readability */
+}
+
+.cv-section ul ul {
+	/* Style nested lists (like the web technologies) */
+	list-style-type: circle; /* Different bullet style */
+	margin-top: 8px; /* Add some space above the nested list */
+	padding-left: 20px; /* Further indent nested items */
+}
+
+.cv-section p {
+	/* General paragraph styling within cv-section if needed */
+	line-height: 1.6;
+	margin-bottom: 10px;
+}
+
+/* Specifically target the paragraph in Formación Académica if needed */
+.cv-section h3 + p {
+	/* Selects the p immediately following an h3 */
+	margin-top: 0; /* Adjust spacing if needed */
+}
+
+.cv-section h4 {
+	/* Style the degree title */
+	font-weight: 600; /* Make it a bit bolder */
+	color: #111; /* Slightly darker color */
+}
+
+/* --- End Curriculum Section Styles --- */
+
+/* --- Footer --- */
+/* --- Footer Styles --- */
+
+footer {
+	flex-shrink: 1;
+	background-color: #333; /* Dark background for contrast */
+	color: #f4f4f4; /* Light text color */
+	text-align: center; /* Center align text */
+	padding: 30px 30px; /* Add padding top/bottom and left/right */
+	box-sizing: border-box;
+	margin-top: 40px; /* Add space above the footer */
+	border-top: 3px solid #555; /* Optional top border */
+}
+
+footer h2 {
+	margin-bottom: 20px; /* Space below the heading */
+	font-size: 1.6em;
+	font-weight: normal; /* Lighter heading weight */
+	color: #fff; /* Ensure heading is white */
+}
+
+.contact-methods ul {
+	list-style: none; /* Remove default bullet points */
+	padding: 0; /* Remove default padding */
+	margin: 0 0 20px 0; /* Remove default margins, add space below */
+}
+
+.contact-methods li {
+	display: inline-block; /* Display links side-by-side */
+	margin: 0 15px; /* Add space between links */
+}
+
+.contact-methods a {
+	color: #a0d2eb; /* A nice link color */
+	text-decoration: none; /* Remove underline */
+	font-size: 1.1em;
+	transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.contact-methods a:hover,
+.contact-methods a:focus {
+	color: #ffffff; /* White color on hover/focus */
+	text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+.copyright {
+	font-size: 0.9em;
+	color: #ccc; /* Slightly dimmer color for copyright */
+	margin-top: 20px; /* Space above the copyright */
+}
+
+/* --- End Footer Styles --- */
 
 /* --- Media Queries para responsividad--- */
 /* Breakpoints medios */
 @media (max-width: 1024px) {
-	body {
-		/* Reduce side margins */
-		/* margin-left: 10%; */
-		/* margin-right: 10%; */
-		/* Keep padding for spacing */
-		padding-left: 5%;
-		padding-right: 5%;
+	/* Adjust padding on children if needed */
+	.title-container,
+	.navbar,
+	.content-section,
+	footer {
+		padding-left: 25px; /* Example adjustment */
+		padding-right: 25px; /* Example adjustment */
 	}
-
-	header {
-		padding: 30px 25px; /* Reduce padding */
-		justify-content: center; /* Center items if they wrap */
+	/* Reset specific padding if needed, e.g.: */
+	.content-section {
+		padding-top: 40px;
+		padding-bottom: 40px;
 	}
-
-	.home-section h2 {
-		font-size: 2rem; /* Adjust font size */
-	}
-
-	.contact-section h2 {
-		font-size: 1.7rem; /* Adjust font size */
+	footer {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 }
 
 /* Breakpoints pequeños */
 @media (max-width: 768px) {
 	body {
-		/* Further reduce side margins */
-		/* margin-left: 5%; */
-		/* margin-right: 5%; */
-		/* Keep padding */
-		padding-left: 3%;
-		padding-right: 3%;
 		box-shadow: none; /* Optional: remove shadow on small screens */
 	}
 
-	header {
-		padding: 25px 20px; /* Further reduce padding */
-		text-align: center; /* Center header text if needed */
+	/* Adjust padding on children if needed */
+	.title-container,
+	.navbar,
+	.content-section,
+	footer {
+		padding-left: 20px; /* Example adjustment */
+		padding-right: 20px; /* Example adjustment */
 	}
-
-	.title-container {
-		padding: 8px 10px;
-	}
-
-	.navbar ul {
-		justify-content: center; /* Ensure items stay centered */
-	}
-
-	.navbar li {
-		margin: 5px 8px; /* Adjust margin for wrapped items */
-	}
-
-	main section {
-		padding: 30px 20px; /* Reduce section padding */
-	}
-
-	.home-section h2 {
-		font-size: 1.8rem;
-	}
-
-	.home-section p,
-	.contact-section p {
-		font-size: 1rem; /* Slightly smaller text */
-		padding: 0 10px; /* Adjust padding */
-	}
-
-	.contact-section h2 {
-		font-size: 1.6rem;
-	}
-
+	/* Reset specific padding if needed, e.g.: */
 	.content-section {
-		padding: 30px 20px; /* Adjust padding inside media query */
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
-	/* ... other media query adjustments ... */
+	footer {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
 }
-
 /* Breakpoints muy pequeños */
 @media (max-width: 480px) {
-	body {
-		/* Remove side margins completely */
-		/* margin-left: 0; */
-		/* margin-right: 0; */
-		/* Adjust padding */
-		padding-left: 15px; /* Use fixed padding */
-		padding-right: 15px; /* Use fixed padding */
+	/* Adjust padding on children if needed */
+	.title-container,
+	.navbar,
+	.content-section,
+	footer {
+		padding-left: 15px; /* Example adjustment */
+		padding-right: 15px; /* Example adjustment */
 	}
-
-	header {
-		padding: 20px 15px;
-	}
-
-	.title-container h1 {
-		font-size: 1.5rem; /* Adjust title size */
-	}
-	.title-container h2 {
-		font-size: 1.1rem; /* Adjust subtitle size */
-	}
-
-	.navbar ul {
-		gap: 5px; /* Reduce gap */
-	}
-
-	.navbar li {
-		margin: 3px 5px; /* Reduce nav item margin */
-	}
-	.navbar a {
-		padding: 6px 8px; /* Reduce nav link padding */
-	}
-
-	main section {
-		padding: 25px 15px;
-	}
-
-	.home-section h2 {
-		font-size: 1.6rem;
-	}
-
-	.contact-section h2 {
-		font-size: 1.4rem;
-	}
-
-	.home-section p,
-	.contact-section p {
-		font-size: 0.95rem;
-		padding: 0 5px;
-	}
-
+	/* Reset specific padding if needed, e.g.: */
 	.content-section {
-		padding: 25px 15px; /* Adjust padding inside media query */
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+	footer {
+		padding-top: 25px;
+		padding-bottom: 25px;
 	}
 }
