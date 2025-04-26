@@ -1,12 +1,11 @@
 html {
-    height: 100%;
-    background-color: #f0f0f0; /* Keep your background color */
-    margin: 0; /* Reset margin on html */
-    padding: 0; /* Reset padding on html */
+	height: 100%;
+	background-color: #fbfbfb; /* Keep your background color */
+	margin: 0; /* Reset margin on html */
+	padding: 0; /* Reset padding on html */
 }
 
 body {
-	
 	font-family: Arial, sans-serif;
 	background-color: #ffffff;
 	/* Add a max-width to prevent it getting too wide */
@@ -85,7 +84,6 @@ main {
 	background-color: #fff;
 	width: 100%; /* Ensure navbar takes full width within its container */
 	box-sizing: border-box; /* Include padding in width calculation */
-	
 }
 
 .navbar ul {
@@ -212,20 +210,22 @@ main {
 
 footer {
 	flex-shrink: 1;
-	background-color: #333; /* Dark background for contrast */
-	color: #f4f4f4; /* Light text color */
+	color: #333333;
 	text-align: center; /* Center align text */
 	padding: 30px 30px; /* Add padding top/bottom and left/right */
 	box-sizing: border-box;
-	margin-top: 40px; /* Add space above the footer */
-	border-top: 3px solid #555; /* Optional top border */
+	margin-left: 30px;
+	margin-right: 30px;
+	border-top: 1px solid #ccc; /* Optional top border */
 }
 
 footer h2 {
 	margin-bottom: 20px; /* Space below the heading */
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	font-size: 1.6em;
 	font-weight: normal; /* Lighter heading weight */
-	color: #fff; /* Ensure heading is white */
+	color: #333333; /* Ensure heading is white */
 }
 
 .contact-methods ul {
@@ -248,13 +248,12 @@ footer h2 {
 
 .contact-methods a:hover,
 .contact-methods a:focus {
-	color: #ffffff; /* White color on hover/focus */
-	text-decoration: underline; /* Add underline on hover for clarity */
+	color: #84c4e3;
 }
 
 .copyright {
 	font-size: 0.9em;
-	color: #ccc; /* Slightly dimmer color for copyright */
+	color: #aaa5a5; /* Slightly dimmer color for copyright */
 	margin-top: 20px; /* Space above the copyright */
 }
 
@@ -279,6 +278,8 @@ footer h2 {
 	footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
+		margin-left: 30px;
+		margin-right: 30px;
 	}
 }
 
@@ -304,6 +305,8 @@ footer h2 {
 	footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
+		margin-left: 30px;
+		margin-right: 30px;
 	}
 }
 /* Breakpoints muy pequeños */
@@ -326,5 +329,7 @@ footer h2 {
 	footer {
 		padding-top: 25px;
 		padding-bottom: 25px;
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 }
