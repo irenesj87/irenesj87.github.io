@@ -1,31 +1,42 @@
+:root {
+	--bg-html: #f8f9fa;
+	--bg-body: #ffffff;
+	--bg-footer: #343a40;
+	--text-dark: #343a40;
+	--text-medium: #6c757d;
+	--text-light: #f8f9fa; /* Light Gray/Off-white (for dark backgrounds) */
+	--text-footer-muted: #adb5bd;
+	--primary-accent: #17a2b8;
+	--secondary-accent: #fd7e14;
+	--tertiary-accent: #ffc107;
+	--border-color: #dee2e6;
+	--hover-bg-light: #e2f5f8;
+}
+
 html {
 	height: 100%;
-	background-color: #fbfbfb; /* Keep your background color */
-	margin: 0; /* Reset margin on html */
-	padding: 0; /* Reset padding on html */
+	background-color: var(--bg-html);
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	font-family: Arial, sans-serif;
-	background-color: #ffffff;
-	/* Add a max-width to prevent it getting too wide */
-	max-width: 1400px; /* Adjust as needed */
-	/* Center the body itself when max-width is reached */
-	margin: 0;
-	margin-left: auto;
-	margin-right: auto;
+	background-color: var(--bg-body); /* Use variable */
+	max-width: 1400px;
+	margin: 0 auto;
 	box-sizing: border-box;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	color: var(--text-dark); /* Default text color */
 }
 
 /* --- Header Styles --- */
 .title-container {
-	/* Add horizontal padding here */
-	padding-left: 30px; /* Adjust value as needed */
-	padding-right: 30px; /* Adjust value as needed */
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .title-container h1 {
@@ -35,25 +46,25 @@ body {
 	text-transform: uppercase;
 	word-spacing: 1px;
 	letter-spacing: 2px;
-	color: #00a1c5; /* Kept the intended color */
-	position: relative; /* Added for ::before/::after positioning */
+	color: var(--primary-accent); /* Use variable */
+	position: relative;
 	padding-top: 50px;
-	padding-bottom: 20px; /* Added padding so lines don't overlap text */
-	margin-bottom: 15px; /* Optional: Add space below the lines */
+	padding-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 .title-container h1 span {
-	display: block; /* Helps with spacing and line-height */
-	line-height: 1.5em; /* Adjusted line-height */
+	display: block;
+	line-height: 1.5em;
 	text-transform: none;
 	font-size: 0.7em;
 	font-weight: normal;
 	font-style: italic;
 	font-family: "Playfair Display", "Bookman", serif;
-	color: #999;
+	color: var(--text-medium); /* Use variable */
 	word-spacing: 1px;
-	letter-spacing: none; /* Kept the intended letter-spacing (0) */
-	margin-bottom: 5px; /* Optional: Space between span and main title text */
+	letter-spacing: normal; /* Corrected from 'none' */
+	margin-bottom: 5px;
 }
 
 .title-container h1:after,
@@ -66,12 +77,17 @@ body {
 	content: "";
 	right: 45px;
 	margin: auto;
-	background-color: #ccc;
+}
+
+/* Decorative lines under title */
+.title-container h1:after {
+	background-color: var(--tertiary-accent);
+	/* Adjust positioning if needed based on the new width calculation */
 }
 .title-container h1:before {
-	background-color: #a8dfdf;
-	left: 45px;
-	width: 90px;
+	background-color: var(--secondary-accent);
+	left: 45px; /* Keep offset */
+	width: 90px; /* Keep width */
 }
 
 main {
@@ -81,183 +97,235 @@ main {
 /* --- Navbar Styles --- */
 .navbar {
 	padding: 10px 30px;
-	background-color: #fff;
-	width: 100%; /* Ensure navbar takes full width within its container */
-	box-sizing: border-box; /* Include padding in width calculation */
+	background-color: var(--bg-body);
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .navbar ul {
 	list-style: none;
-	padding: 0; /* Add slight horizontal padding */
+	padding: 0;
 	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap; /* Allow nav items to wrap on small screens */
-	gap: 10px; /* Add spacing between wrapped nav items */
-	border-bottom: #ccc 1px solid;
+	flex-wrap: wrap;
+	gap: 10px;
+	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 10px;
 }
 
-.content-section {
-	display: none;
-	/* Ensure horizontal padding exists */
-	padding: 40px 30px; /* Keep or adjust horizontal padding */
-	min-height: auto;
-}
-
 .navbar li {
-	margin: 0 10px; /* Slightly reduced margin */
+	margin: 0 10px;
 }
 
 .navbar a {
-	color: rgb(73, 71, 71);
+	color: var(--text-dark);
 	text-decoration: none;
 	text-transform: uppercase;
-	padding: 8px 10px; /* Slightly reduced padding */
-	display: inline-block; /* Ensures padding applies correctly */
-	border-radius: 4px; /* Optional: subtle rounding */
-	transition: background-color 0.2s ease; /* Add transition */
+	padding: 8px 10px;
+	display: inline-block;
+	border-radius: 4px;
+	transition: background-color 0.2s ease, color 0.2s ease;
 	letter-spacing: 5px;
 }
 
 .navbar a:hover,
 .navbar a:focus {
-	background-color: #eee; /* Subtle hover effect */
+	background-color: var(--hover-bg-light);
+	color: var(--primary-accent);
 }
 
 /* --- Content Section Visibility --- */
 .content-section {
-	display: none; /* Hide all sections by default */
-	/* Add any other common styles for these sections if needed */
-	padding: 40px 30px; /* Keep your existing padding or adjust */
+	display: none;
+	padding: 40px 30px;
 	min-height: auto;
 }
 
 .content-section.active-section {
-	display: block; /* Show the active section */
+	display: block;
+}
+
+#home {
+	text-align: center;
 }
 
 #home h1 {
 	text-transform: uppercase;
+	color: var(--primary-accent); /* Optional: Style home heading */
 }
 
 /* --- Curriculum Section Styles --- */
 
 #curriculum {
-	/* Add some padding inside the section */
-	padding-top: 20px; /* Adjust as needed */
-	padding-bottom: 40px; /* Adjust as needed */
-	padding-left: 60px;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	/*padding-left: 60px; /* Keep specific padding */
+	/*padding-right: 30px; /* Added right padding for consistency */
 }
 
 .cv-section {
-	/* Add space below each article (subsection) */
 	margin-bottom: 30px;
 }
 
 .cv-section h3 {
-	/* Style the subsection titles */
-	font-size: 1.4em; /* Make them slightly larger */
-	color: #333; /* Example color - choose your own */
-	margin-bottom: 15px; /* Space below the title */
-	border-bottom: 1px solid #eee; /* Optional subtle separator */
-	padding-bottom: 5px; /* Space between text and border */
+	font-size: 1.4em;
+	color: var(--primary-accent);
+	margin-bottom: 15px;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 5px;
 }
 
 .cv-section ul {
-	/* Style the lists */
-	list-style-type: disc; /* Standard bullet points */
-	padding-left: 25px; /* Indent the list items */
-	margin-top: 0; /* Remove default top margin */
+	list-style-type: disc;
+	padding-left: 25px;
+	margin-top: 0;
 }
 
 .cv-section ul li {
-	/* Add space below each list item */
 	margin-bottom: 8px;
-	line-height: 1.5; /* Improve readability */
+	line-height: 1.5;
 }
 
 .cv-section ul ul {
-	/* Style nested lists (like the web technologies) */
-	list-style-type: circle; /* Different bullet style */
-	margin-top: 8px; /* Add some space above the nested list */
-	padding-left: 20px; /* Further indent nested items */
+	list-style-type: circle;
+	margin-top: 8px;
+	padding-left: 20px;
 }
 
 .cv-section p {
-	/* General paragraph styling within cv-section if needed */
 	line-height: 1.6;
 	margin-bottom: 10px;
+	color: var(--text-dark); /* Ensure default text color */
 }
 
-/* Specifically target the paragraph in Formación Académica if needed */
 .cv-section h3 + p {
-	/* Selects the p immediately following an h3 */
-	margin-top: 0; /* Adjust spacing if needed */
+	margin-top: 0;
 }
 
 .cv-section h4 {
-	/* Style the degree title */
-	font-weight: 600; /* Make it a bit bolder */
-	color: #111; /* Slightly darker color */
+	font-weight: 600;
+	color: var(--text-dark);
 }
 
-/* --- End Curriculum Section Styles --- */
+/* --- Portfolio Section Styles --- */
 
-/* --- Footer --- */
+#portfolio h2 {
+	/* Style the main Portfolio heading */
+	color: var(--primary-accent);
+	margin-bottom: 30px;
+	text-align: center; /* Optional: Center the heading */
+	text-transform: uppercase;
+}
+
+.portfolio-item {
+	border: 1px solid var(--border-color); 
+	padding: 20px;
+	margin-bottom: 30px;
+	border-radius: 8px;
+	background-color: #fff; /* White background for each item */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+}
+
+.portfolio-item h4 {
+	/* Style project titles */
+	color: var(--secondary-accent); 
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.portfolio-item h5 {
+	/* Style 'Tecnologías Usadas' heading */
+	margin-top: 15px;
+	margin-bottom: 5px;
+	font-size: 1em;
+	color: var(--text-medium);
+}
+
+.portfolio-item ul {
+	list-style: disc;
+	padding-left: 20px;
+	margin-bottom: 15px;
+}
+
+.portfolio-item li {
+	margin-bottom: 5px;
+}
+
+.portfolio-link {
+	display: inline-block; /* Allows padding and margins */
+	background-color: var(--primary-accent);
+	color: white;
+	padding: 8px 15px;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+	margin-right: 10px; /* Space between links if you have multiple */
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus {
+	background-color: var(--secondary-accent);
+	color: white;
+}
+
+.portfolio-image {
+	max-width: 100%; /* Make images responsive */
+	height: auto;
+	margin-top: 15px;
+	border-radius: 4px;
+	border: 1px solid var(--border-color); /* Optional border for images */
+}
+
 /* --- Footer Styles --- */
-
 footer {
-	flex-shrink: 1;
-	color: #333333;
-	text-align: center; /* Center align text */
-	padding: 30px 30px; /* Add padding top/bottom and left/right */
+	flex-shrink: 0; /* Corrected from 1 */
+	color: var(--text-light);
+	background-color: var(--bg-footer);
+	text-align: center;
+	padding: 30px 30px;
 	box-sizing: border-box;
-	margin-left: 30px;
-	margin-right: 30px;
-	border-top: 1px solid #ccc; /* Optional top border */
+	margin-top: 40px; /* Add space above the footer */
 }
 
 footer h2 {
-	margin-bottom: 20px; /* Space below the heading */
+	margin-bottom: 20px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 1.6em;
-	font-weight: normal; /* Lighter heading weight */
-	color: #333333; /* Ensure heading is white */
+	font-weight: normal;
+	color: var(--text-light);
 }
 
 .contact-methods ul {
-	list-style: none; /* Remove default bullet points */
-	padding: 0; /* Remove default padding */
-	margin: 0 0 20px 0; /* Remove default margins, add space below */
+	list-style: none;
+	padding: 0;
+	margin: 0 0 20px 0;
 }
 
 .contact-methods li {
-	display: inline-block; /* Display links side-by-side */
-	margin: 0 15px; /* Add space between links */
+	display: inline-block;
+	margin: 0 15px;
 }
 
 .contact-methods a {
-	color: #a0d2eb; /* A nice link color */
-	text-decoration: none; /* Remove underline */
+	color: var(--tertiary-accent);
+	text-decoration: none;
 	font-size: 2rem;
-	transition: color 0.3s ease; /* Smooth color change on hover */
+	transition: color 0.3s ease;
 }
 
 .contact-methods a:hover,
 .contact-methods a:focus {
-	color: #84c4e3;
+	color: var(--secondary-accent);
 }
 
 .copyright {
 	font-size: 0.9em;
-	color: #aaa5a5; /* Slightly dimmer color for copyright */
-	margin-top: 20px; /* Space above the copyright */
+	color: var(--text-footer-muted);
+	margin-top: 20px;
 }
-
-/* --- End Footer Styles --- */
 
 /* --- Media Queries para responsividad--- */
 /* Breakpoints medios */
@@ -278,8 +346,8 @@ footer h2 {
 	footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
-		margin-left: 30px;
-		margin-right: 30px;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
@@ -305,8 +373,8 @@ footer h2 {
 	footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
-		margin-left: 30px;
-		margin-right: 30px;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 /* Breakpoints muy pequeños */
@@ -329,7 +397,7 @@ footer h2 {
 	footer {
 		padding-top: 25px;
 		padding-bottom: 25px;
-		margin-left: 15px;
-		margin-right: 15px;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
