@@ -21,7 +21,7 @@ html {
 
 body {
 	font-family: Arial, sans-serif;
-	background-color: var(--bg-body); /* Use variable */
+	background-color: var(--bg-body);
 	max-width: 1400px;
 	margin: 0 auto;
 	box-sizing: border-box;
@@ -29,10 +29,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	color: var(--text-dark); /* Default text color */
+	color: var(--text-dark);
 }
 
-/* --- Header Styles --- */
+/* --- Estilos para la cabecera --- */
 .title-container {
 	padding-left: 30px;
 	padding-right: 30px;
@@ -45,7 +45,7 @@ body {
 	text-transform: uppercase;
 	word-spacing: 1px;
 	letter-spacing: 2px;
-	color: var(--primary-accent); /* Use variable */
+	color: var(--primary-accent);
 	position: relative;
 	padding-top: 50px;
 	padding-bottom: 20px;
@@ -60,9 +60,9 @@ body {
 	font-weight: normal;
 	font-style: italic;
 	font-family: "Playfair Display", "Bookman", serif;
-	color: var(--text-medium); /* Use variable */
+	color: var(--text-medium);
 	word-spacing: 1px;
-	letter-spacing: normal; /* Corrected from 'none' */
+	letter-spacing: normal;
 	margin-bottom: 5px;
 }
 
@@ -78,11 +78,10 @@ body {
 	margin: auto;
 }
 
-/* Decorative lines under title */
 .title-container h1:after {
 	background-color: var(--primary-accent);
-	/* Adjust positioning if needed based on the new width calculation */
 }
+
 .title-container h1:before {
 	background-color: var(--secondary-accent);
 	left: 45px; /* Keep offset */
@@ -93,7 +92,7 @@ main {
 	flex-grow: 1;
 }
 
-/* --- Navbar Styles --- */
+/* --- Estilos para la barra de navegación --- */
 .navbar {
 	padding: 10px 30px;
 	background-color: var(--bg-body);
@@ -148,16 +147,13 @@ main {
 
 #home h1 {
 	text-transform: uppercase;
-	color: var(--primary-accent); /* Optional: Style home heading */
+	color: var(--primary-accent);
 }
 
-/* --- Curriculum Section Styles --- */
-
+/* --- Estilos para el currículum --- */
 #curriculum {
 	padding-top: 20px;
 	padding-bottom: 40px;
-	/*padding-left: 60px; /* Keep specific padding */
-	/*padding-right: 30px; /* Added right padding for consistency */
 }
 
 .cv-section {
@@ -192,7 +188,7 @@ main {
 .cv-section p {
 	line-height: 1.6;
 	margin-bottom: 10px;
-	color: var(--text-dark); /* Ensure default text color */
+	color: var(--text-dark);
 }
 
 .cv-section h3 + p {
@@ -204,22 +200,13 @@ main {
 	color: var(--text-dark);
 }
 
-/* --- Portfolio Section Styles --- */
-
-#projects h2 {
-	/* Style the main Portfolio heading */
-	color: var(--primary-accent);
-	margin-bottom: 30px;
-	text-align: center; /* Optional: Center the heading */
-	text-transform: uppercase;
-}
-
+/* --- Estilos para los proyectos --- */
 .project-item {
 	border: 1px solid var(--border-color); 
 	padding: 20px;
 	margin-bottom: 30px;
 	border-radius: 8px;
-	background-color: #fff; /* White background for each item */
+	background-color: #fff;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
 }
 
@@ -256,7 +243,7 @@ main {
 	text-decoration: none;
 	border-radius: 4px;
 	transition: background-color 0.3s ease;
-	margin-right: 10px; /* Space between links if you have multiple */
+	margin-right: 10px;
 }
 
 .project-link:hover,
@@ -273,7 +260,7 @@ main {
 	border: 1px solid var(--border-color); /* Optional border for images */
 }
 
-/* --- Footer Styles --- */
+/* --- Estilos para el footer --- */
 footer {
 	flex-shrink: 0; /* Corrected from 1 */
 	color: var(--text-light);
@@ -281,7 +268,7 @@ footer {
 	text-align: center;
 	padding: 30px 30px;
 	box-sizing: border-box;
-	margin-top: 40px; /* Add space above the footer */
+	margin-top: 40px; 
 }
 
 footer h2 {
@@ -330,8 +317,8 @@ footer h2 {
 	.navbar,
 	.content-section,
 	footer {
-		padding-left: 25px; /* Example adjustment */
-		padding-right: 25px; /* Example adjustment */
+		padding-left: 25px; 
+		padding-right: 25px; 
 	}
 	/* Reset specific padding if needed, e.g.: */
 	.content-section {
@@ -349,7 +336,7 @@ footer h2 {
 /* Breakpoints pequeños */
 @media (max-width: 768px) {
 	body {
-		box-shadow: none; /* Optional: remove shadow on small screens */
+		box-shadow: none;
 	}
 
 	/* Adjust padding on children if needed */
