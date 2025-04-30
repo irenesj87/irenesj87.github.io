@@ -32,8 +32,6 @@
 	--secondary-accent: #ffcc80; /* Lighter orange for accent */
 	--border-color: #444;
 	--hover-bg-light: #343a40; /* Darker hover background */
-
-	/* Dark mode specific variables */
 	--button-bg-dark: #444;
 	--button-text-dark: #e0e0e0;
 	--button-hover-bg-dark: #666;
@@ -49,7 +47,7 @@ html {
 	background-color: var(--bg-html);
 	margin: 0;
 	padding: 0;
-	transition: background-color 0.3s ease; /* Add transition */
+	transition: background-color 0.3s ease;
 }
 
 body {
@@ -63,7 +61,7 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	color: var(--text-dark);
-	transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- Estilos para la cabecera --- */
