@@ -8,7 +8,9 @@
 	--text-footer-muted: #adb5bd;
 	--primary-accent: #17a2b8;
 	--secondary-accent: #fd7e14;
+	--tertiary-accent: gold;
 	--border-color: #dee2e6;
+	--hover-button-bg-light: rgb(255, 244, 185);;
 	--hover-bg-light: #e2f5f8;
 	--button-bg-light: #555;
 	--button-text-light: #fff;
@@ -22,16 +24,16 @@
 /* Define overrides for dark mode when body has the 'dark-mode' class */
 :root.dark-mode {
 	--bg-html: #1a1a1a;
-	--bg-body: #212529; /* Slightly lighter than html bg */
+	--bg-body: #212529;
 	--bg-footer: #111;
-	--text-dark: #e0e0e0; /* Light text for dark mode */
-	--text-medium: #adb5bd; /* Medium gray for dark mode */
-	--text-light: #f8f9fa; /* Keep this light */
-	--text-footer-muted: #6c757d; /* Darker muted text */
-	--primary-accent: #64b5f6; /* Lighter blue for accent */
-	--secondary-accent: #ffcc80; /* Lighter orange for accent */
+	--text-dark: #e0e0e0;
+	--text-medium: #adb5bd;
+	--text-light: #f8f9fa;
+	--text-footer-muted: #6c757d;
+	--primary-accent: #64b5f6;
+	--secondary-accent: #ffcc80;
 	--border-color: #444;
-	--hover-bg-light: #343a40; /* Darker hover background */
+	--hover-bg-light: #343a40;
 	--button-bg-dark: #444;
 	--button-text-dark: #e0e0e0;
 	--button-hover-bg-dark: #666;
@@ -41,7 +43,6 @@
 	--link-hover-color-dark: #90caf9;
 }
 
-/* --- Base Styles --- */
 html {
 	height: 100%;
 	background-color: var(--bg-html);
@@ -142,12 +143,12 @@ body {
 
 	/* Light Mode: White background, dark/accent icon */
 	background-color: var(--bg-body); /* White background */
-	color: var(--primary-accent); /* Accent color for the moon icon */
+	color: var(--tertiary-accent); /* Accent color for the moon icon */
 }
 
 .theme-toggle-button:hover {
 	/* Optional: Subtle hover effect for light mode */
-	background-color: var(--hover-bg-light);
+	background-color: var(--hover-button-bg-light);
 	/* Keep the icon color or change it if desired */
 	/* color: var(--secondary-accent); */
 }
@@ -374,6 +375,7 @@ main {
 	background-color: var(--link-hover-color-light); /* Use variable */
 	color: var(--text-light); /* Keep text light */
 }
+
 /* Dark mode override for project links */
 .dark-mode .project-link {
 	background-color: var(--link-color-dark);
@@ -383,34 +385,6 @@ main {
 .dark-mode .project-link:focus {
 	background-color: var(--link-hover-color-dark);
 	color: var(--text-dark);
-}
-
-/* Add this to your style.css file */
-
-.project-image-container {
-	display: flex; /* Arrange children (images) in a row */
-	gap: 15px; /* Add some space between the images */
-	margin-bottom: 15px; /* Add space below the image container */
-	flex-wrap: wrap; /* Allow images to wrap on smaller screens if needed */
-	justify-content: center; /* Center images if they wrap */
-}
-
-.project-image-container .project-image {
-	/* Adjust sizing as needed. This makes them share space but not exceed container */
-	max-width: 48%; /* Allow two images side-by-side with gap */
-	height: 250px; /* Set a fixed height - adjust as needed */
-	width: auto; /* Let width adjust based on height and aspect ratio */
-	/* flex-grow: 1; */ /* Remove flex-grow if using fixed height */
-	object-fit: contain; /* Ensure entire image fits within the dimensions */
-	/* max-height: 350px; */ /* Remove max-height if using fixed height */
-}
-
-.project-description {
-	color: var(--text-footer-muted);
-	text-align: center;
-	font-style: italic;
-	margin-top: 20px;
-	margin-bottom: 50px;
 }
 
 /* --- Estilos para el footer --- */

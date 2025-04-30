@@ -71,12 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Check if dark mode is now active
 			if (htmlElement.classList.contains("dark-mode")) {
 				// Change icon to sun (assuming you use Font Awesome)
-				themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+				themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
 				// Optional: Store preference in localStorage
 				localStorage.setItem("theme", "dark");
 			} else {
 				// Change icon back to moon
-				themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+				themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
 				// Optional: Remove preference from localStorage
 				localStorage.setItem("theme", "light");
 			}
@@ -96,14 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				htmlElement.classList.add("dark-mode");
 				// Update icon accordingly
 				if (themeToggleButton) {
-					themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+					themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
 				}
 			}
 		} else {
 			// Default to light mode (or ensure dark-mode class is removed if it somehow got added)
 			htmlElement.classList.remove("dark-mode");
 			if (themeToggleButton) {
-				themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+				themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
 			}
 		}
 	});
@@ -118,13 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		// Optional: Update button icon based on theme
 		// Check if dark mode is now active
 		if (htmlElement.classList.contains("dark-mode")) {
-			// Change icon to sun (assuming you use Font Awesome)
-			themeToggleButton.innerHTML = '<i class="fa fa-sun-o"></i>';
+			themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
 			// Optional: Store preference in localStorage
 			localStorage.setItem("theme", "dark");
 		} else {
 			// Change icon back to moon
-			themeToggleButton.innerHTML = '<i class="fa fa-moon-o"></i>';
+			themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
 			// Optional: Remove preference from localStorage
 			localStorage.setItem("theme", "light");
 		}
@@ -144,14 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			htmlElement.classList.add("dark-mode");
 			// Update icon accordingly
 			if (themeToggleButton) {
-				themeToggleButton.innerHTML = '<i class="fa fa-sun-o"></i>';
+				themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
 			}
 		}
 	} else {
 		// Default to light mode (or ensure dark-mode class is removed if it somehow got added)
 		htmlElement.classList.remove("dark-mode");
 		if (themeToggleButton) {
-			themeToggleButton.innerHTML = '<i class="fa fa-moon-o"></i>';
+			themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
 		}
 	}
 
