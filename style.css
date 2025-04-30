@@ -1,3 +1,4 @@
+/* Define color variables in :root (default is light mode) */
 :root {
 	--bg-html: #f8f9fa;
 	--bg-body: #ffffff;
@@ -5,18 +6,56 @@
 	--text-dark: #343a40;
 	--text-medium: #6c757d;
 	--text-light: #f8f9fa; /* Light Gray/Off-white (for dark backgrounds) */
-	--text-footer-muted: #adb5bd;
-	--primary-accent: #17a2b8;
-	--secondary-accent: #fd7e14;
-	--border-color: #dee2e6;
-	--hover-bg-light: #e2f5f8;
+	--text-footer-muted: #adb5bd; /* Uncommented this */
+	--primary-accent: #17a2b8; /* Uncommented this */
+	--secondary-accent: #fd7e14; /* Uncommented this */
+	--border-color: #dee2e6; /* Uncommented this */
+	--hover-bg-light: #e2f5f8; /* Uncommented this */
+
+	/* Add variables for elements not covered by the original set,
+       using values similar to the previous light mode */
+	--button-bg-light: #555; /* Example: Using a generic gray */
+	--button-text-light: #fff;
+	--button-hover-bg-light: #777;
+	--code-bg-light: #f0f0f0; /* Example: Light gray for code blocks */
+	--section-bg-light: var(--bg-body); /* Section background same as body */
+	--link-color-light: var(--primary-accent); /* Use primary accent for links */
+	--link-hover-color-light: var(
+		--secondary-accent
+	); /* Use secondary for hover */
 }
 
+/* Define overrides for dark mode when body has the 'dark-mode' class */
+:root.dark-mode {
+	--bg-html: #1a1a1a;
+	--bg-body: #212529; /* Slightly lighter than html bg */
+	--bg-footer: #111;
+	--text-dark: #e0e0e0; /* Light text for dark mode */
+	--text-medium: #adb5bd; /* Medium gray for dark mode */
+	--text-light: #f8f9fa; /* Keep this light */
+	--text-footer-muted: #6c757d; /* Darker muted text */
+	--primary-accent: #64b5f6; /* Lighter blue for accent */
+	--secondary-accent: #ffcc80; /* Lighter orange for accent */
+	--border-color: #444;
+	--hover-bg-light: #343a40; /* Darker hover background */
+
+	/* Dark mode specific variables */
+	--button-bg-dark: #444;
+	--button-text-dark: #e0e0e0;
+	--button-hover-bg-dark: #666;
+	--code-bg-dark: #333;
+	--section-bg-dark: #2a2a2a;
+	--link-color-dark: #64b5f6;
+	--link-hover-color-dark: #90caf9;
+}
+
+/* --- Base Styles --- */
 html {
 	height: 100%;
 	background-color: var(--bg-html);
 	margin: 0;
 	padding: 0;
+	transition: background-color 0.3s ease; /* Add transition */
 }
 
 body {
@@ -25,17 +64,20 @@ body {
 	max-width: 1400px;
 	margin: 0 auto;
 	box-sizing: border-box;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 15px var(--box-shadow-color);
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	color: var(--text-dark);
+	transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
 }
 
 /* --- Estilos para la cabecera --- */
 .title-container {
 	padding-left: 30px;
 	padding-right: 30px;
+	position: relative;
+	/* Header background is implicitly body background unless specified */
 }
 
 .title-container h1 {
@@ -45,7 +87,7 @@ body {
 	text-transform: uppercase;
 	word-spacing: 1px;
 	letter-spacing: 2px;
-	color: var(--primary-accent);
+	color: var(--primary-accent); /* Use variable */
 	position: relative;
 	padding-top: 50px;
 	padding-bottom: 20px;
@@ -60,7 +102,7 @@ body {
 	font-weight: normal;
 	font-style: italic;
 	font-family: "Playfair Display", "Bookman", serif;
-	color: var(--text-medium);
+	color: var(--text-medium); /* Use variable */
 	word-spacing: 1px;
 	letter-spacing: normal;
 	margin-bottom: 5px;
@@ -79,13 +121,62 @@ body {
 }
 
 .title-container h1:after {
-	background-color: var(--primary-accent);
+	background-color: var(--primary-accent); /* Use variable */
 }
 
 .title-container h1:before {
-	background-color: var(--secondary-accent);
-	left: 45px; /* Keep offset */
-	width: 90px; /* Keep width */
+	background-color: var(--secondary-accent); /* Use variable */
+	left: 45px;
+	width: 90px;
+}
+
+/* Style the theme toggle button */
+.theme-toggle-button {
+	position: absolute;
+	right: 20px;
+	width: 40px; /* Set width */
+	height: 40px; /* Set height (equal to width for a circle) */
+	border-radius: 50%; /* Make it round */
+	border: 1px solid var(--border-color); /* Optional: add a subtle border */
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease,
+		border-color 0.3s ease; /* Add border-color transition */
+	display: flex; /* Use flexbox for centering */
+	align-items: center; /* Center icon vertically */
+	justify-content: center; /* Center icon horizontally */
+	padding: 0; /* Remove padding if using flex for centering */
+	font-size: 1.1em; /* Adjust icon size if needed */
+	z-index: 10;
+
+	/* Light Mode: White background, dark/accent icon */
+	background-color: var(--bg-body); /* White background */
+	color: var(--primary-accent); /* Accent color for the moon icon */
+}
+
+.theme-toggle-button:hover {
+	/* Optional: Subtle hover effect for light mode */
+	background-color: var(--hover-bg-light);
+	/* Keep the icon color or change it if desired */
+	/* color: var(--secondary-accent); */
+}
+
+/* Dark mode override for button */
+.dark-mode .theme-toggle-button {
+	/* Dark Mode: Dark background, light icon */
+	background: var(--button-bg-dark); /* Use a dark background */
+	color: var(--secondary-accent); /* Light color for the sun icon */
+	border-color: var(--border-color); /* Use dark mode border color */
+}
+
+.dark-mode .theme-toggle-button:hover {
+	background-color: var(--button-hover-bg-dark); /* Darker hover */
+	/* Keep the icon color */
+}
+
+/* Ensure icon inside is vertically aligned (though flexbox should handle it) */
+.theme-toggle-button .fa {
+	vertical-align: middle; /* May not be strictly needed with flexbox */
+	line-height: 1; /* Helps prevent extra space */
 }
 
 main {
@@ -95,9 +186,10 @@ main {
 /* --- Estilos para la barra de navegación --- */
 .navbar {
 	padding: 10px 30px;
-	background-color: var(--bg-body);
+	background-color: var(--bg-body); /* Use variable */
 	width: 100%;
 	box-sizing: border-box;
+	transition: background-color 0.3s ease; /* Add transition */
 }
 
 .navbar ul {
@@ -109,8 +201,9 @@ main {
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 10px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color); /* Use variable */
 	padding-bottom: 10px;
+	transition: border-color 0.3s ease; /* Add transition */
 }
 
 .navbar li {
@@ -118,7 +211,7 @@ main {
 }
 
 .navbar a {
-	color: var(--text-dark);
+	color: var(--text-dark); /* Use variable */
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: 8px 10px;
@@ -130,8 +223,8 @@ main {
 
 .navbar a:hover,
 .navbar a:focus {
-	background-color: var(--hover-bg-light);
-	color: var(--primary-accent);
+	background-color: var(--hover-bg-light); /* Use variable */
+	color: var(--primary-accent); /* Use variable */
 }
 
 /* --- Content Section Visibility --- */
@@ -139,21 +232,38 @@ main {
 	display: none;
 	padding: 40px 30px;
 	min-height: auto;
+	background-color: var(--section-bg-light); /* Use variable */
+	border: 1px solid var(--border-color); /* Add border consistent with dark mode */
+	border-radius: 8px; /* Add radius consistent with dark mode */
+	margin: 20px 30px; /* Add some margin */
+	transition: background-color 0.3s ease, border-color 0.3s ease; /* Add transition */
+}
+
+/* Dark mode override for sections */
+.dark-mode .content-section {
+	background-color: var(--section-bg-dark);
+	border-color: var(--border-color); /* Uses dark mode --border-color */
 }
 
 .content-section.active-section {
 	display: block;
 }
 
+#home {
+	padding-top: 10px;
+	border: none; /* Remove border if section has it */
+	background: transparent;
+}
 #home h1 {
 	text-transform: uppercase;
-	color: var(--primary-accent);
+	color: var(--primary-accent); /* Use variable */
 }
 
 /* --- Estilos para el currículum --- */
 #curriculum {
-	padding-top: 20px;
-	padding-bottom: 40px;
+	padding-top: 10px;
+	border: none; /* Remove border if section has it */
+	background-color: transparent; /* Inherit from parent section */
 }
 
 .cv-section {
@@ -162,21 +272,24 @@ main {
 
 .cv-section h3 {
 	font-size: 1.4em;
-	color: var(--primary-accent);
+	color: var(--primary-accent); /* Use variable */
 	margin-bottom: 15px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color); /* Use variable */
 	padding-bottom: 5px;
+	transition: border-color 0.3s ease, color 0.3s ease; /* Add transition */
 }
 
 .cv-section ul {
 	list-style-type: disc;
 	padding-left: 25px;
 	margin-top: 0;
+	padding: 10px 15px 10px 30px;
 }
 
 .cv-section ul li {
 	margin-bottom: 8px;
 	line-height: 1.5;
+	color: var(--text-dark); /* Ensure list item text color uses variable */
 }
 
 .cv-section ul ul {
@@ -188,7 +301,7 @@ main {
 .cv-section p {
 	line-height: 1.6;
 	margin-bottom: 10px;
-	color: var(--text-dark);
+	color: var(--text-dark); /* Use variable */
 }
 
 .cv-section h3 + p {
@@ -197,78 +310,129 @@ main {
 
 .cv-section h4 {
 	font-weight: 600;
-	color: var(--text-dark);
+	color: var(--text-dark); /* Use variable */
 }
 
 /* --- Estilos para los proyectos --- */
+#projects {
+	padding-top: 20px; /* Adjust padding since section now has padding */
+	padding-bottom: 0; /* Adjust padding */
+	margin-bottom: 0; /* Remove bottom margin if section has it */
+	border: none; /* Remove border if section has it */
+	border-radius: 0; /* Remove radius if section has it */
+	background-color: transparent; /* Inherit from parent section */
+}
+
 .project-item {
-	border: 1px solid var(--border-color); 
+	border: 1px solid var(--border-color); /* Use variable */
 	padding: 20px;
 	margin-bottom: 30px;
 	border-radius: 8px;
-	background-color: #fff;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+	background-color: var(
+		--bg-body
+	); /* Use body background for contrast within section */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+	transition: background-color 0.3s ease, border-color 0.3s ease; /* Add transition */
+}
+/* Dark mode override for project items */
+.dark-mode .project-item {
+	background-color: var(--bg-body); /* Uses dark mode --bg-body */
+	border-color: var(--border-color); /* Uses dark mode --border-color */
 }
 
-.project-item h4 {
-	/* Style project titles */
-	color: var(--secondary-accent); 
+.project-item h3 {
+	color: var(--secondary-accent); /* Use variable */
 	margin-top: 0;
 	margin-bottom: 10px;
+	transition: color 0.3s ease; /* Add transition */
 }
 
 .project-item h5 {
-	/* Style 'Tecnologías Usadas' heading */
 	margin-top: 15px;
 	margin-bottom: 5px;
 	font-size: 1em;
-	color: var(--text-medium);
+	color: var(--text-medium); /* Use variable */
+	transition: color 0.3s ease; /* Add transition */
 }
 
 .project-item ul {
 	list-style: disc;
 	padding-left: 20px;
 	margin-bottom: 15px;
+	
 }
 
 .project-item li {
 	margin-bottom: 5px;
+	color: var(--text-dark); /* Ensure list item text color uses variable */
 }
 
 .project-link {
-	display: inline-block; /* Allows padding and margins */
-	background-color: var(--primary-accent);
-	color: white;
+	display: inline-block;
+	background-color: var(--link-color-light); /* Use variable */
+	color: var(--text-light); /* Use light text on accent background */
 	padding: 8px 15px;
 	text-decoration: none;
 	border-radius: 4px;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease, color 0.3s ease;
 	margin-right: 10px;
 }
 
 .project-link:hover,
 .project-link:focus {
-	background-color: var(--secondary-accent);
-	color: white;
+	background-color: var(--link-hover-color-light); /* Use variable */
+	color: var(--text-light); /* Keep text light */
+}
+/* Dark mode override for project links */
+.dark-mode .project-link {
+	background-color: var(--link-color-dark);
+	color: var(--text-dark); /* Use dark text on lighter blue */
+}
+.dark-mode .project-link:hover,
+.dark-mode .project-link:focus {
+	background-color: var(--link-hover-color-dark);
+	color: var(--text-dark);
 }
 
-.project-image {
-	max-width: 100%; /* Make images responsive */
-	height: auto;
-	margin-top: 15px;
-	border-radius: 4px;
-	border: 1px solid var(--border-color); /* Optional border for images */
+/* Add this to your style.css file */
+
+.project-image-container {
+	display: flex; /* Arrange children (images) in a row */
+	gap: 15px; /* Add some space between the images */
+	margin-bottom: 15px; /* Add space below the image container */
+	flex-wrap: wrap; /* Allow images to wrap on smaller screens if needed */
+	justify-content: center; /* Center images if they wrap */
+}
+
+.project-image-container .project-image {
+	/* Adjust sizing as needed. This makes them share space but not exceed container */
+	max-width: 48%; /* Allow two images side-by-side with gap */
+	height: 250px; /* Set a fixed height - adjust as needed */
+	width: auto; /* Let width adjust based on height and aspect ratio */
+	/* flex-grow: 1; */ /* Remove flex-grow if using fixed height */
+	object-fit: contain; /* Ensure entire image fits within the dimensions */
+	/* max-height: 350px; */ /* Remove max-height if using fixed height */
+}
+
+.project-description {
+	color: var(--text-footer-muted);
+	text-align: center;
+	font-style: italic;
+	margin-top: 20px;
+	margin-bottom: 50px;
+
 }
 
 /* --- Estilos para el footer --- */
 footer {
-	flex-shrink: 0; /* Corrected from 1 */
-	color: var(--text-light);
-	background-color: var(--bg-footer);
+	flex-shrink: 0;
+	color: var(--text-light); /* Use variable */
+	background-color: var(--bg-footer); /* Use variable */
 	text-align: center;
 	padding: 30px 30px;
 	box-sizing: border-box;
-	margin-top: 40px; 
+	margin-top: 40px;
+	transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
 }
 
 footer h2 {
@@ -277,7 +441,7 @@ footer h2 {
 	letter-spacing: 2px;
 	font-size: 1.6em;
 	font-weight: normal;
-	color: var(--text-light);
+	color: var(--text-light); 
 }
 
 .contact-methods ul {
@@ -288,7 +452,7 @@ footer h2 {
 
 .contact-methods li {
 	display: inline-block;
-	margin: 0 15px;
+	margin: 0 10px;
 }
 
 .contact-methods a {
@@ -300,28 +464,31 @@ footer h2 {
 
 .contact-methods a:hover,
 .contact-methods a:focus {
-	color: var(--secondary-accent);
+	color: var(--secondary-accent); 
 }
 
 .copyright {
 	font-size: 0.9em;
-	color: var(--text-footer-muted);
+	color: var(--text-footer-muted); 
 	margin-top: 20px;
+	transition: color 0.3s ease; /* Add transition */
 }
 
 /* --- Media Queries para responsividad--- */
+/* (Keep your existing media queries, they should work fine with variables) */
 /* Breakpoints medios */
 @media (max-width: 1024px) {
 	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
-	.content-section,
+	.content-section, /* Adjust section margin/padding */
 	footer {
-		padding-left: 25px; 
-		padding-right: 25px; 
+		padding-left: 25px;
+		padding-right: 25px;
 	}
-	/* Reset specific padding if needed, e.g.: */
 	.content-section {
+		margin-left: 25px;
+		margin-right: 25px;
 		padding-top: 40px;
 		padding-bottom: 40px;
 	}
@@ -342,13 +509,14 @@ footer h2 {
 	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
-	.content-section,
+	.content-section, /* Adjust section margin/padding */
 	footer {
-		padding-left: 20px; /* Example adjustment */
-		padding-right: 20px; /* Example adjustment */
+		padding-left: 20px;
+		padding-right: 20px;
 	}
-	/* Reset specific padding if needed, e.g.: */
 	.content-section {
+		margin-left: 20px;
+		margin-right: 20px;
 		padding-top: 30px;
 		padding-bottom: 30px;
 	}
@@ -364,15 +532,15 @@ footer h2 {
 	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
-	#curriculum,
-	.content-section,
+	.content-section, /* Adjust section margin/padding */
 	footer {
-		padding-left: 15px; /* Example adjustment */
-		padding-right: 15px; /* Example adjustment */
+		padding-left: 15px;
+		padding-right: 15px;
 	}
-
-	/* Reset specific padding if needed, e.g.: */
+	/* Remove specific #curriculum padding override if section handles it */
 	.content-section {
+		margin-left: 15px;
+		margin-right: 15px;
 		padding-top: 25px;
 		padding-bottom: 25px;
 	}
@@ -382,4 +550,24 @@ footer h2 {
 		margin-left: 0;
 		margin-right: 0;
 	}
+
+	/* Optional: Adjust for smaller screens if needed */
+@media (max-width: 600px) {
+	.project-image-container .project-image {
+		max-width: 100%; /* Stack images on very small screens */
+	}
+}
+
+/* Ensure existing .project-image styles don't conflict */
+/* You might need to adjust or remove some properties from the original .project-image rule */
+.project-image {
+	/* Original styles might be here - review them */
+	/* Example: remove fixed width/height if they exist */
+	/* width: 100%; */ /* Remove if you had this */
+	/* height: auto; */ /* Keep or add */
+	display: block; /* Keep or add */
+	margin-left: auto; /* Remove if you had this */
+	margin-right: auto; /* Remove if you had this */
+	/* max-width: 100%; */ /* Keep or add */
+}
 }

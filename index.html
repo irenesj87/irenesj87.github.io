@@ -4,7 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-		<script src="script.js"></script>
 		<link
 			rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
@@ -14,6 +13,9 @@
 	<body>
 		<header>
 			<div class="title-container">
+				<button id="theme-toggle" class="theme-toggle-button">
+					<i class="fa fa-moon-o"></i>
+				</button>
 				<h1>
 					Irene San José
 					<span>Ingeniero Técnico en Informática de Sistemas</span>
@@ -94,16 +96,34 @@
 			</section>
 			<section id="projects" class="content-section">
 				<article class="project-item">
-					<h4>Excursiones Juntos</h4>
+					<h3>Excursiones Juntos</h3>
 					<p>
 						Una aplicación web creada con React para planificar y compartir
-						rutas de senderismo y excursiones. Permite a los usuarios crear cuentas,
-						apuntarse a excursiones y buscarlas por nombre, 
-						dificultad, área y tiempo estimado en completar la ruta.
+						rutas de senderismo y excursiones. Permite a los usuarios crear
+						cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad,
+						área y tiempo estimado en completar la ruta.
 					</p>
 					<p>
-						<a href="https://github.com/irenesj87/excursiones" target="_blank" rel="noopener noreferrer" class="project-link">Ver en GitHub</a>
+						<a
+							href="https://github.com/irenesj87/excursiones"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="project-link"
+							>Ver en GitHub</a
+						>
 					</p>
+					<div class="project-image-container">
+						<img src="img/excursiones.png" class="project-image" alt="Excursiones Juntos 1" />
+						<img src="img/excursionesmini.png" class="project-image" alt="Excursiones Juntos 2" />
+						
+					</div>
+					<p class="project-description">Modo claro</p>
+					<div class="project-image-container">
+						<img src="img/excursionesdark.png" class="project-image" alt="Excursiones Juntos Modo Oscuro 1" />
+						<img src="img/excursionesminidark.png" class="project-image" alt="Excursiones Juntos Modo Oscuro 2" />
+						
+					</div>
+					<p class="project-description">Modo oscuro</p>
 					<h5>Tecnologías Usadas:</h5>
 					<ul>
 						<li>React.js</li>
@@ -136,11 +156,10 @@
 			</div>
 			<p class="copyright">
 				&copy;
-				<script>
-					document.write(new Date().getFullYear());
-				</script>
+				<span id="current-year"></span>
 				Irene San José. Todos los derechos reservados.
 			</p>
 		</footer>
+		<script src="script.js"></script>
 	</body>
 </html>

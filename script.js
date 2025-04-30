@@ -39,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Optional: Update URL hash without reloading (improves UX and allows bookmarking)
 			// window.location.hash = targetId; // Uncomment if you want the URL to change (e.g., yoursite.com/#contact)
 
-			// Optional: Close mobile menu if you have one
-			// closeMobileMenu();
 		});
 	});
 
@@ -61,9 +59,108 @@ document.addEventListener("DOMContentLoaded", () => {
 			showSection("home");
 		}
 	}
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const themeToggleButton = document.getElementById("theme-toggle");
+		const htmlElement = document.documentElement; // Selects the <html> element
+
+		// Function to toggle the theme
+		function toggleTheme() {
+			htmlElement.classList.toggle("dark-mode");
+
+			// Optional: Update button icon based on theme
+			// Check if dark mode is now active
+			if (htmlElement.classList.contains("dark-mode")) {
+				// Change icon to sun (assuming you use Font Awesome)
+				themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+				// Optional: Store preference in localStorage
+				localStorage.setItem("theme", "dark");
+			} else {
+				// Change icon back to moon
+				themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+				// Optional: Remove preference from localStorage
+				localStorage.setItem("theme", "light");
+			}
+		}
+
+		// Add click event listener to the button
+		if (themeToggleButton) {
+			themeToggleButton.addEventListener("click", toggleTheme);
+		}
+
+		// Optional: Check for saved theme preference on page load
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme === "dark") {
+			// Apply dark mode immediately without waiting for a click
+			// but make sure the class isn't already there
+			if (!htmlElement.classList.contains("dark-mode")) {
+				htmlElement.classList.add("dark-mode");
+				// Update icon accordingly
+				if (themeToggleButton) {
+					themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+				}
+			}
+		} else {
+			// Default to light mode (or ensure dark-mode class is removed if it somehow got added)
+			htmlElement.classList.remove("dark-mode");
+			if (themeToggleButton) {
+				themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+			}
+		}
+	});
+
+	const themeToggleButton = document.getElementById("theme-toggle");
+	const htmlElement = document.documentElement; // Selects the <html> element
+
+	// Function to toggle the theme
+	function toggleTheme() {
+		htmlElement.classList.toggle("dark-mode");
+
+		// Optional: Update button icon based on theme
+		// Check if dark mode is now active
+		if (htmlElement.classList.contains("dark-mode")) {
+			// Change icon to sun (assuming you use Font Awesome)
+			themeToggleButton.innerHTML = '<i class="fa fa-sun-o"></i>';
+			// Optional: Store preference in localStorage
+			localStorage.setItem("theme", "dark");
+		} else {
+			// Change icon back to moon
+			themeToggleButton.innerHTML = '<i class="fa fa-moon-o"></i>';
+			// Optional: Remove preference from localStorage
+			localStorage.setItem("theme", "light");
+		}
+	}
+
+	// Add click event listener to the button
+	if (themeToggleButton) {
+		themeToggleButton.addEventListener("click", toggleTheme);
+	}
+
+	// Optional: Check for saved theme preference on page load
+	const savedTheme = localStorage.getItem("theme");
+	if (savedTheme === "dark") {
+		// Apply dark mode immediately without waiting for a click
+		// but make sure the class isn't already there
+		if (!htmlElement.classList.contains("dark-mode")) {
+			htmlElement.classList.add("dark-mode");
+			// Update icon accordingly
+			if (themeToggleButton) {
+				themeToggleButton.innerHTML = '<i class="fa fa-sun-o"></i>';
+			}
+		}
+	} else {
+		// Default to light mode (or ensure dark-mode class is removed if it somehow got added)
+		htmlElement.classList.remove("dark-mode");
+		if (themeToggleButton) {
+			themeToggleButton.innerHTML = '<i class="fa fa-moon-o"></i>';
+		}
+	}
+
+	// -- Año actual en el Footer -- //
+	const yearSpan = document.getElementById("current-year");
+	if (yearSpan) {
+		yearSpan.textContent = new Date().getFullYear();
+	}
+
 }); // End of DOMContentLoaded
 
-// Función que retorna el año actual
-const getCurrentYear = () => {
-	return new Date().getFullYear();
-};
