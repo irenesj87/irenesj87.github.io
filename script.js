@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Optional: Update button icon based on theme
 			// Check if dark mode is now active
 			if (htmlElement.classList.contains("dark-mode")) {
-				// Change icon to sun (assuming you use Font Awesome)
+				// Change icon to sun
 				themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
 				// Optional: Store preference in localStorage
 				localStorage.setItem("theme", "dark");

@@ -21,7 +21,6 @@
 	--link-hover-color-light: var(--secondary-accent);
 }
 
-/* Define overrides for dark mode when body has the 'dark-mode' class */
 :root.dark-mode {
 	--bg-html: #1a1a1a;
 	--bg-body: #212529;
@@ -70,7 +69,6 @@ body {
 	padding-left: 30px;
 	padding-right: 30px;
 	position: relative;
-	/* Header background is implicitly body background unless specified */
 }
 
 .title-container h1 {
@@ -80,7 +78,7 @@ body {
 	text-transform: uppercase;
 	word-spacing: 1px;
 	letter-spacing: 2px;
-	color: var(--primary-accent); /* Use variable */
+	color: var(--primary-accent);
 	position: relative;
 	padding-top: 50px;
 	padding-bottom: 20px;
@@ -95,7 +93,7 @@ body {
 	font-weight: normal;
 	font-style: italic;
 	font-family: "Playfair Display", "Bookman", serif;
-	color: var(--text-medium); /* Use variable */
+	color: var(--text-medium);
 	word-spacing: 1px;
 	letter-spacing: normal;
 	margin-bottom: 5px;
@@ -114,26 +112,26 @@ body {
 }
 
 .title-container h1:after {
-	background-color: var(--primary-accent); /* Use variable */
+	background-color: var(--primary-accent);
 }
 
 .title-container h1:before {
-	background-color: var(--secondary-accent); /* Use variable */
+	background-color: var(--secondary-accent);
 	left: 45px;
 	width: 90px;
 }
 
-/* Style the theme toggle button */
+/* Estilos para el botón del modo */
 .theme-toggle-button {
 	position: absolute;
 	right: 20px;
-	width: 40px; /* Set width */
-	height: 40px; /* Set height (equal to width for a circle) */
-	border-radius: 50%; /* Make it round */
-	border: 1px solid var(--border-color); /* Optional: add a subtle border */
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid var(--border-color);
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease,
-		border-color 0.3s ease; /* Add border-color transition */
+		border-color 0.3s ease;
 	display: flex; /* Use flexbox for centering */
 	align-items: center; /* Center icon vertically */
 	justify-content: center; /* Center icon horizontally */
@@ -142,28 +140,23 @@ body {
 	z-index: 10;
 
 	/* Light Mode: White background, dark/accent icon */
-	background-color: var(--bg-body); /* White background */
-	color: var(--tertiary-accent); /* Accent color for the moon icon */
+	background-color: var(--bg-body);
+	color: var(--tertiary-accent);
 }
 
 .theme-toggle-button:hover {
 	/* Optional: Subtle hover effect for light mode */
 	background-color: var(--hover-button-bg-light);
-	/* Keep the icon color or change it if desired */
-	/* color: var(--secondary-accent); */
 }
 
-/* Dark mode override for button */
 .dark-mode .theme-toggle-button {
-	/* Dark Mode: Dark background, light icon */
-	background: var(--button-bg-dark); /* Use a dark background */
-	color: var(--secondary-accent); /* Light color for the sun icon */
-	border-color: var(--border-color); /* Use dark mode border color */
+	background: var(--button-bg-dark); 
+	color: var(--secondary-accent); 
+	border-color: var(--border-color);
 }
 
 .dark-mode .theme-toggle-button:hover {
-	background-color: var(--button-hover-bg-dark); /* Darker hover */
-	/* Keep the icon color */
+	background-color: var(--button-hover-bg-dark);
 }
 
 /* Ensure icon inside is vertically aligned (though flexbox should handle it) */
@@ -246,6 +239,7 @@ main {
 	padding-top: 10px;
 	border: none; /* Remove border if section has it */
 	background: transparent;
+	text-align: justify;
 }
 #home h1 {
 	text-transform: uppercase;
