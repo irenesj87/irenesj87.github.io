@@ -1,28 +1,22 @@
-/* Define color variables in :root (default is light mode) */
 :root {
 	--bg-html: #f8f9fa;
 	--bg-body: #ffffff;
 	--bg-footer: #343a40;
 	--text-dark: #343a40;
 	--text-medium: #6c757d;
-	--text-light: #f8f9fa; /* Light Gray/Off-white (for dark backgrounds) */
-	--text-footer-muted: #adb5bd; /* Uncommented this */
-	--primary-accent: #17a2b8; /* Uncommented this */
-	--secondary-accent: #fd7e14; /* Uncommented this */
-	--border-color: #dee2e6; /* Uncommented this */
-	--hover-bg-light: #e2f5f8; /* Uncommented this */
-
-	/* Add variables for elements not covered by the original set,
-       using values similar to the previous light mode */
-	--button-bg-light: #555; /* Example: Using a generic gray */
+	--text-light: #f8f9fa;
+	--text-footer-muted: #adb5bd;
+	--primary-accent: #17a2b8;
+	--secondary-accent: #fd7e14;
+	--border-color: #dee2e6;
+	--hover-bg-light: #e2f5f8;
+	--button-bg-light: #555;
 	--button-text-light: #fff;
 	--button-hover-bg-light: #777;
 	--code-bg-light: #f0f0f0; /* Example: Light gray for code blocks */
-	--section-bg-light: var(--bg-body); /* Section background same as body */
-	--link-color-light: var(--primary-accent); /* Use primary accent for links */
-	--link-hover-color-light: var(
-		--secondary-accent
-	); /* Use secondary for hover */
+	--section-bg-light: var(--bg-body);
+	--link-color-light: var(--primary-accent);
+	--link-hover-color-light: var(--secondary-accent);
 }
 
 /* Define overrides for dark mode when body has the 'dark-mode' class */
@@ -359,7 +353,6 @@ main {
 	list-style: disc;
 	padding-left: 20px;
 	margin-bottom: 15px;
-	
 }
 
 .project-item li {
@@ -420,7 +413,6 @@ main {
 	font-style: italic;
 	margin-top: 20px;
 	margin-bottom: 50px;
-
 }
 
 /* --- Estilos para el footer --- */
@@ -441,7 +433,7 @@ footer h2 {
 	letter-spacing: 2px;
 	font-size: 1.6em;
 	font-weight: normal;
-	color: var(--text-light); 
+	color: var(--text-light);
 }
 
 .contact-methods ul {
@@ -464,12 +456,12 @@ footer h2 {
 
 .contact-methods a:hover,
 .contact-methods a:focus {
-	color: var(--secondary-accent); 
+	color: var(--secondary-accent);
 }
 
 .copyright {
 	font-size: 0.9em;
-	color: var(--text-footer-muted); 
+	color: var(--text-footer-muted);
 	margin-top: 20px;
 	transition: color 0.3s ease; /* Add transition */
 }
@@ -552,22 +544,22 @@ footer h2 {
 	}
 
 	/* Optional: Adjust for smaller screens if needed */
-@media (max-width: 600px) {
-	.project-image-container .project-image {
-		max-width: 100%; /* Stack images on very small screens */
+	@media (max-width: 600px) {
+		.project-image-container .project-image {
+			max-width: 100%; /* Stack images on very small screens */
+		}
 	}
-}
 
-/* Ensure existing .project-image styles don't conflict */
-/* You might need to adjust or remove some properties from the original .project-image rule */
-.project-image {
-	/* Original styles might be here - review them */
-	/* Example: remove fixed width/height if they exist */
-	/* width: 100%; */ /* Remove if you had this */
-	/* height: auto; */ /* Keep or add */
-	display: block; /* Keep or add */
-	margin-left: auto; /* Remove if you had this */
-	margin-right: auto; /* Remove if you had this */
-	/* max-width: 100%; */ /* Keep or add */
-}
+	/* Ensure existing .project-image styles don't conflict */
+	/* You might need to adjust or remove some properties from the original .project-image rule */
+	.project-image {
+		/* Original styles might be here - review them */
+		/* Example: remove fixed width/height if they exist */
+		/* width: 100%; */ /* Remove if you had this */
+		/* height: auto; */ /* Keep or add */
+		display: block; /* Keep or add */
+		margin-left: auto; /* Remove if you had this */
+		margin-right: auto; /* Remove if you had this */
+		/* max-width: 100%; */ /* Keep or add */
+	}
 }

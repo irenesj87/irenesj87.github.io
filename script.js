@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			// Optional: Update URL hash without reloading (improves UX and allows bookmarking)
 			// window.location.hash = targetId; // Uncomment if you want the URL to change (e.g., yoursite.com/#contact)
-
 		});
 	});
 
@@ -161,6 +160,4 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (yearSpan) {
 		yearSpan.textContent = new Date().getFullYear();
 	}
-
 }); // End of DOMContentLoaded
-
