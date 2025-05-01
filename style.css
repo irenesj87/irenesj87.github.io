@@ -8,9 +8,7 @@
 	--text-footer-muted: #adb5bd;
 	--primary-accent: #17a2b8;
 	--secondary-accent: #fd7e14;
-	--tertiary-accent: gold;
 	--border-color: #dee2e6;
-	--hover-button-bg-light: rgb(255, 244, 185);;
 	--hover-bg-light: #e2f5f8;
 	--button-bg-light: #555;
 	--button-text-light: #fff;
@@ -141,12 +139,12 @@ body {
 
 	/* Light Mode: White background, dark/accent icon */
 	background-color: var(--bg-body);
-	color: var(--tertiary-accent);
+	color: var(--primary-accent);
 }
 
 .theme-toggle-button:hover {
 	/* Optional: Subtle hover effect for light mode */
-	background-color: var(--hover-button-bg-light);
+	background-color: var(--hover-bg-light);
 }
 
 .dark-mode .theme-toggle-button {
