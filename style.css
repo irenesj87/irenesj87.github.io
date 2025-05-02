@@ -123,8 +123,8 @@ body {
 .theme-toggle-button {
 	position: absolute;
 	right: 20px;
-	width: 40px;
-	height: 40px;
+	width: 45px;
+	height: 45px;
 	border-radius: 50%;
 	border: 1px solid var(--border-color);
 	cursor: pointer;
@@ -134,7 +134,7 @@ body {
 	align-items: center; /* Center icon vertically */
 	justify-content: center; /* Center icon horizontally */
 	padding: 0; /* Remove padding if using flex for centering */
-	font-size: 1.1em; /* Adjust icon size if needed */
+	font-size: 1.2em; /* Adjust icon size if needed */
 	z-index: 10;
 
 	/* Light Mode: White background, dark/accent icon */
@@ -326,18 +326,19 @@ main {
 }
 
 .project-item h3 {
-	color: var(--secondary-accent); /* Use variable */
+	color: var(--secondary-accent);
 	margin-top: 0;
-	margin-bottom: 10px;
-	transition: color 0.3s ease; /* Add transition */
+	margin-bottom: 20px;
+	text-align: center;
+	transition: color 0.3s ease;
 }
 
 .project-item h5 {
 	margin-top: 15px;
 	margin-bottom: 5px;
 	font-size: 1em;
-	color: var(--text-medium); /* Use variable */
-	transition: color 0.3s ease; /* Add transition */
+	color: var(--text-medium);
+	transition: color 0.3s ease;
 }
 
 .project-item ul {
@@ -348,12 +349,16 @@ main {
 
 .project-item li {
 	margin-bottom: 5px;
-	color: var(--text-dark); /* Ensure list item text color uses variable */
+	color: var(--text-dark);
+}
+
+.project-link-container {
+  text-align: center;
 }
 
 .project-link {
 	display: inline-block;
-	background-color: var(--link-color-light); /* Use variable */
+	background-color: var(--link-color-light);
 	color: var(--text-light); /* Use light text on accent background */
 	padding: 8px 15px;
 	text-decoration: none;
@@ -364,7 +369,7 @@ main {
 
 .project-link:hover,
 .project-link:focus {
-	background-color: var(--link-hover-color-light); /* Use variable */
+	background-color: var(--link-hover-color-light);
 	color: var(--text-light); /* Keep text light */
 }
 
@@ -382,13 +387,13 @@ main {
 /* --- Estilos para el footer --- */
 footer {
 	flex-shrink: 0;
-	color: var(--text-light); /* Use variable */
-	background-color: var(--bg-footer); /* Use variable */
+	color: var(--text-light);
+	background-color: var(--bg-footer);
 	text-align: center;
 	padding: 30px 30px;
 	box-sizing: border-box;
 	margin-top: 40px;
-	transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer h2 {
