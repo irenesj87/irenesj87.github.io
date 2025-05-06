@@ -19,7 +19,8 @@
 	--link-hover-color-light: var(--secondary-accent);
 }
 
-:root.dark-mode {
+/* Dark mode variables applied when html has data-theme="dark" */
+html[data-theme="dark"] {
 	--bg-html: #1a1a1a;
 	--bg-body: #212529;
 	--bg-footer: #111;
@@ -62,10 +63,47 @@ body {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Basic styling for language switcher */
+.lang-switcher {
+	position: absolute;
+	top: 20px;
+	left: 30px;
+	display: flex;	
+	align-items: center;
+	z-index: 10;
+}
+
+.lang-button {
+	background-color: var(--bg-html);       /* Use theme variable */
+	border: 1px solid var(--border-color);  /* Use theme variable */
+	color: var(--text-dark);                /* Use theme variable for text */
+	padding: 5px 10px;
+	margin: 0 5px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.lang-button:hover {
+	background-color: var(--hover-bg-light); /* Use theme variable */
+	/* Text color on hover can remain var(--text-dark) or change if needed */
+}
+
+.lang-button.active-lang {
+	background-color: var(--primary-accent);
+	color: var(--text-light);
+	font-weight: bold;
+	border-color: var(--primary-accent);
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Added for consistency */
+}
+
 /* --- Estilos para la cabecera --- */
 .title-container {
 	padding-left: 30px;
 	padding-right: 30px;
+	display: flex;
+	align-items: center; /* Vertically align items */
+	justify-content: center;
 	position: relative;
 }
 
@@ -123,8 +161,10 @@ body {
 .theme-toggle-button {
 	position: absolute;
 	right: 20px;
-	width: 45px;
-	height: 45px;
+	top: 20px;
+	right: 30px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	border: 1px solid var(--border-color);
 	cursor: pointer;
@@ -147,13 +187,13 @@ body {
 	background-color: var(--hover-bg-light);
 }
 
-.dark-mode .theme-toggle-button {
+html[data-theme="dark"] .theme-toggle-button {
 	background: var(--button-bg-dark); 
 	color: var(--secondary-accent); 
 	border-color: var(--border-color);
 }
 
-.dark-mode .theme-toggle-button:hover {
+html[data-theme="dark"] .theme-toggle-button:hover {
 	background-color: var(--button-hover-bg-dark);
 }
 
@@ -224,7 +264,7 @@ main {
 }
 
 /* Dark mode override for sections */
-.dark-mode .content-section {
+html[data-theme="dark"] .content-section {
 	background-color: var(--section-bg-dark);
 	border-color: var(--border-color); /* Uses dark mode --border-color */
 }
@@ -241,14 +281,18 @@ main {
 }
 #home h1 {
 	text-transform: uppercase;
-	color: var(--primary-accent); /* Use variable */
+	color: var(--primary-accent);
+	margin-bottom: 15px;
+	border-bottom: 1px solid var(--border-color); 
+	padding-bottom: 5px;
+	transition: border-color 0.3s ease, color 0.3s ease; 
 }
 
 /* --- Estilos para el currículum --- */
 #curriculum {
 	padding-top: 10px;
-	border: none; /* Remove border if section has it */
-	background-color: transparent; /* Inherit from parent section */
+	border: none;
+	background-color: transparent;
 }
 
 .cv-section {
@@ -257,11 +301,11 @@ main {
 
 .cv-section h3 {
 	font-size: 1.4em;
-	color: var(--primary-accent); /* Use variable */
+	color: var(--primary-accent); 
 	margin-bottom: 15px;
-	border-bottom: 1px solid var(--border-color); /* Use variable */
+	border-bottom: 1px solid var(--border-color); 
 	padding-bottom: 5px;
-	transition: border-color 0.3s ease, color 0.3s ease; /* Add transition */
+	transition: border-color 0.3s ease, color 0.3s ease; 
 }
 
 .cv-section ul {
@@ -320,7 +364,7 @@ main {
 	transition: background-color 0.3s ease, border-color 0.3s ease; /* Add transition */
 }
 /* Dark mode override for project items */
-.dark-mode .project-item {
+html[data-theme="dark"] .project-item {
 	background-color: var(--bg-body); /* Uses dark mode --bg-body */
 	border-color: var(--border-color); /* Uses dark mode --border-color */
 }
@@ -374,12 +418,12 @@ main {
 }
 
 /* Dark mode override for project links */
-.dark-mode .project-link {
+body[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
 	color: var(--text-dark); /* Use dark text on lighter blue */
 }
-.dark-mode .project-link:hover,
-.dark-mode .project-link:focus {
+body[data-theme="dark"] .project-link:hover,
+body[data-theme="dark"] .project-link:focus {
 	background-color: var(--link-hover-color-dark);
 	color: var(--text-dark);
 }

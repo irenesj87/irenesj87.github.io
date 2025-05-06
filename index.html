@@ -11,100 +11,145 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-		<title>Página Personal</title>
+		<title data-translate-key="pageTitle">Página Personal</title>
 	</head>
 	<body>
 		<header>
 			<div class="title-container">
-				<button id="theme-toggle" class="theme-toggle-button">
+				<button
+					id="theme-toggle"
+					class="theme-toggle-button"
+					aria-label="Cambiar a tema oscuro"
+				>
 					<i class="fa-solid fa-moon"></i>
 				</button>
+				<div class="lang-switcher">
+					<button
+						id="lang-es"
+						class="lang-button"
+						data-lang="es"
+						aria-label="Cambiar a Español"
+					>
+						ES
+					</button>
+					<button
+						id="lang-en"
+						class="lang-button"
+						data-lang="en"
+						aria-label="Cambiar a Inglés"
+					>
+						EN
+					</button>
+				</div>
 				<h1>
 					Irene San José
-					<span>Ingeniero Técnico en Informática de Sistemas</span>
+					<span data-translate-key="headerSubtitle"
+						>Ingeniero Técnico en Informática de Sistemas</span
+					>
 				</h1>
 			</div>
 		</header>
 		<nav class="navbar">
 			<ul>
-				<li><a href="#home">Home</a></li>
-				<li><a href="#curriculum">Currículum</a></li>
-				<li><a href="#projects">Proyectos</a></li>
+				<li><a href="#home" data-translate-key="navHome">Home</a></li>
+				<li>
+					<a href="#curriculum" data-translate-key="navCurriculum"
+						>Currículum</a
+					>
+				</li>
+				<li>
+					<a href="#projects" data-translate-key="navProjects">Proyectos</a>
+				</li>
 			</ul>
 		</nav>
 		<main>
 			<section id="home" class="content-section active-section">
-				<h1>Bienvenido/a a mi página</h1>
-				<p>
+				<h1 data-translate-key="homeTitle">Sobre mí</h1>
+				<p data-translate-key="homeP1">
 					Soy un Ingeniero Técnico en Informática de Sistemas, una formación que
-					me ha proporcionado una sólida base en los principios fundamentales de
-					la computación, la arquitectura de software y la resolución de
-					problemas complejos.
+					me ha proporcionado una base en los principios fundamentales de la
+					computación, la arquitectura de software y la resolución de problemas.
 				</p>
-				<p>
+				<p data-translate-key="homeP2">
 					He enfocado mi trayectoria hacia el desarrollo web, especializándome
 					en la creación de interfaces de usuario dinámicas y eficientes
 					utilizando la librería React.js.
 				</p>
-				<p>
-					Sin embargo, mi experiencia no se limita exclusivamente al frontend;
-					también he tenido la oportunidad de trabajar y desarrollar proyectos
-					empleando otros lenguajes de programación robustos como Java y C, lo
-					que me ha otorgado una perspectiva más amplia y versátil sobre el
-					desarrollo de software en diferentes entornos.
+				<p data-translate-key="homeP3">
+					Sin embargo, mi experiencia no se limita al frontend; también he
+					tenido la oportunidad de trabajar en proyectos empleando otros
+					lenguajes de programación como Java y C, lo que me ha dado una
+					perspectiva más amplia sobre el desarrollo de software en diferentes
+					entornos.
 				</p>
-				<p>
+				<p data-translate-key="homeP4">
 					Explora mi página para saber más de mis proyectos y de cómo ponernos
 					en contacto.
 				</p>
 			</section>
 			<section id="curriculum" class="content-section">
 				<article class="cv-section">
-					<h3>Lenguajes y Tecnologías</h3>
+					<h3 data-translate-key="cvLangTechTitle">Lenguajes y Tecnologías</h3>
 					<ul>
-						<li>Java</li>
+						<li><span data-translate-key="cvLangJava">Java</span></li>
 						<li>
-							Programación Web
+							<span data-translate-key="cvLangWebDev">Programación Web</span>
 							<ul>
-								<li>HTML5</li>
-								<li>CSS3</li>
-								<li>JavaScript</li>
-								<li>React.js, React-Bootstrap y React Redux</li>
+								<li><span data-translate-key="cvLangHtml">HTML5</span></li>
+								<li><span data-translate-key="cvLangCss">CSS3</span></li>
+								<li><span data-translate-key="cvLangJs">JavaScript</span></li>
+								<li>
+									<span data-translate-key="cvLangReact"
+										>React.js, React-Bootstrap y React Redux</span
+									>
+								</li>
 							</ul>
 						</li>
-						<li>SQL (MySQL)</li>
-						<li>C</li>
-						<li>C++</li>
-						<li>Desarrollo de scripts de shell en Linux</li>
-						<li>Manejo avanzado de Linux y Windows</li>
-						<li>Lenguaje de ensamblador (Motorola 68000), PIC</li>
+						<li><span data-translate-key="cvLangSql">SQL (MySQL)</span></li>
+						<li><span data-translate-key="cvLangC">C</span></li>
+						<li><span data-translate-key="cvLangCpp">C++</span></li>
+						<li>
+							<span data-translate-key="cvLangShell"
+								>Desarrollo de scripts de shell en Linux</span
+							>
+						</li>
+						<li>
+							<span data-translate-key="cvLangOs"
+								>Manejo avanzado de Linux y Windows</span
+							>
+						</li>
+						<li>
+							<span data-translate-key="cvLangAssembly"
+								>Lenguaje de ensamblador (Motorola 68000), PIC</span
+							>
+						</li>
 					</ul>
 				</article>
 				<article class="cv-section">
-					<h3>Formación Académica</h3>
-					<p>
+					<h3 data-translate-key="cvEducationTitle">Formación Académica</h3>
+					<p data-translate-key="cvEducationDegree">
 						Ingeniería Técnica en Informática de Sistemas - Universidad
 						Complutense de Madrid
 					</p>
 				</article>
 				<article class="cv-section">
-					<h3>Cursos</h3>
+					<h3 data-translate-key="cvCoursesTitle">Cursos</h3>
 					<ul>
-						<li>
+						<li data-translate-key="cvCourseMobile">
 							Diseño web para dispositivos móviles con HTML5, CSS3 y JavaScript
 							(Cliente) - EUROINNOVA BUSINESS SCHOOL
 						</li>
-						<li>
+						<li data-translate-key="cvCourseSecurity">
 							Gestión de seguridad informática en la empresa - EUROINNOVA
 							BUSINESS SCHOOL
 						</li>
 					</ul>
 				</article>
 				<article class="cv-section">
-					<h3>Idiomas</h3>
+					<h3 data-translate-key="cvLanguagesTitle">Idiomas</h3>
 					<ul>
-						<li>Español (Nativo)</li>
-						<li>
+						<li data-translate-key="cvLangSpanish">Español (Nativo)</li>
+						<li data-translate-key="cvLangEnglish">
 							Inglés: Cambridge English Advanced (CAE) C1 - University of
 							Cambridge
 						</li>
@@ -113,19 +158,23 @@
 			</section>
 			<section id="projects" class="content-section">
 				<article class="project-item">
-					<h3>Excursiones Juntos</h3>
-					<p>
+					<h3 data-translate-key="projectExcursionesTitle">
+						Excursiones Juntos
+					</h3>
+					<p data-translate-key="projectExcursionesDesc">
 						Una aplicación web creada con React para planificar y compartir
 						rutas de senderismo y excursiones. Permite a los usuarios crear
 						cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad,
 						área y tiempo estimado en completar la ruta.
 					</p>
-					<h5>Tecnologías Usadas:</h5>
+					<h5 data-translate-key="projectTechUsed">Tecnologías Usadas:</h5>
 					<ul>
-						<li>React.js</li>
-						<li>React Router, React-Bootstrap y React Redux</li>
-						<li>CSS Modules</li>
-						<li>Node.js</li>
+						<li data-translate-key="projectTechReact">React.js</li>
+						<li data-translate-key="projectTechReactLibs">
+							React Router, React-Bootstrap y React Redux
+						</li>
+						<li data-translate-key="projectTechCssModules">CSS Modules</li>
+						<li data-translate-key="projectTechNode">Node.js</li>
 					</ul>
 					<p class="project-link-container">
 						<a
@@ -133,14 +182,16 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							class="project-link"
-							>Ver en GitHub</a
+							><span data-translate-key="projectLinkGithub"
+								>Ver en GitHub</span
+							></a
 						>
 					</p>
 				</article>
 			</section>
 		</main>
 		<footer>
-			<h2>Contacto</h2>
+			<h2 data-translate-key="footerContactTitle">Contacto</h2>
 			<div class="contact-methods">
 				<ul>
 					<li>
@@ -162,7 +213,9 @@
 			<p class="copyright">
 				&copy;
 				<span id="current-year"></span>
-				Irene San José. Todos los derechos reservados.
+				<span data-translate-key="footerCopyrightText"
+					>Irene San José. Todos los derechos reservados.</span
+				>
 			</p>
 		</footer>
 		<script src="script.js"></script>

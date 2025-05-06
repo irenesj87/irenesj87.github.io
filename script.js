@@ -1,8 +1,130 @@
 document.addEventListener("DOMContentLoaded", () => {
-	// Get all navigation links
+	// --- TRANSLATIONS ---
+	const translations = {
+		es: {
+			pageTitle: "Página Personal - Irene San José",
+			themeToggleLightAriaLabel: "Cambiar a tema claro",
+			themeToggleDarkAriaLabel: "Cambiar a tema oscuro",
+			langEsAriaLabel: "Cambiar a Español",
+			langEnAriaLabel: "Cambiar a Inglés",
+			headerSubtitle: "Ingeniero Técnico en Informática de Sistemas",
+			navHome: "Home",
+			navCurriculum: "Currículum",
+			navProjects: "Proyectos",
+			homeTitle: "Sobre mí",
+			homeP1:
+				"Soy un Ingeniero Técnico en Informática de Sistemas, una formación que me ha proporcionado una base en los principios fundamentales de la computación, la arquitectura de software y la resolución de problemas.",
+			homeP2:
+				"He enfocado mi trayectoria hacia el desarrollo web, especializándome en la creación de interfaces de usuario dinámicas y eficientes utilizando la librería React.js.",
+			homeP3:
+				"Sin embargo, mi experiencia no se limita al frontend; también he tenido la oportunidad de trabajar en proyectos empleando otros lenguajes de programación como Java y C, lo que me ha dado una perspectiva más amplia sobre el desarrollo de software en diferentes entornos.",
+			homeP4:
+				"Explora mi página para saber más de mis proyectos y de cómo ponernos en contacto.",
+			cvLangTechTitle: "Lenguajes y Tecnologías",
+			cvLangJava: "Java",
+			cvLangWebDev: "Programación Web",
+			cvLangHtml: "HTML5",
+			cvLangCss: "CSS3",
+			cvLangJs: "JavaScript",
+			cvLangReact: "React.js, React-Bootstrap y React Redux",
+			cvLangSql: "SQL (MySQL)",
+			cvLangC: "C",
+			cvLangCpp: "C++",
+			cvLangShell: "Desarrollo de scripts de shell en Linux",
+			cvLangOs: "Manejo avanzado de Linux y Windows",
+			cvLangAssembly: "Lenguaje de ensamblador (Motorola 68000), PIC",
+			cvEducationTitle: "Formación Académica",
+			cvEducationDegree:
+				"Ingeniería Técnica en Informática de Sistemas - Universidad Complutense de Madrid",
+			cvCoursesTitle: "Cursos",
+			cvCourseMobile:
+				"Diseño web para dispositivos móviles con HTML5, CSS3 y JavaScript (Cliente) - EUROINNOVA BUSINESS SCHOOL",
+			cvCourseSecurity:
+				"Gestión de seguridad informática en la empresa - EUROINNOVA BUSINESS SCHOOL",
+			cvLanguagesTitle: "Idiomas",
+			cvLangSpanish: "Español (Nativo)",
+			cvLangEnglish:
+				"Inglés: Cambridge English Advanced (CAE) C1 - University of Cambridge",
+			projectExcursionesTitle: "Excursiones Juntos",
+			projectExcursionesDesc:
+				"Una aplicación web creada con React para planificar y compartir rutas de senderismo y excursiones. Permite a los usuarios crear cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad, área y tiempo estimado en completar la ruta.",
+			projectTechUsed: "Tecnologías Usadas:",
+			projectTechReact: "React.js",
+			projectTechReactLibs: "React Router, React-Bootstrap y React Redux",
+			projectTechCssModules: "CSS Modules",
+			projectTechNode: "Node.js",
+			projectLinkGithub: "Ver en GitHub",
+			footerContactTitle: "Contacto",
+			footerCopyrightText: "Irene San José. Todos los derechos reservados.",
+		},
+		en: {
+			pageTitle: "Personal WebPage - Irene San Jose",
+			themeToggleLightAriaLabel: "Switch to light theme",
+			themeToggleDarkAriaLabel: "Switch to dark theme",
+			langEsAriaLabel: "Switch to Spanish",
+			langEnAriaLabel: "Switch to English",
+			headerSubtitle: "Computer Engineer",
+			navHome: "Home",
+			navCurriculum: "Resume",
+			navProjects: "Projects",
+			homeTitle: "About Me",
+			homeP1:
+				"I'm a Computer Engineer, a background that has provided me with a foundation in the fundamental principles of computing, software architecture, and problem-solving.",
+			homeP2:
+				"I've focused my career on web development, specializing in creating dynamic and efficient user interfaces using the React.js library.",
+			homeP3:
+				"However, my experience is not exclusively limited to the frontend; I have also had the opportunity to work on projects using other programming languages such as Java and C, which has given me a broader perspective on software development in different environments.",
+			homeP4:
+				"Explore my page to learn more about my projects and how to get in touch.",
+			cvLangTechTitle: "Languages and Technologies",
+			cvLangJava: "Java",
+			cvLangWebDev: "Web Programming",
+			cvLangHtml: "HTML5",
+			cvLangCss: "CSS3",
+			cvLangJs: "JavaScript",
+			cvLangReact: "React.js, React-Bootstrap and React Redux",
+			cvLangSql: "SQL (MySQL)",
+			cvLangC: "C",
+			cvLangCpp: "C++",
+			cvLangShell: "Linux Shell Script Development",
+			cvLangOs: "Advanced Linux and Windows Management",
+			cvLangAssembly: "Assembly Language (Motorola 68000), PIC",
+			cvEducationTitle: "Academic Background",
+			cvEducationDegree:
+				"Technical Engineering in Computer Systems - Complutense University of Madrid",
+			cvCoursesTitle: "Courses",
+			cvCourseMobile:
+				"Web design for mobile devices with HTML5, CSS3 and JavaScript (Client) - EUROINNOVA BUSINESS SCHOOL",
+			cvCourseSecurity:
+				"IT security management in the company - EUROINNOVA BUSINESS SCHOOL",
+			cvLanguagesTitle: "Languages",
+			cvLangSpanish: "Spanish (Native)",
+			cvLangEnglish:
+				"English: Cambridge English Advanced (CAE) C1 - University of Cambridge",
+			projectExcursionesTitle: "Excursiones Juntos",
+			projectExcursionesDesc:
+				"A web application created with React to plan and share hiking and excursion routes. It allows users to create accounts, sign up for excursions, and search for them by name, difficulty, area, and estimated time to complete the route.",
+			projectTechUsed: "Technologies Used:",
+			projectTechReact: "React.js",
+			projectTechReactLibs: "React Router, React-Bootstrap and React Redux",
+			projectTechCssModules: "CSS Modules",
+			projectTechNode: "Node.js",
+			projectLinkGithub: "View on GitHub",
+			footerContactTitle: "Contact",
+			footerCopyrightText: "Irene San José. All rights reserved.",
+		},
+	};
+
+	//  --- DOM Element Selectors ---
 	const navLinks = document.querySelectorAll(".navbar a");
 	// Get all content sections
 	const contentSections = document.querySelectorAll(".content-section");
+	const themeToggleButton = document.getElementById("theme-toggle");
+	const htmlElement = document.documentElement;
+	const bodyElement = document.body; // Use body for data-theme
+	const yearSpan = document.getElementById("current-year");
+	const langEsButton = document.getElementById("lang-es");
+	const langEnButton = document.getElementById("lang-en");
 
 	// Function to hide all sections
 	function hideAllSections() {
@@ -12,13 +134,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// Function to show a specific section
-	function showSection(id) {
+	function showSectionById(id) {
 		const sectionToShow = document.getElementById(id);
 		if (sectionToShow) {
 			sectionToShow.classList.add("active-section");
 		} else {
 			console.warn(`Section with ID "${id}" not found.`); // Optional: Warn if section doesn't exist
 		}
+	}
+
+	// Function to update active state of navigation links
+	function updateActiveNavLink(targetId) {
+		navLinks.forEach((navLink) => {
+			navLink.classList.remove("active");
+			if (navLink.getAttribute("href") === `#${targetId}`) {
+				navLink.classList.add("active");
+			}
+		});
 	}
 
 	// Add click event listeners to navigation links
@@ -34,98 +166,61 @@ document.addEventListener("DOMContentLoaded", () => {
 			hideAllSections();
 
 			// 4. Show the target section
-			showSection(targetId);
+			showSectionById(targetId);
+			updateActiveNavLink(targetId); // Update active state of navigation links
 
 			// Optional: Update URL hash without reloading (improves UX and allows bookmarking)
 			// window.location.hash = targetId; // Uncomment if you want the URL to change (e.g., yoursite.com/#contact)
 		});
 	});
 
-	// Optional: Handle initial page load based on URL hash
-	// This allows direct linking like yoursite.com/#contact to work
-	const initialHash = window.location.hash.substring(1);
-	if (initialHash) {
-		hideAllSections(); // Hide the default section first
-		showSection(initialHash);
-	} else {
-		// Ensure the default section is shown if no hash is present
-		// This is usually handled by the initial HTML class, but good for robustness
-		const defaultSection = document.querySelector(
-			".content-section.active-section"
-		);
-		if (!defaultSection) {
-			// If somehow no section has the active class initially, activate 'home'
-			showSection("home");
+	// Handle initial page load based on URL hash or default to 'home'
+	function initializeActiveSection() {
+		const initialHash = window.location.hash.substring(1);
+		let sectionToActivate = "home"; // Default section
+
+		if (initialHash && document.getElementById(initialHash)) {
+			sectionToActivate = initialHash;
+		}
+
+		hideAllSections();
+		showSectionById(sectionToActivate);
+		updateActiveNavLink(sectionToActivate);
+
+		// Ensure the default section is marked active in HTML if no hash
+		if (!initialHash && contentSections.length > 0) {
+			const homeSection = document.getElementById("home");
+			if (homeSection && !homeSection.classList.contains("active-section")) {
+				homeSection.classList.add("active-section");
+			}
+			const homeLink = document.querySelector('.navbar a[href="#home"]');
+			if (homeLink && !homeLink.classList.contains("active")) {
+				homeLink.classList.add("active");
+			}
 		}
 	}
 
-	document.addEventListener("DOMContentLoaded", () => {
-		const themeToggleButton = document.getElementById("theme-toggle");
-		const htmlElement = document.documentElement; // Selects the <html> element
-
-		// Function to toggle the theme
-		function toggleTheme() {
-			htmlElement.classList.toggle("dark-mode");
-
-			// Optional: Update button icon based on theme
-			// Check if dark mode is now active
-			if (htmlElement.classList.contains("dark-mode")) {
-				// Change icon to sun
-				themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-				// Optional: Store preference in localStorage
-				localStorage.setItem("theme", "dark");
-			} else {
-				// Change icon back to moon
-				themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-				// Optional: Remove preference from localStorage
-				localStorage.setItem("theme", "light");
-			}
-		}
-
-		// Add click event listener to the button
+	// --- THEME TOGGLE ---
+	function updateThemeButtonVisuals(theme) {
 		if (themeToggleButton) {
-			themeToggleButton.addEventListener("click", toggleTheme);
-		}
+			const icon = themeToggleButton.querySelector("i");
+			const isDark = theme === "dark";
+			const ariaLabelKey = isDark
+				? "themeToggleLightAriaLabel"
+				: "themeToggleDarkAriaLabel";
+			const fallbackAriaLabel = isDark
+				? "Switch to light theme"
+				: "Switch to dark theme";
 
-		// Optional: Check for saved theme preference on page load
-		const savedTheme = localStorage.getItem("theme");
-		if (savedTheme === "dark") {
-			// Apply dark mode immediately without waiting for a click
-			// but make sure the class isn't already there
-			if (!htmlElement.classList.contains("dark-mode")) {
-				htmlElement.classList.add("dark-mode");
-				// Update icon accordingly
-				if (themeToggleButton) {
-					themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-				}
+			if (icon) {
+				icon.classList.toggle("fa-sun", isDark);
+				icon.classList.toggle("fa-moon", !isDark);
 			}
-		} else {
-			// Default to light mode (or ensure dark-mode class is removed if it somehow got added)
-			htmlElement.classList.remove("dark-mode");
-			if (themeToggleButton) {
-				themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-			}
-		}
-	});
-
-	const themeToggleButton = document.getElementById("theme-toggle");
-	const htmlElement = document.documentElement; // Selects the <html> element
-
-	// Function to toggle the theme
-	function toggleTheme() {
-		htmlElement.classList.toggle("dark-mode");
-
-		// Optional: Update button icon based on theme
-		// Check if dark mode is now active
-		if (htmlElement.classList.contains("dark-mode")) {
-			themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-			// Optional: Store preference in localStorage
-			localStorage.setItem("theme", "dark");
-		} else {
-			// Change icon back to moon
-			themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-			// Optional: Remove preference from localStorage
-			localStorage.setItem("theme", "light");
+			themeToggleButton.setAttribute(
+				"aria-label",
+				(translations[currentLang] && translations[currentLang][ariaLabelKey]) ||
+					fallbackAriaLabel
+			);
 		}
 	}
 
@@ -133,30 +228,100 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (themeToggleButton) {
 		themeToggleButton.addEventListener("click", toggleTheme);
 	}
-
-	// Optional: Check for saved theme preference on page load
-	const savedTheme = localStorage.getItem("theme");
-	if (savedTheme === "dark") {
-		// Apply dark mode immediately without waiting for a click
-		// but make sure the class isn't already there
-		if (!htmlElement.classList.contains("dark-mode")) {
-			htmlElement.classList.add("dark-mode");
-			// Update icon accordingly
-			if (themeToggleButton) {
-				themeToggleButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
-			}
-		}
-	} else {
-		// Default to light mode (or ensure dark-mode class is removed if it somehow got added)
-		htmlElement.classList.remove("dark-mode");
-		if (themeToggleButton) {
-			themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
-		}
+	
+	function setTheme(theme) {
+		htmlElement.setAttribute("data-theme", theme); // Set on body
+		localStorage.setItem("theme", theme);
+		updateThemeButtonVisuals(theme);
 	}
 
+	function toggleTheme() {
+		const newTheme =
+			htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark"; // Get from body
+		setTheme(newTheme);
+	}
+
+	// Initial setup
+	function initializeTheme() {
+		const savedTheme = localStorage.getItem("theme");
+		// Check for system preference if no saved theme
+		const prefersDark =
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: dark)").matches;
+		setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+	}
+
+	// Add click event listener to the button
+
 	// -- Año actual en el Footer -- //
-	const yearSpan = document.getElementById("current-year");
 	if (yearSpan) {
 		yearSpan.textContent = new Date().getFullYear();
 	}
+
+	// --- INTERNATIONALIZATION (I18N) ---
+	let currentLang;
+
+	function applyTranslations(lang) {
+		document.documentElement.lang = lang;
+		document.title = translations[lang]?.pageTitle || "Personal WebPage";
+
+		document.querySelectorAll("[data-translate-key]").forEach((el) => {
+			const key = el.getAttribute("data-translate-key");
+			if (translations[lang][key]) {
+				el.innerHTML = translations[lang][key]; // Use innerHTML to support potential HTML in translations
+			}
+		});
+
+		// Update ARIA labels for language buttons
+		if (langEsButton) {
+			langEsButton.setAttribute(
+				"aria-label",
+				translations[lang]?.langEsAriaLabel || "Switch to Spanish"
+			);
+		}
+		if (langEnButton) {
+			langEnButton.setAttribute(
+				"aria-label",
+				translations[lang]?.langEnAriaLabel || "Switch to English"
+			);
+		}
+
+		// Update theme toggle button ARIA label
+		updateThemeButtonVisuals(htmlElement.getAttribute("data-theme")); // Correct function call and get theme from body
+
+		// Update active language button
+		langEsButton.classList.toggle("active-lang", lang === "es");
+		langEnButton.classList.toggle("active-lang", lang === "en");
+	}
+
+	function setLanguage(lang) {
+		currentLang = lang;
+		localStorage.setItem("preferredLang", lang);
+		applyTranslations(lang);
+	}
+
+	function getInitialLanguage() {
+		const savedLang = localStorage.getItem("preferredLang");
+		if (savedLang && translations[savedLang]) {
+			return savedLang;
+		}
+		const browserLang = navigator.language.split("-")[0];
+		if (translations[browserLang]) {
+			return browserLang;
+		}
+		return "es"; // Default language
+	}
+
+	if (langEsButton) {
+		langEsButton.addEventListener("click", () => setLanguage("es"));
+	}
+	if (langEnButton) {
+		langEnButton.addEventListener("click", () => setLanguage("en"));
+	}
+
+	// Initial setup
+	currentLang = getInitialLanguage(); // Get initial language first
+	initializeTheme(); // Initialize theme (this will also call updateThemeButtonVisuals)
+	setLanguage(currentLang); // Apply initial language (this will also call updateThemeButtonVisuals via applyTranslations)
+	initializeActiveSection(); // Set up the initial visible section and active nav link
 }); // End of DOMContentLoaded
