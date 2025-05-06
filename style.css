@@ -1,17 +1,17 @@
 :root {
 	--bg-html: #f8f9fa;
 	--bg-body: #ffffff;
-	--bg-footer: #343a40;
-	--text-dark: #343a40;
+	--bg-footer: #212529;
+	--text-dark: #212529;
 	--text-medium: #6c757d;
 	--text-light: #f8f9fa;
 	--text-footer-muted: #adb5bd;
 	--primary-accent: #17a2b8;
-	--secondary-accent: #fd7e14;
+	--secondary-accent: #ffc107;;
 	--border-color: #dee2e6;
 	--hover-bg-light: #e2f5f8;
 	--button-bg-light: #555;
-	--button-text-light: #fff;
+	--button-text-light: #ffffff;
 	--button-hover-bg-light: #777;
 	--code-bg-light: #f0f0f0; /* Example: Light gray for code blocks */
 	--section-bg-light: var(--bg-body);
@@ -40,6 +40,7 @@ html[data-theme="dark"] {
 	--link-color-dark: #64b5f6;
 	--link-hover-color-dark: #90caf9;
 }
+
 
 html {
 	height: 100%;
