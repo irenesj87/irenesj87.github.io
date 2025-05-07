@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			projectTechUsed: "Tecnologías Usadas:",
 			projectTechHTML5: "HTML5",
 			projectTechReact: "React.js, React Router, React-Bootstrap y React Redux",
-			projectTechCssModules: "CSS Modules",
+			projectTechCSS3: "CSS3",
+			projectTechJavaScript: "JavaScript",
 			projectTechNode: "Node.js",
 			projectLinkGithub: "Ver en GitHub",
 			footerContactTitle: "Contacto",
@@ -107,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			projectTechUsed: "Used Technologies:",
 			projectTechReact:
 				"React.js, React Router, React-Bootstrap and React Redux",
-			projectTechCssModules: "CSS Modules",
+			projectTechCSS3: "CSS3",
 			projectTechNode: "Node.js",
 			projectLinkGithub: "View on GitHub",
 			footerContactTitle: "Contact",

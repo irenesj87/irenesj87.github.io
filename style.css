@@ -380,7 +380,7 @@ html[data-theme="dark"] .content-section {
 #projects .project-item ul .fa-brands.fa-fw {
 	/* Target fixed-width brand icons */
 	margin-right: 4px; /* Add space between icon and text */
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 } /* Visual improvements for project technology icons */
 
 /* Dark mode override for project items */
