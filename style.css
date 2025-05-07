@@ -82,7 +82,7 @@ body {
 }
 
 .lang-button:hover {
-	background-color: var(--hover-bg-light); /* Use theme variable */
+	background-color: var(--hover-bg-light);
 }
 
 .lang-button.active-lang {
@@ -207,10 +207,9 @@ main {
 /* --- Estilos para la barra de navegación --- */
 .navbar {
 	padding: 10px 30px;
-	background-color: var(--bg-body); /* Use variable */
+	background-color: var(--bg-body);
 	width: 100%;
 	box-sizing: border-box;
-	/*transition: background-color 0.3s ease; /* Add transition */
 }
 
 .navbar ul {
@@ -222,9 +221,8 @@ main {
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 10px;
-	border-bottom: 1px solid var(--border-color); /* Use variable */
+	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 10px;
-	/*transition: border-color 0.3s ease; /* Add transition */
 }
 
 .navbar li {
@@ -238,14 +236,13 @@ main {
 	padding: 8px 10px;
 	display: inline-block;
 	border-radius: 4px;
-	transition: background-color 0.2s ease, color 0.2s ease;
 	letter-spacing: 5px;
 }
 
 .navbar a:hover,
 .navbar a:focus {
-	background-color: var(--hover-bg-light); /* Use variable */
-	color: var(--primary-accent); /* Use variable */
+	background-color: var(--hover-bg-light);
+	color: var(--primary-accent);
 }
 
 /* --- Content Section Visibility --- */
@@ -282,7 +279,6 @@ html[data-theme="dark"] .content-section {
 	margin-bottom: 15px;
 	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 5px;
-	transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- Estilos para el currículum --- */
@@ -302,7 +298,6 @@ html[data-theme="dark"] .content-section {
 	margin-bottom: 15px;
 	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 5px;
-	transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .cv-section ul {
@@ -315,7 +310,7 @@ html[data-theme="dark"] .content-section {
 .cv-section ul li {
 	margin-bottom: 8px;
 	line-height: 1.5;
-	color: var(--text-dark); /* Ensure list item text color uses variable */
+	color: var(--text-dark);
 }
 
 .cv-section ul ul {
@@ -358,7 +353,7 @@ html[data-theme="dark"] .content-section {
 		--bg-body
 	); /* Use body background for contrast within section */
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-	transition: background-color 0.3s ease, border-color 0.3s ease;
+	/*transition: background-color 0.3s ease, border-color 0.3s ease;*/
 }
 
 .project-item .fa-html5 {
