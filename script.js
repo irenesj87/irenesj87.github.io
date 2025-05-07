@@ -49,11 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			projectExcursionesDesc:
 				"Una aplicación web creada con React para planificar y compartir rutas de senderismo y excursiones. Permite a los usuarios crear cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad, área y tiempo estimado en completar la ruta.",
 			projectTechUsed: "Tecnologías Usadas:",
-			projectTechHTML5: "HTML5",
-			projectTechReact: "React.js, React Router, React-Bootstrap y React Redux",
-			projectTechCSS3: "CSS3",
-			projectTechJavaScript: "JavaScript",
-			projectTechNode: "Node.js",
 			projectLinkGithub: "Ver en GitHub",
 			footerContactTitle: "Contacto",
 			footerCopyrightText: "Irene San José. Todos los derechos reservados.",
@@ -106,10 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			projectExcursionesDesc:
 				"A web application created with React to plan and share hiking and excursion routes. It allows users to create accounts, sign up for excursions, and search for them by name, difficulty, area, and estimated time to complete the route.",
 			projectTechUsed: "Used Technologies:",
-			projectTechReact:
-				"React.js, React Router, React-Bootstrap and React Redux",
-			projectTechCSS3: "CSS3",
-			projectTechNode: "Node.js",
 			projectLinkGithub: "View on GitHub",
 			footerContactTitle: "Contact",
 			footerCopyrightText: "Irene San José. All rights reserved.",

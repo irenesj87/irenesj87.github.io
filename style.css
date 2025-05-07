@@ -72,9 +72,9 @@ body {
 }
 
 .lang-button {
-	background-color: var(--bg-html); /* Use theme variable */
-	border: 1px solid var(--border-color); /* Use theme variable */
-	color: var(--text-dark); /* Use theme variable for text */
+	background-color: var(--bg-html);
+	border: 1px solid var(--border-color);
+	color: var(--text-dark);
 	padding: 5px 10px;
 	margin: 0 5px;
 	cursor: pointer;
@@ -91,7 +91,7 @@ body {
 	font-weight: bold;
 	border-color: var(--primary-accent);
 	transition: background-color 0.3s ease, color 0.3s ease,
-		border-color 0.3s ease; /* Added for consistency */
+		border-color 0.3s ease;
 }
 
 /* --- Estilos para la cabecera --- */
@@ -145,11 +145,11 @@ body {
 }
 
 .title-container h1:after {
-	background-color: var(--primary-accent);
+	background-color: var(--text-medium);
 }
 
 .title-container h1:before {
-	background-color: var(--secondary-accent);
+	background-color: var(--primary-accent);
 	left: 45px;
 	width: 90px;
 }
@@ -268,7 +268,7 @@ html[data-theme="dark"] .content-section {
 }
 
 #home {
-	padding-top: 10px;
+	padding-top: 5px;
 	border: none; /* Remove border if section has it */
 	background: transparent;
 	text-align: justify;
@@ -283,7 +283,7 @@ html[data-theme="dark"] .content-section {
 
 /* --- Estilos para el currículum --- */
 #curriculum {
-	padding-top: 10px;
+	padding-top: 5px;
 	border: none;
 	background-color: transparent;
 }
@@ -356,32 +356,57 @@ html[data-theme="dark"] .content-section {
 	/*transition: background-color 0.3s ease, border-color 0.3s ease;*/
 }
 
-.project-item .fa-html5 {
-	color: #e34f26; /* HTML5 Orange-Red */
+/* General styling for circular icons */
+.tech-icon,
+.contact-icon {
+	display: inline-flex; /* Use flex to center icon inside */
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%; /* Makes the background circular */
+	color: white; /* Default icon color, overridden for accessibility where needed */
+	text-decoration: none; /* Removes underline if icon is in an <a> tag */
+	line-height: 1; /* Helps with precise vertical centering of font icons */
+	padding: 0; /* Ensure no unexpected padding affects centering */
+	box-sizing: border-box; /* Consistent box model for width/height */
 }
 
-.project-item .fa-css3-alt {
-	color: #1572b6; /* CSS3 Blue */
+/* Styling for Project Technology Icons */
+.tech-icon {
+	width: 40px; /* Adjust size as needed */
+	height: 40px; /* Adjust size as needed */
+	font-size: 25px; /* Adjust icon glyph size within the circle */
+	/* Individual margins will be handled by their container or specific rules */
 }
 
-.project-item .fa-js {
-	color: #f7df1e; /* JavaScript Yellow */
+/* Specific background colors for tech icons */
+.tech-icon.fa-html5 {
+	background-color: #e34f26;
+} /* HTML5 Orange */
+.tech-icon.fa-css3-alt {
+	background-color: #1572b6;
+} /* CSS3 Blue */
+.tech-icon.fa-js {
+	background-color: #f7df1e; /* JavaScript Yellow */
+	color: #212529; /* Dark icon color for accessibility on yellow bg */
+}
+.tech-icon.fa-react {
+	background-color: #61dafb; /* Official React Light Blue */
+	color: #212529; /* Dark icon color for accessibility on light blue bg */
+}
+.tech-icon.fa-node-js {
+	background-color: #339933;
+} /* Node.js Green */
+
+/* Container for project technology icons */
+.project-tech-icons-container {
+	text-align: left; /* Aligns the inline-flex icons to the left within this div */
+	margin-top: 10px; /* Space above the icon group */
+	margin-bottom: 20px; /* Space below the icon group, before the GitHub link */
 }
 
-.project-item .fa-react {
-	color: #61dafb; /* React Light Blue */
+.project-tech-icons-container .tech-icon {
+	margin: 0 2px; /* Adds horizontal spacing between individual icons */
 }
-
-.project-item .fa-node-js {
-	color: #339933; /* Node.js Green */
-}
-
-/* Visual improvements for project technology icons */
-#projects .project-item ul .fa-brands.fa-fw {
-	/* Target fixed-width brand icons */
-	margin-right: 4px; /* Add space between icon and text */
-	font-size: 1.6rem;
-} /* Visual improvements for project technology icons */
 
 /* Dark mode override for project items */
 html[data-theme="dark"] .project-item {
@@ -390,16 +415,16 @@ html[data-theme="dark"] .project-item {
 }
 
 .project-item h3 {
-	color: var(--secondary-accent);
+	color: var(--text-dark);
 	margin-top: 0;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	text-align: center;
 	transition: color 0.3s ease;
 }
 
 .project-item h5 {
-	margin-top: 15px;
-	margin-bottom: 5px;
+	margin-top: 20px;
+	margin-bottom: 15px;
 	font-size: 1em;
 	color: var(--text-medium);
 	transition: color 0.3s ease;
@@ -480,11 +505,42 @@ footer h2 {
 	margin: 0 10px;
 }
 
-.contact-methods a {
-	color: var(--text-light);
-	text-decoration: none;
-	font-size: 2rem;
-	transition: color 0.3s ease;
+/* Styling for Footer Contact Icons */
+.contact-icon {
+	width: 50px; /* Larger size for footer icons */
+	height: 50px; /* Larger size for footer icons */
+	font-size: 30px; /* Adjust icon glyph size */
+	margin: 0 0.25px; /* Spacing around footer icons */
+	transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-icon:hover {
+	transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Specific background colors for contact icons */
+.contact-icon.fa-envelope {
+	background-color: #cccccc; /* Light Gray */
+}
+.contact-icon.fa-envelope:hover {
+	background-color: #bbbbbb; /* Darker Light Gray on hover */
+}
+
+.contact-icon.fa-github {
+	background-color: #6e5494;
+}
+.contact-icon.fa-github:hover {
+	background-color: #59447a;
+}
+
+/* Ensure the <a> tag in the footer doesn't add its own styling that interferes */
+footer .contact-methods ul li a {
+	text-decoration: none; /* Remove underline from link */
+	/* color: inherit; Icon color is set directly on .contact-icon */
+}
+
+.project-link {
+	margin-top: 10px;
 }
 
 .contact-methods a:hover,

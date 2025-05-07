@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -11,6 +8,9 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
 		<title data-translate-key="pageTitle">Página Personal</title>
 	</head>
 	<body>
@@ -168,30 +168,13 @@
 						área y tiempo estimado en completar la ruta.
 					</p>
 					<h5 data-translate-key="projectTechUsed">Tecnologías Usadas:</h5>
-					<ul>
-						<li>
-							<i class="fa-brands fa-html5 fa-fw"></i>
-							<span data-translate-key="projectTechHTML5">HTML5</span>
-						</li>
-						<li>
-							<i class="fa-brands fa-css3-alt fa-fw"></i>
-							<span data-translate-key="projectTechCSS3"
-								>CSS3</span
-							>
-						</li>
-						<li>
-							<i class="fa-brands fa-js fa-fw"></i>
-							<span data-translate-key="projectTechJS">JavaScript</span>
-						</li>
-						<li>
-							<i class="fa-brands fa-react fa-fw"></i>
-							<span data-translate-key="projectTechReact">React.js, React Router, React-Bootstrap y React Redux </span>
-						</li>
-						<li>
-							<i class="fa-brands fa-node-js fa-fw"></i>
-							<span data-translate-key="projectTechNode">Node.js</span>
-						</li>
-					</ul>
+					<div class="project-tech-icons-container">
+						<i class="fa-brands fa-html5 fa-fw tech-icon"></i>
+						<i class="fa-brands fa-css3-alt fa-fw tech-icon"></i>
+						<i class="fa-brands fa-js fa-fw tech-icon"></i>
+						<i class="fa-brands fa-react fa-fw tech-icon"></i>
+						<i class="fa-brands fa-node-js fa-fw tech-icon"></i>
+					</div>
 					<p class="project-link-container">
 						<a
 							href="https://github.com/irenesj87/excursiones"
@@ -212,7 +195,7 @@
 				<ul>
 					<li>
 						<a href="mailto:isjv87@gmail.com">
-							<i class="fa-regular fa-envelope"></i>
+							<i class="fa-regular fa-envelope contact-icon"></i>
 						</a>
 					</li>
 					<li>
@@ -221,7 +204,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<i class="fa-brands fa-github"></i>
+							<i class="fa-brands fa-github contact-icon"></i>
 						</a>
 					</li>
 				</ul>
