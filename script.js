@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-	// --- TRANSLATIONS ---
+	// --- TRADUCCIONES ---
 	const translations = {
 		es: {
 			pageTitle: "Página Personal - Irene San José",
@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			projectExcursionesDesc:
 				"Una aplicación web creada con React para planificar y compartir rutas de senderismo y excursiones. Permite a los usuarios crear cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad, área y tiempo estimado en completar la ruta.",
 			projectTechUsed: "Tecnologías Usadas:",
-			projectTechReact: "React.js",
-			projectTechReactLibs: "React Router, React-Bootstrap y React Redux",
+			projectTechHTML5: "HTML5",
+			projectTechReact: "React.js, React Router, React-Bootstrap y React Redux",
 			projectTechCssModules: "CSS Modules",
 			projectTechNode: "Node.js",
 			projectLinkGithub: "Ver en GitHub",
@@ -104,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			projectExcursionesTitle: "Excursiones Juntos",
 			projectExcursionesDesc:
 				"A web application created with React to plan and share hiking and excursion routes. It allows users to create accounts, sign up for excursions, and search for them by name, difficulty, area, and estimated time to complete the route.",
-			projectTechUsed: "Technologies Used:",
-			projectTechReact: "React.js",
-			projectTechReactLibs: "React Router, React-Bootstrap and React Redux",
+			projectTechUsed: "Used Technologies:",
+			projectTechReact:
+				"React.js, React Router, React-Bootstrap and React Redux",
 			projectTechCssModules: "CSS Modules",
 			projectTechNode: "Node.js",
 			projectLinkGithub: "View on GitHub",
@@ -117,11 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	//  --- DOM Element Selectors ---
 	const navLinks = document.querySelectorAll(".navbar a");
-	// Get all content sections
 	const contentSections = document.querySelectorAll(".content-section");
 	const themeToggleButton = document.getElementById("theme-toggle");
 	const htmlElement = document.documentElement;
-	const bodyElement = document.body; // Use body for data-theme
 	const yearSpan = document.getElementById("current-year");
 	const langEsButton = document.getElementById("lang-es");
 	const langEnButton = document.getElementById("lang-en");
@@ -139,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (sectionToShow) {
 			sectionToShow.classList.add("active-section");
 		} else {
-			console.warn(`Section with ID "${id}" not found.`); // Optional: Warn if section doesn't exist
+			console.warn(`Section with ID "${id}" not found.`);
 		}
 	}
 
@@ -218,7 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 			themeToggleButton.setAttribute(
 				"aria-label",
-				(translations[currentLang] && translations[currentLang][ariaLabelKey]) ||
+				(translations[currentLang] &&
+					translations[currentLang][ariaLabelKey]) ||
 					fallbackAriaLabel
 			);
 		}
@@ -228,16 +227,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (themeToggleButton) {
 		themeToggleButton.addEventListener("click", toggleTheme);
 	}
-	
+
 	function setTheme(theme) {
-		htmlElement.setAttribute("data-theme", theme); // Set on body
+		htmlElement.setAttribute("data-theme", theme);
 		localStorage.setItem("theme", theme);
 		updateThemeButtonVisuals(theme);
 	}
 
 	function toggleTheme() {
 		const newTheme =
-			htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark"; // Get from body
+			htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
 		setTheme(newTheme);
 	}
 
@@ -250,8 +249,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			window.matchMedia("(prefers-color-scheme: dark)").matches;
 		setTheme(savedTheme || (prefersDark ? "dark" : "light"));
 	}
-
-	// Add click event listener to the button
 
 	// -- Año actual en el Footer -- //
 	if (yearSpan) {
@@ -287,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		// Update theme toggle button ARIA label
-		updateThemeButtonVisuals(htmlElement.getAttribute("data-theme")); // Correct function call and get theme from body
+		updateThemeButtonVisuals(htmlElement.getAttribute("data-theme"));
 
 		// Update active language button
 		langEsButton.classList.toggle("active-lang", lang === "es");
