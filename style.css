@@ -17,6 +17,7 @@
 	--section-bg-light: var(--bg-body);
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
+	--box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Dark mode variables applied when html has data-theme="dark" */
@@ -39,6 +40,7 @@ html[data-theme="dark"] {
 	--section-bg-dark: #2a2a2a;
 	--link-color-dark: #64b5f6;
 	--link-hover-color-dark: #90caf9;
+	--box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 html {
@@ -137,7 +139,6 @@ body {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	width: 45px;
 	height: 4px;
 	content: "";
 	right: 45px;
@@ -145,6 +146,7 @@ body {
 }
 
 .title-container h1:after {
+	width: 45px;
 	background-color: var(--text-medium);
 }
 
@@ -157,7 +159,6 @@ body {
 /* Estilos para el botón del modo */
 .theme-toggle-button {
 	position: absolute;
-	right: 20px;
 	top: 20px;
 	right: 30px;
 	width: 40px;
@@ -175,18 +176,18 @@ body {
 	z-index: 10;
 
 	/* Light Mode: White background, dark/accent icon */
-	background-color: var(--bg-body);
-	color: var(--primary-accent);
+	background-color: var(--button-bg-light);
+	color: var(--button-text-light);
 }
 
 .theme-toggle-button:hover {
 	/* Optional: Subtle hover effect for light mode */
-	background-color: var(--hover-bg-light);
+	background-color: var(--button-hover-bg-light);
 }
 
 html[data-theme="dark"] .theme-toggle-button {
 	background: var(--button-bg-dark);
-	color: var(--secondary-accent);
+	color: var(--button-text-dark);
 	border-color: var(--border-color);
 }
 
@@ -454,6 +455,7 @@ html[data-theme="dark"] .project-item {
 	border-radius: 4px;
 	transition: background-color 0.3s ease, color 0.3s ease;
 	margin-right: 10px;
+	margin-top: 10px;
 }
 
 .project-link:hover,
@@ -463,12 +465,13 @@ html[data-theme="dark"] .project-item {
 }
 
 /* Dark mode override for project links */
-body[data-theme="dark"] .project-link {
+htmt[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
 	color: var(--text-dark); /* Use dark text on lighter blue */
 }
-body[data-theme="dark"] .project-link:hover,
-body[data-theme="dark"] .project-link:focus {
+
+html[data-theme="dark"] .project-link:hover,
+html[data-theme="dark"] .project-link:focus {
 	background-color: var(--link-hover-color-dark);
 	color: var(--text-dark);
 }
@@ -537,10 +540,6 @@ footer h2 {
 footer .contact-methods ul li a {
 	text-decoration: none; /* Remove underline from link */
 	/* color: inherit; Icon color is set directly on .contact-icon */
-}
-
-.project-link {
-	margin-top: 10px;
 }
 
 .contact-methods a:hover,
@@ -630,25 +629,5 @@ footer .contact-methods ul li a {
 		padding-bottom: 25px;
 		margin-left: 0;
 		margin-right: 0;
-	}
-
-	/* Optional: Adjust for smaller screens if needed */
-	@media (max-width: 600px) {
-		.project-image-container .project-image {
-			max-width: 100%; /* Stack images on very small screens */
-		}
-	}
-
-	/* Ensure existing .project-image styles don't conflict */
-	/* You might need to adjust or remove some properties from the original .project-image rule */
-	.project-image {
-		/* Original styles might be here - review them */
-		/* Example: remove fixed width/height if they exist */
-		/* width: 100%; */ /* Remove if you had this */
-		/* height: auto; */ /* Keep or add */
-		display: block; /* Keep or add */
-		margin-left: auto; /* Remove if you had this */
-		margin-right: auto; /* Remove if you had this */
-		/* max-width: 100%; */ /* Keep or add */
 	}
 }
