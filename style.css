@@ -7,7 +7,7 @@
 	--text-light: #f8f9fa;
 	--text-footer-muted: #adb5bd;
 	--primary-accent: #17a2b8;
-	--secondary-accent: #fbbe05;
+	--secondary-accent: #0b9ac6;
 	--border-color: #dee2e6;
 	--hover-bg-light: #e2f5f8;
 	--button-bg-light: #555;
@@ -20,7 +20,6 @@
 	--box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode variables applied when html has data-theme="dark" */
 html[data-theme="dark"] {
 	--bg-html: #1a1a1a;
 	--bg-body: #212529;
@@ -30,7 +29,7 @@ html[data-theme="dark"] {
 	--text-light: #f8f9fa;
 	--text-footer-muted: #6c757d;
 	--primary-accent: #64b5f6;
-	--secondary-accent: #ffcc80;
+	--secondary-accent: #0b9ac6;
 	--border-color: #444;
 	--hover-bg-light: #343a40;
 	--button-bg-dark: #444;
@@ -400,13 +399,12 @@ html[data-theme="dark"] .content-section {
 
 /* Container for project technology icons */
 .project-tech-icons-container {
-	text-align: left; /* Aligns the inline-flex icons to the left within this div */
-	margin-top: 10px; /* Space above the icon group */
-	margin-bottom: 20px; /* Space below the icon group, before the GitHub link */
-}
-
-.project-tech-icons-container .tech-icon {
-	margin: 0 2px; /* Adds horizontal spacing between individual icons */
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+	gap: 5px;
 }
 
 /* Dark mode override for project items */
@@ -416,7 +414,7 @@ html[data-theme="dark"] .project-item {
 }
 
 .project-item h3 {
-	color: var(--text-dark);
+	color: var(--primary-accent);
 	margin-top: 0;
 	margin-bottom: 30px;
 	text-align: center;
@@ -429,17 +427,6 @@ html[data-theme="dark"] .project-item {
 	font-size: 1em;
 	color: var(--text-medium);
 	transition: color 0.3s ease;
-}
-
-.project-item ul {
-	list-style: disc;
-	padding-left: 20px;
-	margin-bottom: 15px;
-}
-
-.project-item li {
-	margin-bottom: 5px;
-	color: var(--text-dark);
 }
 
 .project-link-container {
@@ -505,15 +492,14 @@ footer h2 {
 
 .contact-methods li {
 	display: inline-block;
-	margin: 0 10px;
+	margin: 0 5px;
 }
 
 /* Styling for Footer Contact Icons */
 .contact-icon {
 	width: 50px; /* Larger size for footer icons */
 	height: 50px; /* Larger size for footer icons */
-	font-size: 30px; /* Adjust icon glyph size */
-	margin: 0 0.25px; /* Spacing around footer icons */
+	font-size: 31px; /* Adjust icon glyph size */
 	transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
 }
 
@@ -551,11 +537,10 @@ footer .contact-methods ul li a {
 	font-size: 0.9em;
 	color: var(--text-footer-muted);
 	margin-top: 20px;
-	transition: color 0.3s ease; /* Add transition */
+	transition: color 0.3s ease;
 }
 
 /* --- Media Queries para responsividad--- */
-/* (Keep your existing media queries, they should work fine with variables) */
 /* Breakpoints medios */
 @media (max-width: 1024px) {
 	/* Adjust padding on children if needed */

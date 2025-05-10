@@ -3,10 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	const translations = {
 		es: {
 			pageTitle: "Página Personal - Irene San José",
-			themeToggleLightAriaLabel: "Cambiar a tema claro",
-			themeToggleDarkAriaLabel: "Cambiar a tema oscuro",
-			langEsAriaLabel: "Cambiar a Español",
-			langEnAriaLabel: "Cambiar a Inglés",
+			switchToSpanish: "Cambiar a Español",
+			switchToEnglish: "Cambiar a Inglés",
+			currentSpanish: "Español (idioma actual)",
+			currentEnglish: "Inglés (idioma actual)",
+			themeToggleToDark: "Cambiar a tema oscuro",
+			themeToggleToLight: "Cambiar a tema claro",
 			headerSubtitle: "Ingeniero Técnico en Informática de Sistemas",
 			navHome: "Home",
 			navCurriculum: "Currículum",
@@ -55,10 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		},
 		en: {
 			pageTitle: "Personal WebPage - Irene San Jose",
-			themeToggleLightAriaLabel: "Switch to light theme",
-			themeToggleDarkAriaLabel: "Switch to dark theme",
-			langEsAriaLabel: "Switch to Spanish",
-			langEnAriaLabel: "Switch to English",
+			switchToSpanish: "Switch to Spanish",
+			switchToEnglish: "Switch to English",
+			currentSpanish: "Spanish (current language)",
+			currentEnglish: "English (current language)",
+			themeToggleToDark: "Switch to dark theme",
+			themeToggleToLight: "Switch to light theme",
 			headerSubtitle: "Computer Engineer",
 			navHome: "Home",
 			navCurriculum: "Resume",
@@ -195,9 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (themeToggleButton) {
 			const icon = themeToggleButton.querySelector("i");
 			const isDark = theme === "dark";
-			const ariaLabelKey = isDark
-				? "themeToggleLightAriaLabel"
-				: "themeToggleDarkAriaLabel";
+			// Get the translation key from the button's data attribute
+			const ariaKey = isDark
+				? themeToggleButton.dataset.ariaKeyToLight // e.g., "themeToggleToLight"
+				: themeToggleButton.dataset.ariaKeyToDark;  // e.g., "themeToggleToDark"
 			const fallbackAriaLabel = isDark
 				? "Switch to light theme"
 				: "Switch to dark theme";
@@ -207,9 +212,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				icon.classList.toggle("fa-moon", !isDark);
 			}
 			themeToggleButton.setAttribute(
-				"aria-label",
-				(translations[currentLang] &&
-					translations[currentLang][ariaLabelKey]) ||
+				"aria-label", // Use currentLang which is set before this function is called
+				(translations[currentLang] && ariaKey && translations[currentLang][ariaKey]) ||
 					fallbackAriaLabel
 			);
 		}
@@ -261,21 +265,28 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 
-		// Update ARIA labels for language buttons
-		if (langEsButton) {
-			langEsButton.setAttribute(
-				"aria-label",
-				translations[lang]?.langEsAriaLabel || "Switch to Spanish"
-			);
-		}
-		if (langEnButton) {
-			langEnButton.setAttribute(
-				"aria-label",
-				translations[lang]?.langEnAriaLabel || "Switch to English"
-			);
-		}
+		// Update ARIA labels for language buttons using their data-aria-key attributes
+		const langButtons = [
+			{ el: langEsButton, langCode: 'es', fallbackTarget: "Switch to Spanish", fallbackActive: "Spanish (current language)" },
+			{ el: langEnButton, langCode: 'en', fallbackTarget: "Switch to English", fallbackActive: "English (current language)" }
+		];
+
+		langButtons.forEach(item => {
+			if (item.el) {
+				const isActive = lang === item.langCode;
+				// Get the appropriate translation key from the button's data attributes
+				const ariaKey = isActive ? item.el.dataset.ariaKeyActive : item.el.dataset.ariaKeyTarget;
+				const fallbackLabel = isActive ? item.fallbackActive : item.fallbackTarget;
+
+				item.el.setAttribute(
+					"aria-label",
+					(translations[lang] && ariaKey && translations[lang][ariaKey]) || fallbackLabel
+				);
+			}
+		});
 
 		// Update theme toggle button ARIA label
+		// currentLang will be updated to 'lang' by the setLanguage function right after this
 		updateThemeButtonVisuals(htmlElement.getAttribute("data-theme"));
 
 		// Update active language button
