@@ -7,7 +7,7 @@
 	--text-light: #f8f9fa;
 	--text-footer-muted: #adb5bd;
 	--primary-accent: #17a2b8;
-	--secondary-accent: #0b9ac6;
+	--secondary-accent: #148a9d;
 	--border-color: #dee2e6;
 	--hover-bg-light: #e2f5f8;
 	--button-bg-light: #555;
@@ -29,7 +29,7 @@ html[data-theme="dark"] {
 	--text-light: #f8f9fa;
 	--text-footer-muted: #6c757d;
 	--primary-accent: #64b5f6;
-	--secondary-accent: #0b9ac6;
+	--secondary-accent: #4294e3;
 	--border-color: #444;
 	--hover-bg-light: #343a40;
 	--button-bg-dark: #444;
@@ -95,6 +95,44 @@ body {
 		border-color 0.3s ease;
 }
 
+/* Estilos para el botón del modo */
+.theme-toggle-button {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid var(--border-color);
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease,
+		border-color 0.3s ease;
+	display: flex; /* Use flexbox for centering */
+	align-items: center; /* Center icon vertically */
+	justify-content: center; /* Center icon horizontally */
+	padding: 0; /* Remove padding if using flex for centering */
+	font-size: 1.2em; /* Adjust icon size if needed */
+	z-index: 10;
+
+	/* Light Mode: White background, dark/accent icon */
+	background-color: var(--button-bg-light);
+	color: var(--button-text-light);
+}
+
+.theme-toggle-button:hover {
+	background-color: var(--button-hover-bg-light);
+}
+
+html[data-theme="dark"] .theme-toggle-button {
+	background: var(--button-bg-dark);
+	color: var(--button-text-dark);
+	border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .theme-toggle-button:hover {
+	background-color: var(--button-hover-bg-dark);
+}
+
 /* --- Estilos para la cabecera --- */
 .title-container {
 	padding-left: 30px;
@@ -155,51 +193,6 @@ body {
 	width: 90px;
 }
 
-/* Estilos para el botón del modo */
-.theme-toggle-button {
-	position: absolute;
-	top: 20px;
-	right: 30px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: 1px solid var(--border-color);
-	cursor: pointer;
-	transition: background-color 0.3s ease, color 0.3s ease,
-		border-color 0.3s ease;
-	display: flex; /* Use flexbox for centering */
-	align-items: center; /* Center icon vertically */
-	justify-content: center; /* Center icon horizontally */
-	padding: 0; /* Remove padding if using flex for centering */
-	font-size: 1.2em; /* Adjust icon size if needed */
-	z-index: 10;
-
-	/* Light Mode: White background, dark/accent icon */
-	background-color: var(--button-bg-light);
-	color: var(--button-text-light);
-}
-
-.theme-toggle-button:hover {
-	/* Optional: Subtle hover effect for light mode */
-	background-color: var(--button-hover-bg-light);
-}
-
-html[data-theme="dark"] .theme-toggle-button {
-	background: var(--button-bg-dark);
-	color: var(--button-text-dark);
-	border-color: var(--border-color);
-}
-
-html[data-theme="dark"] .theme-toggle-button:hover {
-	background-color: var(--button-hover-bg-dark);
-}
-
-/* Ensure icon inside is vertically aligned (though flexbox should handle it) */
-.theme-toggle-button .fa {
-	vertical-align: middle; /* May not be strictly needed with flexbox */
-	line-height: 1; /* Helps prevent extra space */
-}
-
 main {
 	flex-grow: 1;
 }
@@ -230,7 +223,7 @@ main {
 }
 
 .navbar a {
-	color: var(--text-dark); /* Use variable */
+	color: var(--text-dark);
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: 8px 10px;
@@ -250,11 +243,11 @@ main {
 	display: none;
 	padding: 40px 30px;
 	min-height: auto;
-	background-color: var(--section-bg-light); /* Use variable */
+	background-color: var(--section-bg-light);
 	border: 1px solid var(--border-color); /* Add border consistent with dark mode */
 	border-radius: 8px; /* Add radius consistent with dark mode */
-	margin: 20px 30px; /* Add some margin */
-	transition: background-color 0.3s ease, border-color 0.3s ease; /* Add transition */
+	margin: 20px 30px;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Dark mode override for sections */
@@ -331,7 +324,7 @@ html[data-theme="dark"] .content-section {
 
 .cv-section h4 {
 	font-weight: 600;
-	color: var(--text-dark); /* Use variable */
+	color: var(--text-dark);
 }
 
 /* --- Estilos para los proyectos --- */
@@ -353,7 +346,32 @@ html[data-theme="dark"] .content-section {
 		--bg-body
 	); /* Use body background for contrast within section */
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-	/*transition: background-color 0.3s ease, border-color 0.3s ease;*/
+}
+
+.project-item h3 {
+	color: var(--primary-accent);
+	margin-top: 0;
+	margin-bottom: 30px;
+	text-align: center;
+	transition: color 0.3s ease;
+}
+
+.project-item h5 {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: 1em;
+	color: var(--text-medium);
+	transition: color 0.3s ease;
+}
+
+/* Container for project technology icons */
+.project-tech-icons-list {
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+	gap: 5px;
 }
 
 /* General styling for circular icons */
@@ -397,36 +415,10 @@ html[data-theme="dark"] .content-section {
 	background-color: #339933;
 } /* Node.js Green */
 
-/* Container for project technology icons */
-.project-tech-icons-container {
-	list-style-type: none;
-	padding-left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	display: flex;
-	gap: 5px;
-}
-
 /* Dark mode override for project items */
 html[data-theme="dark"] .project-item {
 	background-color: var(--bg-body); /* Uses dark mode --bg-body */
 	border-color: var(--border-color); /* Uses dark mode --border-color */
-}
-
-.project-item h3 {
-	color: var(--primary-accent);
-	margin-top: 0;
-	margin-bottom: 30px;
-	text-align: center;
-	transition: color 0.3s ease;
-}
-
-.project-item h5 {
-	margin-top: 20px;
-	margin-bottom: 15px;
-	font-size: 1em;
-	color: var(--text-medium);
-	transition: color 0.3s ease;
 }
 
 .project-link-container {
@@ -525,7 +517,6 @@ footer h2 {
 /* Ensure the <a> tag in the footer doesn't add its own styling that interferes */
 footer .contact-methods ul li a {
 	text-decoration: none; /* Remove underline from link */
-	/* color: inherit; Icon color is set directly on .contact-icon */
 }
 
 .contact-methods a:hover,
