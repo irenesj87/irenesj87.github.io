@@ -9,10 +9,10 @@
 	--primary-accent: #17a2b8;
 	--secondary-accent: #148a9d;
 	--border-color: #dee2e6;
-	--hover-bg-light: #e2f5f8;
-	--button-bg-light: #555;
-	--button-text-light: #ffffff;
-	--button-hover-bg-light: #777;
+	--hover-bg-light: #e2f5f8; /* Used for general hovers and now button hover */
+	--button-bg-light: var(--bg-body); /* Light background for the button */
+	--button-text-light: var(--text-dark); /* Dark/accent icon color */
+	--button-hover-bg-light: var(--hover-bg-light); /* Consistent light hover */
 	--code-bg-light: #f0f0f0; /* Example: Light gray for code blocks */
 	--section-bg-light: var(--bg-body);
 	--link-color-light: var(--primary-accent);
@@ -20,6 +20,7 @@
 	--box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para el modo oscuro */
 html[data-theme="dark"] {
 	--bg-html: #1a1a1a;
 	--bg-body: #212529;
@@ -62,7 +63,7 @@ body {
 	color: var(--text-dark);
 }
 
-/* Basic styling for language switcher */
+/* Estilos para los botones de elección de idioma */
 .lang-switcher {
 	position: absolute;
 	top: 20px;
