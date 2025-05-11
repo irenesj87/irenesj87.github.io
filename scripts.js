@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			navProjects: "Proyectos",
 			homeTitle: "Sobre mí",
 			homeP1:
-				"Soy un Ingeniero Técnico en Informática de Sistemas, una formación que me ha proporcionado una base en los principios fundamentales de la computación, la arquitectura de software y la resolución de problemas.",
+				"Soy un Ingeniero Técnico en Informática de Sistemas, una formación que me ha proporcionado una base en principios fundamentales de la computación, la arquitectura de software y la resolución de problemas.",
 			homeP2:
-				"He enfocado mi trayectoria hacia el desarrollo web, especializándome en la creación de interfaces de usuario dinámicas y eficientes utilizando la librería React.js.",
+				"He enfocado mi trayectoria hacia el desarrollo web, especializándome en la creación de interfaces de usuario utilizando la librería React.js.",
 			homeP3:
 				"Sin embargo, mi experiencia no se limita al frontend; también he tenido la oportunidad de trabajar en proyectos empleando otros lenguajes de programación como Java y C, lo que me ha dado una perspectiva más amplia sobre el desarrollo de software en diferentes entornos.",
 			homeP4:
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				"Inglés: Cambridge English Advanced (CAE) C1 - University of Cambridge",
 			projectExcursionesTitle: "Excursiones Juntos",
 			projectExcursionesDesc:
-				"Una aplicación web creada con React para planificar y compartir rutas de senderismo y excursiones. Permite a los usuarios crear cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad, área y tiempo estimado en completar la ruta.",
+				"Una aplicación web creada con React.js para planificar y compartir excursiones. Permite a los usuarios crear cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad, área y tiempo estimado en completar la ruta.",
 			projectTechUsed: "Tecnologías Usadas:",
 			projectLinkGithub: "Ver en GitHub",
 			footerContactTitle: "Contacto",
@@ -69,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			navProjects: "Projects",
 			homeTitle: "About Me",
 			homeP1:
-				"I'm a Computer Engineer, a background that has provided me with a foundation in the fundamental principles of computing, software architecture, and problem-solving.",
+				"I'm a Computer Engineer, a background that has provided me with a foundation in fundamental principles of computing, software architecture, and problem-solving.",
 			homeP2:
-				"I've focused my career on web development, specializing in creating dynamic and efficient user interfaces using the React.js library.",
+				"I've focused my career on web development, specializing in creating user interfaces using the React.js library.",
 			homeP3:
 				"However, my experience is not exclusively limited to the frontend; I have also had the opportunity to work on projects using other programming languages such as Java and C, which has given me a broader perspective on software development in different environments.",
 			homeP4:
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			cvLangAssembly: "Assembly Language (Motorola 68000), PIC",
 			cvEducationTitle: "Academic Background",
 			cvEducationDegree:
-				"Technical Engineering in Computer Systems - Complutense University of Madrid",
+				"Computer Engineer - Complutense University of Madrid",
 			cvCoursesTitle: "Courses",
 			cvCourseMobile:
 				"Web design for mobile devices with HTML5, CSS3 and JavaScript (Client) - EUROINNOVA BUSINESS SCHOOL",
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				"English: Cambridge English Advanced (CAE) C1 - University of Cambridge",
 			projectExcursionesTitle: "Excursiones Juntos",
 			projectExcursionesDesc:
-				"A web application created with React to plan and share hiking and excursion routes. It allows users to create accounts, sign up for excursions, and search for them by name, difficulty, area, and estimated time to complete the route.",
+				"A web application created with React.js to plan and share excursion routes. It allows users to create accounts, sign up for excursions, and search for them by name, difficulty, area, and estimated time to complete the route.",
 			projectTechUsed: "Used Technologies:",
 			projectLinkGithub: "View on GitHub",
 			footerContactTitle: "Contact",
