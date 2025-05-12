@@ -13,31 +13,35 @@
 		<link rel="stylesheet" href="styles.css" />
 		<title data-translate-key="pageTitle">Página Personal</title>
 		<style>
-			/* Inicialmente se esconde body para evitar FOUT (Flash of Untranslated Content) */
+			/* Inicialmente se esconde body para evitar el FOUC (Flash of Untranslated Content) */
 			body {
 				visibility: hidden;
 			}
 		</style>
 		<script>
-			// También se detecte el modo al principio para evitar el flash del modo claro
+			// También se detecte el modo al principio para evitar el FOUC (Flash of Unstyled Content) para el modo oscuro
 			(function () {
-				var defaultPageLang = "es"; // The lang attribute set on your <html> tag
-				var englishPageTitle = "Personal Page"; // Manually provide the English title
+				const defaultPageLang = "es"; // Se obtiene el idioma por defecto de la página
+				const englishPageTitle = "Personal Page"; // Se le da el título en inglés
 
 				try {
-					// Theme handling
-					var preferredTheme = localStorage.getItem("theme");
-					if (preferredTheme === "dark") {
-						document.documentElement.setAttribute("data-theme", "dark");
-					} else if (preferredTheme === "light") {
-						document.documentElement.setAttribute("data-theme", "light");
+					// Obtenemos el tema de localStorage
+					const preferredTheme = localStorage.getItem("theme");
+					// Si el tema preferido es "dark" o "light"
+					if (preferredTheme === "dark" || preferredTheme === "light") {
+						// Se aplica el tema poniendo 'data-theme' al valor preferido
+						document.documentElement.setAttribute("data-theme", preferredTheme);
 					}
 
-					// Language handling
-					var preferredLang = localStorage.getItem("lang");
+					// Obtenemos el idioma preferido de localStorage
+					const preferredLang = localStorage.getItem("lang");
+					// Si hay idioma preferido y ese idioma es diferente al idioma por defecto de la página
 					if (preferredLang && preferredLang !== defaultPageLang) {
+						// Se aplica el idioma preferido
 						document.documentElement.lang = preferredLang;
+						// Si el idioma preferido es el inglés
 						if (preferredLang === "en") {
+							// Se cambia el título de la página a inglés
 							document.title = englishPageTitle;
 						}
 					}
@@ -105,7 +109,11 @@
 				</li>
 			</ul>
 		</nav>
-		<main>
+		<main id="main-content">
+			<!-- Aquí se pone un enlace al contenido principal para accesibilidad-->
+			<a href="#main-content" class="skip-link" data-translate-key="skipLink"
+				>Saltar al contenido principal</a
+			>
 			<section id="home" class="content-section active-section">
 				<h1 data-translate-key="homeTitle">Sobre mí</h1>
 				<p data-translate-key="homeP1">
@@ -210,9 +218,12 @@
 						cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad,
 						área y tiempo estimado en completar la ruta.
 					</p>
-					<h5 data-translate-key="projectTechUsed" id="project-tech-heading">
+					<h4
+						data-translate-key="projectTechUsed"
+						id="project-tech-heading-excursiones"
+					>
 						Tecnologías Usadas:
-					</h5>
+					</h4>
 					<ul
 						class="project-tech-icons-list"
 						aria-labelledby="project-tech-heading"

@@ -238,6 +238,23 @@ main {
 	flex-grow: 1;
 }
 
+.skip-link {
+	position: absolute;
+	top: -40px; /* Position off-screen */
+	left: 0;
+	background-color: #333; /* Example: Dark background */
+	color: white;
+	padding: 10px 15px;
+	z-index: 9999; /* Ensure it's on top */
+	text-decoration: none;
+	border-radius: 0 0 5px 0; /* Optional: some styling */
+}
+
+.skip-link:focus {
+	top: 0; /* Bring into view on focus */
+}
+
+
 /* --- Content Section Visibility --- */
 .content-section {
 	display: none;
@@ -356,7 +373,7 @@ html[data-theme="dark"] .content-section {
 	transition: color 0.3s ease;
 }
 
-.project-item h5 {
+.project-item h4 {
 	margin-top: 20px;
 	margin-bottom: 15px;
 	font-size: 1em;
