@@ -13,33 +13,40 @@
 		<link rel="stylesheet" href="styles.css" />
 		<title data-translate-key="pageTitle">Página Personal</title>
 		<style>
-			/* Initially hide the body to prevent FOUT (Flash of Untranslated Content) */
-			body { visibility: hidden; }
+			/* Inicialmente se esconde body para evitar FOUT (Flash of Untranslated Content) */
+			body {
+				visibility: hidden;
+			}
 		</style>
 		<script>
-			// Immediately invoked function to set the theme before the page renders
-			(function() {
-				var defaultPageLang = 'es'; // The lang attribute set on your <html> tag
-				var englishPageTitle = 'Personal Page'; // Manually provide the English title
+			// También se detecte el modo al principio para evitar el flash del modo claro
+			(function () {
+				var defaultPageLang = "es"; // The lang attribute set on your <html> tag
+				var englishPageTitle = "Personal Page"; // Manually provide the English title
 
 				try {
 					// Theme handling
-					var preferredTheme = localStorage.getItem('theme');
-					if (preferredTheme === 'dark') {
-						document.documentElement.setAttribute('data-theme', 'dark');
-					} else if (preferredTheme === 'light') {
-						document.documentElement.setAttribute('data-theme', 'light');
+					var preferredTheme = localStorage.getItem("theme");
+					if (preferredTheme === "dark") {
+						document.documentElement.setAttribute("data-theme", "dark");
+					} else if (preferredTheme === "light") {
+						document.documentElement.setAttribute("data-theme", "light");
 					}
 
 					// Language handling
-					var preferredLang = localStorage.getItem('lang');
+					var preferredLang = localStorage.getItem("lang");
 					if (preferredLang && preferredLang !== defaultPageLang) {
 						document.documentElement.lang = preferredLang;
-						if (preferredLang === 'en') {
+						if (preferredLang === "en") {
 							document.title = englishPageTitle;
 						}
 					}
-				} catch (e) { console.warn('Error applying stored preferences from inline script.', e); }
+				} catch (e) {
+					console.warn(
+						"Error applying stored preferences from inline script.",
+						e
+					);
+				}
 			})();
 		</script>
 	</head>
