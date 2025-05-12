@@ -443,7 +443,7 @@ html[data-theme="dark"] .project-item {
 }
 
 /* Dark mode override for project links */
-htmt[data-theme="dark"] .project-link {
+html[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
 	color: var(--text-dark);
 }

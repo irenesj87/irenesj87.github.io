@@ -90,8 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			cvLangOs: "Advanced Linux and Windows Management",
 			cvLangAssembly: "Assembly Language (Motorola 68000), PIC",
 			cvEducationTitle: "Academic Background",
-			cvEducationDegree:
-				"Computer Engineer - Complutense University of Madrid",
+			cvEducationDegree: "Computer Engineer - Complutense University of Madrid",
 			cvCoursesTitle: "Courses",
 			cvCourseMobile:
 				"Web design for mobile devices with HTML5, CSS3 and JavaScript (Client) - EUROINNOVA BUSINESS SCHOOL",
@@ -119,6 +118,60 @@ document.addEventListener("DOMContentLoaded", () => {
 	const yearSpan = document.getElementById("current-year");
 	const langEsButton = document.getElementById("lang-es");
 	const langEnButton = document.getElementById("lang-en");
+
+	// --- THEME TOGGLE ---
+	function updateThemeButtonVisuals(theme) {
+		if (themeToggleButton) {
+			const icon = themeToggleButton.querySelector("i");
+			const isDark = theme === "dark";
+			// Get the translation key from the button's data attribute
+			const ariaKey = isDark
+				? themeToggleButton.dataset.ariaKeyToLight // e.g., "themeToggleToLight"
+				: themeToggleButton.dataset.ariaKeyToDark; // e.g., "themeToggleToDark"
+			const fallbackAriaLabel = isDark
+				? "Switch to light theme"
+				: "Switch to dark theme";
+
+			if (icon) {
+				icon.classList.toggle("fa-sun", isDark);
+				icon.classList.toggle("fa-moon", !isDark);
+			}
+			themeToggleButton.setAttribute(
+				"aria-label", // Use currentLang which is set before this function is called
+				(translations[currentLang] &&
+					ariaKey &&
+					translations[currentLang][ariaKey]) ||
+					fallbackAriaLabel
+			);
+		}
+	}
+
+	// Add click event listener to the button
+	if (themeToggleButton) {
+		themeToggleButton.addEventListener("click", toggleTheme);
+	}
+
+	function setTheme(theme) {
+		htmlElement.setAttribute("data-theme", theme);
+		localStorage.setItem("theme", theme);
+		updateThemeButtonVisuals(theme);
+	}
+
+	function toggleTheme() {
+		const newTheme =
+			htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+		setTheme(newTheme);
+	}
+
+	// Initial setup
+	function initializeTheme() {
+		const savedTheme = localStorage.getItem("theme");
+		// Check for system preference if no saved theme
+		const prefersDark =
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: dark)").matches;
+		setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+	}
 
 	// Function to hide all sections
 	function hideAllSections() {
@@ -194,58 +247,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	// --- THEME TOGGLE ---
-	function updateThemeButtonVisuals(theme) {
-		if (themeToggleButton) {
-			const icon = themeToggleButton.querySelector("i");
-			const isDark = theme === "dark";
-			// Get the translation key from the button's data attribute
-			const ariaKey = isDark
-				? themeToggleButton.dataset.ariaKeyToLight // e.g., "themeToggleToLight"
-				: themeToggleButton.dataset.ariaKeyToDark;  // e.g., "themeToggleToDark"
-			const fallbackAriaLabel = isDark
-				? "Switch to light theme"
-				: "Switch to dark theme";
-
-			if (icon) {
-				icon.classList.toggle("fa-sun", isDark);
-				icon.classList.toggle("fa-moon", !isDark);
-			}
-			themeToggleButton.setAttribute(
-				"aria-label", // Use currentLang which is set before this function is called
-				(translations[currentLang] && ariaKey && translations[currentLang][ariaKey]) ||
-					fallbackAriaLabel
-			);
-		}
-	}
-
-	// Add click event listener to the button
-	if (themeToggleButton) {
-		themeToggleButton.addEventListener("click", toggleTheme);
-	}
-
-	function setTheme(theme) {
-		htmlElement.setAttribute("data-theme", theme);
-		localStorage.setItem("theme", theme);
-		updateThemeButtonVisuals(theme);
-	}
-
-	function toggleTheme() {
-		const newTheme =
-			htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-		setTheme(newTheme);
-	}
-
-	// Initial setup
-	function initializeTheme() {
-		const savedTheme = localStorage.getItem("theme");
-		// Check for system preference if no saved theme
-		const prefersDark =
-			window.matchMedia &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches;
-		setTheme(savedTheme || (prefersDark ? "dark" : "light"));
-	}
-
 	// -- Año actual en el Footer -- //
 	if (yearSpan) {
 		yearSpan.textContent = new Date().getFullYear();
@@ -267,20 +268,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// Update ARIA labels for language buttons using their data-aria-key attributes
 		const langButtons = [
-			{ el: langEsButton, langCode: 'es', fallbackTarget: "Switch to Spanish", fallbackActive: "Spanish (current language)" },
-			{ el: langEnButton, langCode: 'en', fallbackTarget: "Switch to English", fallbackActive: "English (current language)" }
+			{
+				el: langEsButton,
+				langCode: "es",
+				fallbackTarget: "Switch to Spanish",
+				fallbackActive: "Spanish (current language)",
+			},
+			{
+				el: langEnButton,
+				langCode: "en",
+				fallbackTarget: "Switch to English",
+				fallbackActive: "English (current language)",
+			},
 		];
 
-		langButtons.forEach(item => {
+		langButtons.forEach((item) => {
 			if (item.el) {
 				const isActive = lang === item.langCode;
 				// Get the appropriate translation key from the button's data attributes
-				const ariaKey = isActive ? item.el.dataset.ariaKeyActive : item.el.dataset.ariaKeyTarget;
-				const fallbackLabel = isActive ? item.fallbackActive : item.fallbackTarget;
+				const ariaKey = isActive
+					? item.el.dataset.ariaKeyActive
+					: item.el.dataset.ariaKeyTarget;
+				const fallbackLabel = isActive
+					? item.fallbackActive
+					: item.fallbackTarget;
 
 				item.el.setAttribute(
 					"aria-label",
-					(translations[lang] && ariaKey && translations[lang][ariaKey]) || fallbackLabel
+					(translations[lang] && ariaKey && translations[lang][ariaKey]) ||
+						fallbackLabel
 				);
 			}
 		});
@@ -296,12 +312,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function setLanguage(lang) {
 		currentLang = lang;
-		localStorage.setItem("preferredLang", lang);
+		localStorage.setItem("lang", lang); // Consistent key with inline script
 		applyTranslations(lang);
+		// Make the body visible as soon as translations are applied
+		document.body.style.visibility = "visible";
 	}
 
 	function getInitialLanguage() {
-		const savedLang = localStorage.getItem("preferredLang");
+		const savedLang = localStorage.getItem("lang"); // Consistent key
 		if (savedLang && translations[savedLang]) {
 			return savedLang;
 		}
@@ -309,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (translations[browserLang]) {
 			return browserLang;
 		}
-		return "es"; // Default language
+		return "es"; // Default language as per your HTML
 	}
 
 	if (langEsButton) {
@@ -322,6 +340,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Initial setup
 	currentLang = getInitialLanguage(); // Get initial language first
 	initializeTheme(); // Initialize theme (this will also call updateThemeButtonVisuals)
-	setLanguage(currentLang); // Apply initial language (this will also call updateThemeButtonVisuals via applyTranslations)
+	setLanguage(currentLang); // Apply initial language and make body visible
 	initializeActiveSection(); // Set up the initial visible section and active nav link
 }); // End of DOMContentLoaded

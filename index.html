@@ -12,6 +12,36 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
 		<title data-translate-key="pageTitle">Página Personal</title>
+		<style>
+			/* Initially hide the body to prevent FOUT (Flash of Untranslated Content) */
+			body { visibility: hidden; }
+		</style>
+		<script>
+			// Immediately invoked function to set the theme before the page renders
+			(function() {
+				var defaultPageLang = 'es'; // The lang attribute set on your <html> tag
+				var englishPageTitle = 'Personal Page'; // Manually provide the English title
+
+				try {
+					// Theme handling
+					var preferredTheme = localStorage.getItem('theme');
+					if (preferredTheme === 'dark') {
+						document.documentElement.setAttribute('data-theme', 'dark');
+					} else if (preferredTheme === 'light') {
+						document.documentElement.setAttribute('data-theme', 'light');
+					}
+
+					// Language handling
+					var preferredLang = localStorage.getItem('lang');
+					if (preferredLang && preferredLang !== defaultPageLang) {
+						document.documentElement.lang = preferredLang;
+						if (preferredLang === 'en') {
+							document.title = englishPageTitle;
+						}
+					}
+				} catch (e) { console.warn('Error applying stored preferences from inline script.', e); }
+			})();
+		</script>
 	</head>
 	<body>
 		<header>
@@ -21,7 +51,7 @@
 						id="lang-es"
 						class="lang-button"
 						data-lang="es"
-						aria-label="Cambiar a Español" 
+						aria-label="Cambiar a Español"
 						data-aria-key-target="switchToSpanish"
 						data-aria-key-active="currentSpanish"
 					>
@@ -31,7 +61,7 @@
 						id="lang-en"
 						class="lang-button"
 						data-lang="en"
-						aria-label="Cambiar a Inglés" 
+						aria-label="Cambiar a Inglés"
 						data-aria-key-target="switchToEnglish"
 						data-aria-key-active="currentEnglish"
 					>
