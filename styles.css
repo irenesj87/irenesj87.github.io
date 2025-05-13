@@ -72,7 +72,6 @@ body {
 	align-items: center;
 	z-index: 10;
 }
-
 .lang-button {
 	background-color: var(--bg-html);
 	border: 1px solid var(--border-color);
@@ -82,11 +81,9 @@ body {
 	cursor: pointer;
 	border-radius: 4px;
 }
-
 .lang-button:hover {
 	background-color: var(--hover-bg-light);
 }
-
 .lang-button.active-lang {
 	background-color: var(--primary-accent);
 	color: var(--text-light);
@@ -117,7 +114,6 @@ body {
 	background-color: var(--button-bg-light);
 	color: var(--button-text-light);
 }
-
 .theme-toggle-button:hover {
 	background-color: var(--button-hover-bg-light);
 }
@@ -127,7 +123,6 @@ html[data-theme="dark"] .theme-toggle-button {
 	color: var(--button-text-dark);
 	border-color: var(--border-color);
 }
-
 html[data-theme="dark"] .theme-toggle-button:hover {
 	background-color: var(--button-hover-bg-dark);
 }
@@ -243,20 +238,19 @@ main {
 	position: absolute;
 	top: -40px;
 	left: 0;
-	background-color: #333; /* Example: Dark background */
+	background-color: #333;
 	color: white;
 	padding: 10px 15px;
-	z-index: 9999; /* Ensure it's on top */
+	z-index: 9999;
 	text-decoration: none;
-	border-radius: 0 0 5px 0; /* Optional: some styling */
+	border-radius: 0 0 5px 0;
 }
 
 .skip-link:focus {
-	top: 0; /* Bring into view on focus */
+	top: 0; /* Mostrar en focus */
 }
 
-
-/* --- Content Section Visibility --- */
+/* --- Visibilidad de las secciones de contenido --- */
 .content-section {
 	display: none;
 	padding: 40px 30px;
@@ -272,7 +266,7 @@ main {
 	display: block;
 }
 
-/* Dark mode override for sections */
+/* Modo oscuro para las secciones de contenido */
 html[data-theme="dark"] .content-section {
 	background-color: var(--section-bg-dark);
 	border-color: var(--border-color);
@@ -347,12 +341,12 @@ html[data-theme="dark"] .content-section {
 
 /* --- Estilos para los proyectos --- */
 #projects {
-	padding-top: 20px; /* Adjust padding since section now has padding */
-	padding-bottom: 0; /* Adjust padding */
-	margin-bottom: 0; /* Remove bottom margin if section has it */
-	border: none; /* Remove border if section has it */
-	border-radius: 0; /* Remove radius if section has it */
-	background-color: transparent; /* Inherit from parent section */
+	padding-top: 20px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
 }
 
 .project-item {
@@ -360,9 +354,7 @@ html[data-theme="dark"] .content-section {
 	padding: 20px;
 	margin-bottom: 30px;
 	border-radius: 8px;
-	background-color: var(
-		--bg-body
-	); /* Use body background for contrast within section */
+	background-color: var(--bg-body);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -382,7 +374,7 @@ html[data-theme="dark"] .content-section {
 	transition: color 0.3s ease;
 }
 
-/* Container for project technology icons */
+/* Contenedor para los iconos de tecnologías de los proyectos */
 .project-tech-icons-list {
 	list-style-type: none;
 	padding-left: 0;
@@ -392,47 +384,45 @@ html[data-theme="dark"] .content-section {
 	gap: 5px;
 }
 
-/* General styling for circular icons */
+/* Estilos generales para los botones circulares */
 .tech-icon,
 .contact-icon {
-	display: inline-flex; /* Use flex to center icon inside */
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%; /* Makes the background circular */
-	color: white; /* Default icon color, overridden for accessibility where needed */
-	text-decoration: none; /* Removes underline if icon is in an <a> tag */
-	line-height: 1; /* Helps with precise vertical centering of font icons */
-	padding: 0; /* Ensure no unexpected padding affects centering */
-	box-sizing: border-box; /* Consistent box model for width/height */
+	border-radius: 50%;
+	color: white; /* Color por defecto del icono */
+	text-decoration: none;
+	line-height: 1; /* Ayuda con el centrado vertical de los iconos */
+	padding: 0; /* Asegura que no hay paddings afectando el centrado */
+	box-sizing: border-box;
 }
 
-/* Styling for Project Technology Icons */
+/* Estilos para los iconos de las tecnologías usadas en los diferentes proyectos */
 .tech-icon {
-	width: 40px; /* Adjust size as needed */
-	height: 40px; /* Adjust size as needed */
-	font-size: 25px; /* Adjust icon glyph size within the circle */
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
 }
 
-/* Specific background colors for tech icons */
 .tech-icon.fa-html5 {
 	background-color: #e34f26;
-} /* HTML5 Orange */
+}
 .tech-icon.fa-css3-alt {
 	background-color: #1572b6;
-} /* CSS3 Blue */
+}
 .tech-icon.fa-js {
-	background-color: #f7df1e; /* JavaScript Yellow */
-	color: #212529; /* Dark icon color for accessibility on yellow bg */
+	background-color: #f7df1e;
+	color: #212529;
 }
 .tech-icon.fa-react {
-	background-color: #61dafb; /* Official React Light Blue */
-	color: #212529; /* Dark icon color for accessibility on light blue bg */
+	background-color: #61dafb;
+	color: #212529;
 }
 .tech-icon.fa-node-js {
 	background-color: #339933;
-} /* Node.js Green */
+}
 
-/* Dark mode override for project items */
 html[data-theme="dark"] .project-item {
 	background-color: var(--bg-body);
 	border-color: var(--border-color);
@@ -460,7 +450,6 @@ html[data-theme="dark"] .project-item {
 	color: var(--text-light);
 }
 
-/* Dark mode override for project links */
 html[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
 	color: var(--text-dark);
@@ -483,7 +472,6 @@ footer {
 	margin-top: 40px;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 footer h2 {
 	margin-bottom: 20px;
 	text-transform: uppercase;
@@ -498,44 +486,35 @@ footer h2 {
 	padding: 0;
 	margin: 0 0 20px 0;
 }
-
 .contact-methods li {
 	display: inline-block;
 	margin: 0 5px;
 }
-
-/* Styling for Footer Contact Icons */
 .contact-icon {
-	width: 50px; /* Larger size for footer icons */
-	height: 50px; /* Larger size for footer icons */
-	font-size: 31px; /* Adjust icon glyph size */
-	transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+	width: 50px;
+	height: 50px;
+	font-size: 31px;
+	transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 .contact-icon:hover {
-	transform: scale(1.1); /* Slight zoom effect on hover */
+	transform: scale(1.1);
 }
-
-/* Specific background colors for contact icons */
 .contact-icon.fa-envelope {
-	background-color: #cccccc; /* Light Gray */
+	background-color: #cccccc;
 }
 .contact-icon.fa-envelope:hover {
-	background-color: #bbbbbb; /* Darker Light Gray on hover */
+	background-color: #bbbbbb;
 }
-
 .contact-icon.fa-github {
 	background-color: #6e5494;
 }
 .contact-icon.fa-github:hover {
 	background-color: #59447a;
 }
-
-/* Ensure the <a> tag in the footer doesn't add its own styling that interferes */
+/* Asegura que la etiqueta <a> tag no añade sus propios estilos */
 footer .contact-methods ul li a {
-	text-decoration: none; /* Remove underline from link */
+	text-decoration: none;
 }
-
 .contact-methods a:hover,
 .contact-methods a:focus {
 	color: var(--secondary-accent);
@@ -551,22 +530,19 @@ footer .contact-methods ul li a {
 /* --- Media Queries para responsividad--- */
 /* Breakpoints medios */
 @media (max-width: 1024px) {
-	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
-	.content-section, /* Adjust section margin/padding */
+	.content-section,
 	footer {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
-
 	.content-section {
 		margin-left: 25px;
 		margin-right: 25px;
 		padding-top: 40px;
 		padding-bottom: 40px;
 	}
-	
 	footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
@@ -580,23 +556,19 @@ footer .contact-methods ul li a {
 	body {
 		box-shadow: none;
 	}
-
-	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
-	.content-section, /* Adjust section margin/padding */
+	.content-section,
 	footer {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
-
 	.content-section {
 		margin-left: 20px;
 		margin-right: 20px;
 		padding-top: 30px;
 		padding-bottom: 30px;
 	}
-
 	footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
@@ -607,23 +579,19 @@ footer .contact-methods ul li a {
 
 /* Breakpoints muy pequeños */
 @media (max-width: 480px) {
-	/* Adjust padding on children if needed */
 	.title-container,
 	.navbar,
-	.content-section, /* Adjust section margin/padding */
+	.content-section,
 	footer {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-
-	/* Remove specific #curriculum padding override if section handles it */
 	.content-section {
 		margin-left: 15px;
 		margin-right: 15px;
 		padding-top: 25px;
 		padding-bottom: 25px;
 	}
-
 	footer {
 		padding-top: 25px;
 		padding-bottom: 25px;
