@@ -108,11 +108,11 @@ body {
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease,
 		border-color 0.3s ease;
-	display: flex; /* Use flexbox for centering */
-	align-items: center; /* Center icon vertically */
-	justify-content: center; /* Center icon horizontally */
-	padding: 0; /* Remove padding if using flex for centering */
-	font-size: 1.2em; /* Adjust icon size if needed */
+	display: flex;
+	align-items: center; /* Centra el icono verticalmente */
+	justify-content: center; /* Centra el icono horizontalmente */
+	padding: 0;
+	font-size: 1.2em; /* Se ajusta el tamaño del icono */
 	z-index: 10;
 	background-color: var(--button-bg-light);
 	color: var(--button-text-light);
@@ -138,7 +138,7 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	padding-left: 30px;
 	padding-right: 30px;
 	display: flex;
-	align-items: center; /* Vertically align items */
+	align-items: center;
 	justify-content: center;
 	position: relative;
 }
@@ -238,9 +238,10 @@ main {
 	flex-grow: 1;
 }
 
+/* --- Estilos para el enlace de accesibilidad --- */
 .skip-link {
 	position: absolute;
-	top: -40px; /* Position off-screen */
+	top: -40px;
 	left: 0;
 	background-color: #333; /* Example: Dark background */
 	color: white;
