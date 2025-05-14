@@ -63,40 +63,10 @@ body {
 	color: var(--text-dark);
 }
 
-/* Estilos para los botones de elección de idioma */
-.lang-switcher {
-	position: absolute;
-	top: 20px;
-	left: 30px;
-	display: flex;
-	align-items: center;
-	z-index: 10;
-}
-.lang-button {
-	background-color: var(--bg-html);
-	border: 1px solid var(--border-color);
-	color: var(--text-dark);
-	padding: 5px 10px;
-	margin: 0 5px;
-	cursor: pointer;
-	border-radius: 4px;
-}
-.lang-button:hover {
-	background-color: var(--hover-bg-light);
-}
-.lang-button.active-lang {
-	background-color: var(--primary-accent);
-	color: var(--text-light);
-	font-weight: bold;
-	border-color: var(--primary-accent);
-	transition: background-color 0.3s ease, color 0.3s ease,
-		border-color 0.3s ease;
-}
-
-/* Estilos para el botón del modo */
+/* Estilos para el botón del tema */
 .theme-toggle-button {
 	position: absolute;
-	top: 20px;
+	top: 10px;
 	right: 30px;
 	width: 40px;
 	height: 40px;

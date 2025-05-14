@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<link
 			rel="stylesheet"
@@ -11,39 +11,20 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
-		<title data-translate-key="pageTitle">Página Personal</title>
+		<title>Personal Page</title>
 		<style>
-			/* Inicialmente se esconde body para evitar el FOUC (Flash of Untranslated Content) */
+			/* Inicialmente se esconde el body para evitar FOUC (Flash of Unstyled Content) */
 			body {
 				visibility: hidden;
 			}
 		</style>
 		<script>
-			// También se detecte el modo al principio para evitar el FOUC (Flash of Unstyled Content) para el modo oscuro
+			// También se detecta el tema al principio para evitar FOUC
 			(function () {
-				const defaultPageLang = "es"; // Se obtiene el idioma por defecto de la página
-				const englishPageTitle = "Personal Page"; // Se le da el título en inglés
-
 				try {
-					// Obtenemos el tema de localStorage
 					const preferredTheme = localStorage.getItem("theme");
-					// Si el tema preferido es "dark" o "light"
 					if (preferredTheme === "dark" || preferredTheme === "light") {
-						// Se aplica el tema poniendo 'data-theme' al valor preferido
 						document.documentElement.setAttribute("data-theme", preferredTheme);
-					}
-
-					// Obtenemos el idioma preferido de localStorage
-					const preferredLang = localStorage.getItem("lang");
-					// Si hay idioma preferido y ese idioma es diferente al idioma por defecto de la página
-					if (preferredLang && preferredLang !== defaultPageLang) {
-						// Se aplica el idioma preferido
-						document.documentElement.lang = preferredLang;
-						// Si el idioma preferido es el inglés
-						if (preferredLang === "en") {
-							// Se cambia el título de la página a inglés
-							document.title = englishPageTitle;
-						}
 					}
 				} catch (e) {
 					console.warn(
@@ -57,147 +38,97 @@
 	<body>
 		<header>
 			<div class="title-container">
-				<div class="lang-switcher">
-					<button
-						id="lang-es"
-						class="lang-button"
-						data-lang="es"
-						aria-label="Cambiar a Español"
-						data-aria-key-target="switchToSpanish"
-						data-aria-key-active="currentSpanish"
-					>
-						ES
-					</button>
-					<button
-						id="lang-en"
-						class="lang-button"
-						data-lang="en"
-						aria-label="Cambiar a Inglés"
-						data-aria-key-target="switchToEnglish"
-						data-aria-key-active="currentEnglish"
-					>
-						EN
-					</button>
-				</div>
 				<button
 					id="theme-toggle"
 					class="theme-toggle-button"
-					aria-label="Cambiar a tema oscuro"
-					data-aria-key-to-dark="themeToggleToDark"
-					data-aria-key-to-light="themeToggleToLight"
+					aria-label="Switch to dark theme"
 				>
 					<i class="fa-solid fa-moon"></i>
 				</button>
 				<h1>
 					Irene San José
-					<span data-translate-key="headerSubtitle"
-						>Ingeniero Técnico en Informática de Sistemas</span
-					>
+					<span>Computer Engineer</span>
 				</h1>
 			</div>
 		</header>
 		<nav class="navbar">
 			<ul>
-				<li><a href="#home" data-translate-key="navHome">Home</a></li>
+				<li><a href="#home">Home</a></li>
 				<li>
-					<a href="#curriculum" data-translate-key="navCurriculum"
-						>Currículum</a
-					>
+					<a href="#curriculum">Resume</a>
 				</li>
 				<li>
-					<a href="#projects" data-translate-key="navProjects">Proyectos</a>
+					<a href="#projects">Projects</a>
 				</li>
 			</ul>
 		</nav>
 		<main id="main-content">
 			<section id="home" class="content-section active-section">
-				<h1 data-translate-key="homeTitle">Sobre mí</h1>
-				<p data-translate-key="homeP1">
-					Soy un Ingeniero Técnico en Informática de Sistemas, una formación que
-					me ha proporcionado una base en los principios fundamentales de la
-					computación, la arquitectura de software y la resolución de problemas.
+				<h1>About Me</h1>
+				<p>
+					I am a Computer Engineer, a background that has provided me with a
+					foundation in the principles of computing, software architecture, and
+					problem-solving.
 				</p>
-				<p data-translate-key="homeP2">
-					He enfocado mi trayectoria hacia el desarrollo web, especializándome
-					en la creación de interfaces de usuario dinámicas y eficientes
-					utilizando la librería React.js.
+				<p>
+					I have focused my career on web development, specializing in creating
+					user interfaces using the React.js library.
 				</p>
-				<p data-translate-key="homeP3">
-					Sin embargo, mi experiencia no se limita al frontend; también he
-					tenido la oportunidad de trabajar en proyectos empleando otros
-					lenguajes de programación como Java y C, lo que me ha dado una
-					perspectiva más amplia sobre el desarrollo de software en diferentes
-					entornos.
+				<p>
+					However, my experience is not limited to the frontend; I have also had
+					the opportunity to work on projects using other programming languages
+					such as Java and C, which has given me a broader perspective on
+					software development in different environments.
 				</p>
-				<p data-translate-key="homeP4">
-					Explora mi página para saber más de mis proyectos y de cómo ponernos
-					en contacto.
+				<p>
+					Explore my page to learn more about my projects and how to get in
+					touch.
 				</p>
 			</section>
 			<section id="curriculum" class="content-section">
 				<article class="cv-section">
-					<h3 data-translate-key="cvLangTechTitle">Lenguajes y Tecnologías</h3>
+					<h3>Languages and Technologies</h3>
 					<ul>
-						<li><span data-translate-key="cvLangJava">Java</span></li>
+						<li>Java</li>
 						<li>
-							<span data-translate-key="cvLangWebDev">Programación Web</span>
+							Web Development
 							<ul>
-								<li><span data-translate-key="cvLangHtml">HTML5</span></li>
-								<li><span data-translate-key="cvLangCss">CSS3</span></li>
-								<li><span data-translate-key="cvLangJs">JavaScript</span></li>
-								<li>
-									<span data-translate-key="cvLangReact"
-										>React.js, React-Bootstrap y React Redux</span
-									>
-								</li>
+								<li>HTML5</li>
+								<li>CSS3</li>
+								<li>JavaScript</li>
+								<li>React.js, React-Bootstrap, and React Redux</li>
 							</ul>
 						</li>
-						<li><span data-translate-key="cvLangSql">SQL (MySQL)</span></li>
-						<li><span data-translate-key="cvLangC">C</span></li>
-						<li><span data-translate-key="cvLangCpp">C++</span></li>
+						<li>SQL (MySQL)</li>
+						<li>C</li>
+						<li>C++</li>
+						<li>Shell script development in Linux</li>
+						<li>Advanced handling of Linux and Windows</li>
+						<li>Assembly language (Motorola 68000), PIC</li>
+					</ul>
+				</article>
+				<article class="cv-section">
+					<h3>Academic Background</h3>
+					<p>Computer Engineer - Complutense University of Madrid</p>
+				</article>
+				<article class="cv-section">
+					<h3>Courses</h3>
+					<ul>
 						<li>
-							<span data-translate-key="cvLangShell"
-								>Desarrollo de scripts de shell en Linux</span
-							>
+							Web design for mobile devices with HTML5, CSS3 and JavaScript
+							(Client) - EUROINNOVA BUSINESS SCHOOL
 						</li>
 						<li>
-							<span data-translate-key="cvLangOs"
-								>Manejo avanzado de Linux y Windows</span
-							>
-						</li>
-						<li>
-							<span data-translate-key="cvLangAssembly"
-								>Lenguaje de ensamblador (Motorola 68000), PIC</span
-							>
+							IT security management in the company - EUROINNOVA BUSINESS SCHOOL
 						</li>
 					</ul>
 				</article>
 				<article class="cv-section">
-					<h3 data-translate-key="cvEducationTitle">Formación Académica</h3>
-					<p data-translate-key="cvEducationDegree">
-						Ingeniería Técnica en Informática de Sistemas - Universidad
-						Complutense de Madrid
-					</p>
-				</article>
-				<article class="cv-section">
-					<h3 data-translate-key="cvCoursesTitle">Cursos</h3>
+					<h3>Languages</h3>
 					<ul>
-						<li data-translate-key="cvCourseMobile">
-							Diseño web para dispositivos móviles con HTML5, CSS3 y JavaScript
-							(Cliente) - EUROINNOVA BUSINESS SCHOOL
-						</li>
-						<li data-translate-key="cvCourseSecurity">
-							Gestión de seguridad informática en la empresa - EUROINNOVA
-							BUSINESS SCHOOL
-						</li>
-					</ul>
-				</article>
-				<article class="cv-section">
-					<h3 data-translate-key="cvLanguagesTitle">Idiomas</h3>
-					<ul>
-						<li data-translate-key="cvLangSpanish">Español (Nativo)</li>
-						<li data-translate-key="cvLangEnglish">
-							Inglés: Cambridge English Advanced (CAE) C1 - University of
+						<li>Spanish (Native)</li>
+						<li>
+							English: Cambridge English Advanced (CAE) C1 - University of
 							Cambridge
 						</li>
 					</ul>
@@ -205,21 +136,14 @@
 			</section>
 			<section id="projects" class="content-section">
 				<article class="project-item">
-					<h3 data-translate-key="projectExcursionesTitle">
-						Excursiones Juntos
-					</h3>
-					<p data-translate-key="projectExcursionesDesc">
-						Una aplicación web creada con React para planificar y compartir
-						rutas de senderismo y excursiones. Permite a los usuarios crear
-						cuentas, apuntarse a excursiones y buscarlas por nombre, dificultad,
-						área y tiempo estimado en completar la ruta.
+					<h3>Excursiones Juntos</h3>
+					<p>
+						A web application created with React.js to plan and share
+						excursions. It allows users to create accounts, sign up for
+						excursions, and search for them by name, difficulty, area, and
+						estimated time to complete the route.
 					</p>
-					<h4
-						data-translate-key="projectTechUsed"
-						id="project-tech-heading-excursiones"
-					>
-						Tecnologías Usadas:
-					</h4>
+					<h4 id="project-tech-heading-excursiones">Technologies Used:</h4>
 					<ul
 						class="project-tech-icons-list"
 						aria-labelledby="project-tech-heading"
@@ -266,16 +190,14 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							class="project-link"
-							><span data-translate-key="projectLinkGithub"
-								>Ver en GitHub</span
-							></a
+							><span>View on GitHub</span></a
 						>
 					</p>
 				</article>
 			</section>
 		</main>
 		<footer>
-			<h2 data-translate-key="footerContactTitle">Contacto</h2>
+			<h2>Contact</h2>
 			<div class="contact-methods">
 				<ul>
 					<li>
@@ -297,9 +219,7 @@
 			<p class="copyright">
 				&copy;
 				<span id="current-year"></span>
-				<span data-translate-key="footerCopyrightText"
-					>Irene San José. Todos los derechos reservados.</span
-				>
+				<span>Irene San José. All rights reserved.</span>
 			</p>
 		</footer>
 		<script src="scripts.js"></script>
