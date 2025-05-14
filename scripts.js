@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// --- TRADUCCIONES ---
 	const translations = {
+		// Traducciones en español
 		es: {
 			pageTitle: "Página Personal - Irene San José",
 			switchToSpanish: "Cambiar a Español",
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			footerContactTitle: "Contacto",
 			footerCopyrightText: "Irene San José. Todos los derechos reservados.",
 		},
+		// Traducciones en inglés
 		en: {
 			pageTitle: "Personal WebPage - Irene San Jose",
 			switchToSpanish: "Switch to Spanish",
@@ -112,68 +114,134 @@ document.addEventListener("DOMContentLoaded", () => {
 		},
 	};
 
-	//  --- DOM Element Selectors ---
+	//  --- Selectores de elementos del DOM ---
+	// Selecciona todos los enlaces <a> dentro de elementos con la clase "navbar"
 	const navLinks = document.querySelectorAll(".navbar a");
+	// Selecciona todos los elementos con la clase "content-section"
 	const contentSections = document.querySelectorAll(".content-section");
+	// Selecciona el elemento con el ID "theme-toggle", que es botón para cambiar el tema
 	const themeToggleButton = document.getElementById("theme-toggle");
+	// Selecciona el elemento raíz <html> del documento
 	const htmlElement = document.documentElement;
+	// Selecciona el elemento con el ID "current-year", usado para mostrar el año actual en el footer
 	const yearSpan = document.getElementById("current-year");
+	// Selecciona el elemento con el ID "lang-es", que es el botón para cambiar el idioma a español
 	const langEsButton = document.getElementById("lang-es");
+	// Selecciona el elemento con el ID "lang-en", que es el botón para cambiar el idioma a inglés
 	const langEnButton = document.getElementById("lang-en");
 
-	// --- THEME TOGGLE ---
+	// --- CAMBIO DE TEMA (THEME TOGGLE) ---
+	// Función para actualizar los aspectos visuales del botón de cambio de tema.
+	// Recibe el tema actual ('dark' o 'light') como argumento.
 	function updateThemeButtonVisuals(theme) {
+		// Verifica si el elemento del botón de cambio de tema (themeToggleButton) existe en el DOM.
 		if (themeToggleButton) {
+			// Selecciona el elemento <i> (generalmente usado para iconos) dentro del botón de cambio de tema.
 			const icon = themeToggleButton.querySelector("i");
+			// Determina si el tema actual es "dark". La variable isDark será true si el tema es oscuro, false si es claro.
 			const isDark = theme === "dark";
-			// Get the translation key from the button's data attribute
-			const ariaKey = isDark
-				? themeToggleButton.dataset.ariaKeyToLight // e.g., "themeToggleToLight"
-				: themeToggleButton.dataset.ariaKeyToDark; // e.g., "themeToggleToDark"
-			const fallbackAriaLabel = isDark
-				? "Switch to light theme"
-				: "Switch to dark theme";
 
+			// Obtiene la clave de traducción para el 'aria-label' del botón.
+			// Esta clave se lee de los atributos 'data-*' del propio botón HTML.
+			// dataset: Propiedad que permite acceder a todos los atributos
+			// Si el tema actual es oscuro (isDark es true), se usará la clave para "Cambiar a tema claro".
+			// Si el tema actual es claro (isDark es false), se usará la clave para "Cambiar a tema oscuro".
+			const ariaKey = isDark
+				? themeToggleButton.dataset.ariaKeyToLight
+				: themeToggleButton.dataset.ariaKeyToDark;
+
+			// Define un 'aria-label' de respaldo en inglés.
+			// Este texto se usará si no se encuentra una traducción para la clave obtenida (ariaKey).
+			const fallbackAriaLabel = isDark
+				? "Switch to light theme" // Texto de respaldo si el tema actual es oscuro (el botón ofrecerá cambiar a claro)
+				: "Switch to dark theme"; // Texto de respaldo si el tema actual es claro (el botón ofrecerá cambiar a oscuro)
+
+			// Si se encuentra un elemento de icono dentro del botón:
 			if (icon) {
+				// Alterna la clase CSS 'fa-sun'.
+				// Si 'isDark' es true (tema oscuro), se añade la clase 'fa-sun' (para mostrar el icono del sol, indicando que se puede cambiar a tema claro).
+				// Si 'isDark' es false (tema claro), se elimina la clase 'fa-sun'.
 				icon.classList.toggle("fa-sun", isDark);
+				// Alterna la clase CSS 'fa-moon'.
+				// Si '!isDark' es true (es decir, el tema es claro), se añade la clase 'fa-moon' (para mostrar el icono de la luna, indicando que se puede cambiar a tema oscuro).
+				// Si '!isDark' es false (es decir, el tema es oscuro), se elimina la clase 'fa-moon'.
 				icon.classList.toggle("fa-moon", !isDark);
 			}
+
+			// Establece el atributo 'aria-label' del botón de cambio de tema.
+			// El 'aria-label' proporciona información accesible sobre la función del botón.
+			// Se intenta obtener la traducción usando:
+			// 1. 'translations[currentLang]': El objeto de traducciones para el idioma actual (ej. 'es' o 'en').
+			// 2. 'ariaKey': La clave específica para el texto del aria-label (ej. "themeToggleToLight").
+			// 3. 'translations[currentLang][ariaKey]': El texto traducido.
+			// Si alguna de estas partes no existe o la traducción no se encuentra, se utiliza 'fallbackAriaLabel'.
+			// Se asume que 'currentLang' (el idioma actual) está definido y actualizado antes de llamar a esta función.
 			themeToggleButton.setAttribute(
-				"aria-label", // Use currentLang which is set before this function is called
-				(translations[currentLang] &&
-					ariaKey &&
-					translations[currentLang][ariaKey]) ||
-					fallbackAriaLabel
+				"aria-label",
+				(translations[currentLang] && // Verifica que exista el objeto de traducciones para el idioma actual
+					ariaKey && // Verifica que la clave ariaKey tenga un valor
+					translations[currentLang][ariaKey]) || // Intenta obtener la traducción específica
+					fallbackAriaLabel // Si no se encuentra la traducción, usa el texto de respaldo
 			);
 		}
 	}
 
-	// Add click event listener to the button
+	// Se añade el event listener al botón
 	if (themeToggleButton) {
 		themeToggleButton.addEventListener("click", toggleTheme);
 	}
 
+	// Función para establecer un tema específico (claro u oscuro).
+	// Recibe el nombre del tema ('dark' o 'light') como argumento.
 	function setTheme(theme) {
+		// Establece el atributo 'data-theme' en el elemento <html>.
+		// Esto permite aplicar estilos CSS específicos para el tema actual.
+		// Ejemplo: html[data-theme="dark"] { /* estilos para tema oscuro */ }
 		htmlElement.setAttribute("data-theme", theme);
+
+		// Guarda la preferencia del tema en el localStorage del navegador.
+		// Esto permite que el tema seleccionado persista entre sesiones.
 		localStorage.setItem("theme", theme);
+
+		// Actualiza los aspectos visuales del botón de cambio de tema
+		// para que refleje el tema recién establecido (ej. cambiar el icono).
 		updateThemeButtonVisuals(theme);
 	}
 
+	// Función para alternar entre el tema claro y oscuro.
 	function toggleTheme() {
+		// Obtiene el tema actual leyendo el atributo 'data-theme' del elemento <html>.
+		// Si el tema actual es 'dark', newTheme se establecerá a 'light'.
+		// Si el tema actual es 'light' (o cualquier otra cosa), newTheme se establecerá a 'dark'.
 		const newTheme =
 			htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+		// Llama a setTheme() para aplicar el nuevo tema calculado.
 		setTheme(newTheme);
 	}
 
-	// Initial setup
+	// Configuración inicial del tema.
+	// Esta función se llama cuando la página se carga para establecer el tema inicial.
 	function initializeTheme() {
+		// Intenta obtener el tema guardado previamente por el usuario desde localStorage.
 		const savedTheme = localStorage.getItem("theme");
-		// Check for system preference if no saved theme
+
+		// Comprueba la preferencia de tema del sistema operativo del usuario solo si no hay un tema guardado en localStorage.
+		// 'window.matchMedia' permite consultar el resultado de una media query de CSS.
+		// '(prefers-color-scheme: dark)' es una media query que retorna true si el usuario
+		// ha configurado su sistema operativo para preferir el modo oscuro.
 		const prefersDark =
-			window.matchMedia &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches;
+			window.matchMedia && // Primero, verifica que el navegador soporte 'matchMedia'.
+			window.matchMedia("(prefers-color-scheme: dark)").matches; // Luego, verifica la preferencia.
+
+		// Establece el tema.
+		// Se da prioridad al tema guardado por el usuario (savedTheme).
+		// Si no hay un tema guardado, se usa la preferencia del sistema:
+		//   - Si 'prefersDark' es true, se usa el tema 'dark'.
+		//   - Si 'prefersDark' es false (o 'matchMedia' no es soportado), se usa el tema 'light' como predeterminado.
 		setTheme(savedTheme || (prefersDark ? "dark" : "light"));
 	}
+	// --- FINAL DE CAMBIO DE TEMA ---
 
 	// Function to hide all sections
 	function hideAllSections() {
@@ -185,8 +253,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Function to show a specific section
 	function showSectionById(id) {
 		const sectionToShow = document.getElementById(id);
+		console.log(
+			`Attempting to show section: ${id}. Element found:`,
+			sectionToShow
+		);
 		if (sectionToShow) {
 			sectionToShow.classList.add("active-section");
+			console.log(`Added active-section to:`, sectionToShow);
 		} else {
 			console.warn(`Section with ID "${id}" not found.`);
 		}
@@ -235,18 +308,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		hideAllSections();
 		showSectionById(sectionToActivate);
 		updateActiveNavLink(sectionToActivate);
-
-		// Ensure the default section is marked active in HTML if no hash
-		if (!initialHash && contentSections.length > 0) {
-			const homeSection = document.getElementById("home");
-			if (homeSection && !homeSection.classList.contains("active-section")) {
-				homeSection.classList.add("active-section");
-			}
-			const homeLink = document.querySelector('.navbar a[href="#home"]');
-			if (homeLink && !homeLink.classList.contains("active")) {
-				homeLink.classList.add("active");
-			}
-		}
 	}
 
 	// -- Año actual en el Footer -- //
@@ -316,8 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		currentLang = lang;
 		localStorage.setItem("lang", lang); // Consistent key with inline script
 		applyTranslations(lang);
-		// Make the body visible as soon as translations are applied
-		document.body.style.visibility = "visible";
+		// Body visibility will be handled at the end of DOMContentLoaded
 	}
 
 	function getInitialLanguage() {
@@ -342,6 +402,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Initial setup
 	currentLang = getInitialLanguage(); // Get initial language first
 	initializeTheme(); // Initialize theme (this will also call updateThemeButtonVisuals)
-	setLanguage(currentLang); // Apply initial language and make body visible
+	setLanguage(currentLang); // Apply initial language
 	initializeActiveSection(); // Set up the initial visible section and active nav link
+	// --- Make body visible AFTER all initial setup ---
+	document.body.style.visibility = "visible";
 }); // End of DOMContentLoaded
