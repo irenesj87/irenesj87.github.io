@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- FIN DE CAMBIO DE TEMA ---
 
 	// --- DEJAR SÓLO SECCIÓN ACTIVA VISIBLE ---
-	// Function to hide all sections
 	function hideAllSections() {
 		contentSections.forEach((section) => {
 			section.classList.remove("active-section");
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	// --- FIN DE DEJAR SÓLO SECCIÓN ACTIVA VISIBLE ---
 
-	// -- Current year in Footer -- //
+	// -- Año actual en el Footer -- //
 	if (yearSpan) {
 		yearSpan.textContent = new Date().getFullYear();
 	}
