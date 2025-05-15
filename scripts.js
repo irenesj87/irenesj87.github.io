@@ -40,15 +40,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Esta función se llama cuando se carga la página para inicializar el tema
 	function initializeTheme() {
+		// Intenta obtener el tema guardado previamente en el almacenamiento local (localStorage)
 		const savedTheme = localStorage.getItem("theme");
+
+		// Comprueba si el sistema operativo o navegador del usuario prefiere un esquema de color oscuro
+		// window.matchMedia es una API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
+		// .matches retorna true si la query coincide.
 		const prefersDark =
 			window.matchMedia &&
 			window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+		// Establece el tema:
+		// 1. Si hay un tema guardado (savedTheme es true), usa ese tema.
+		// 2. Si no hay tema guardado (savedTheme es false), comprueba si el usuario prefiere oscuro.
+		// 3. Si prefiere oscuro, usa 'dark'; de lo contrario, usa 'light'.
 		setTheme(savedTheme || (prefersDark ? "dark" : "light"));
 	}
-	// --- FIN DE CAMBIO DE TEMA ---
+	// --- FIN CAMBIO DE TEMA ---
 
-	// --- DEJAR SÓLO SECCIÓN ACTIVA VISIBLE ---
+	// --- SÓLO SECCIÓN ACTIVA VISIBLE ---
 	function hideAllSections() {
 		contentSections.forEach((section) => {
 			section.classList.remove("active-section");
@@ -106,15 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		showSectionById(sectionToActivate);
 		updateActiveNavLink(sectionToActivate);
 	}
-	// --- FIN DE DEJAR SÓLO SECCIÓN ACTIVA VISIBLE ---
+	// --- FIN SÓLO SECCIÓN ACTIVA VISIBLE ---
 
-	// -- Año actual en el Footer -- //
+	// -- Año actual en el Footer --
 	if (yearSpan) {
 		yearSpan.textContent = new Date().getFullYear();
 	}
 
-	// Initial setup
-	initializeTheme();
-	initializeActiveSection(); // Set up the initial visible section and active nav link
+	// --- CONFIGURACIÓN INICIAL ---
+	initializeTheme(); // Inicializa el tema
+	initializeActiveSection(); // Muestra la primera sección visible de la barra de navegación
 	document.body.style.visibility = "visible";
 }); // End of DOMContentLoaded
