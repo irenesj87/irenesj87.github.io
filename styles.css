@@ -18,6 +18,7 @@
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
 	--box-shadow-color: rgba(0, 0, 0, 0.1);
+	--header-height: 342px;
 }
 
 /* Estilos para el modo oscuro */
@@ -199,6 +200,13 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	color: var(--primary-accent);
 }
 
+/* Estilo para el enlace de navegación activo */
+.navbar a.active-nav-link {
+	background-color: var(--primary-accent); /* Usa el color de acento principal para el fondo */
+	color: var(--text-light); /* Usa un color de texto claro que contraste bien */
+	font-weight: bold; /* Hace el texto un poco más grueso para destacarlo */
+}
+
 main {
 	flex-grow: 1;
 }
@@ -213,6 +221,7 @@ main {
 	border-radius: 8px;
 	margin: 20px 30px;
 	transition: background-color 0.3s ease, border-color 0.3s ease;
+	scroll-margin-top: var(--header-height);
 }
 
 .content-section.active-section {

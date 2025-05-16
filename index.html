@@ -13,13 +13,13 @@
 		<link rel="stylesheet" href="styles.css" />
 		<title>Personal Page</title>
 		<style>
-			/* Inicialmente se esconde el body para evitar FOUC (Flash of Unstyled Content) */
+			/* Inicialmente se esconde el body para evitar el FOUC (Flash of Unstyled Content) */
 			body {
 				visibility: hidden;
 			}
 		</style>
 		<script>
-			// También se detecta el tema al principio para evitar FOUC
+			// También se detecta el tema al principio para evitar el FOUC
 			(function () {
 				try {
 					const preferredTheme = localStorage.getItem("theme");

@@ -76,9 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function updateActiveNavLink(targetId) {
 		navLinks.forEach((navLink) => {
-			navLink.classList.remove("active");
+			navLink.classList.remove("active-nav-link");
 			if (navLink.getAttribute("href") === `#${targetId}`) {
-				navLink.classList.add("active");
+				navLink.classList.add("active-nav-link");
 			}
 		});
 	}
@@ -95,8 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			showSectionById(targetId);
 			updateActiveNavLink(targetId);
 
-			// Optional: Update URL hash without reloading (improves UX and allows bookmarking)
-			// window.location.hash = targetId; // Uncomment if you want the URL to change (e.g., yoursite.com/#contact)
+			// Update URL hash without reloading (improves UX and allows bookmarking)
+			window.location.hash = targetId; // Uncomment if you want the URL to change (e.g., yoursite.com/#contact)
 		});
 	});
 
