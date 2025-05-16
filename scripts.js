@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		const savedTheme = localStorage.getItem("theme");
 
 		// Comprueba si el sistema operativo o navegador del usuario prefiere un esquema de color oscuro
-		// window.matchMedia es una API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
-		// .matches retorna true si la query coincide.
+		// window.matchMedia: API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
+		// .matches: Retorna true si la query coincide.
 		const prefersDark =
 			window.matchMedia &&
 			window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	// Function to show a specific section
 	function showSectionById(id) {
 		const sectionToShow = document.getElementById(id);
 		if (sectionToShow) {
@@ -75,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	// Function to update active state of navigation links
 	function updateActiveNavLink(targetId) {
 		navLinks.forEach((navLink) => {
 			navLink.classList.remove("active");
@@ -85,35 +83,37 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	// Add click event listeners to navigation links
+	/**
+	 * Se encarga de la navegación interactiva dentro de la página cuando un usuario hace clic en un enlace de la barra de
+	 * navegación
+	 **/
 	navLinks.forEach((link) => {
 		link.addEventListener("click", (event) => {
-			// 1. Prevent the default link behavior (jumping/reloading)
 			event.preventDefault();
-			// 2. Get the target section ID from the href (remove the '#')
 			const targetId = link.getAttribute("href").substring(1);
-			// 3. Hide all sections
 			hideAllSections();
-			// 4. Show the target section
 			showSectionById(targetId);
-			updateActiveNavLink(targetId); // Update active state of navigation links
+			updateActiveNavLink(targetId);
 
 			// Optional: Update URL hash without reloading (improves UX and allows bookmarking)
 			// window.location.hash = targetId; // Uncomment if you want the URL to change (e.g., yoursite.com/#contact)
 		});
 	});
 
-	// Handle initial page load based on URL hash or default to 'home'
+	// Establece la sección visible inicial cuando la página se carga por primera vez
 	function initializeActiveSection() {
+		// Lee el hash de la URL que es la parte que va detrás de '#'
 		const initialHash = window.location.hash.substring(1);
-		let sectionToActivate = "home"; // Default section
-
+		let sectionToActivate = "home"; // Sección pr defecto
+		// Si existe un hash y corresponde a un 'id' de una sección existente en la página
 		if (initialHash && document.getElementById(initialHash)) {
+			// Esa sección se convierte en la que se va a activar
 			sectionToActivate = initialHash;
 		}
-
 		hideAllSections();
+		// Se llama para mostrar la seción determinada (ya sea por el hash o la de por defecto)
 		showSectionById(sectionToActivate);
+		// Resalta el enlace de navegación correspondiente a la sección activa
 		updateActiveNavLink(sectionToActivate);
 	}
 	// --- FIN SÓLO SECCIÓN ACTIVA VISIBLE ---
@@ -126,5 +126,5 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- CONFIGURACIÓN INICIAL ---
 	initializeTheme(); // Inicializa el tema
 	initializeActiveSection(); // Muestra la primera sección visible de la barra de navegación
-	document.body.style.visibility = "visible";
+	document.body.style.visibility = "visible"; // Muestra el <body> ahora para evitar el FOUC
 }); // End of DOMContentLoaded
