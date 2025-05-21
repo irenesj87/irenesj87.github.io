@@ -13,7 +13,6 @@
 		<link rel="stylesheet" href="styles.css" />
 		<title>Personal Page</title>
 		<style>
-			/* Inicialmente se esconde el body para evitar el FOUC (Flash of Unstyled Content) */
 			body {
 				visibility: hidden;
 			}
@@ -51,20 +50,11 @@
 				</h1>
 			</div>
 		</header>
-		<nav class="navbar">
-			<ul>
-				<li><a href="#home">Home</a></li>
-				<li>
-					<a href="#curriculum">Resume</a>
-				</li>
-				<li>
-					<a href="#projects">Projects</a>
-				</li>
-			</ul>
-		</nav>
+
 		<main id="main-content">
-			<section id="home" class="content-section active-section">
+			<section id="aboutMe" class="content-section">
 				<h1>About Me</h1>
+				<!-- Contenido de About Me -->
 				<p>
 					I am a Computer Engineer, a background that has provided me with a
 					foundation in the principles of computing, software architecture, and
@@ -84,143 +74,141 @@
 					Explore my page to learn more about my projects and how to get in
 					touch.
 				</p>
+				<div class="contact-methods">
+					<ul>
+						<li>
+							<a href="mailto:isjv87@gmail.com">
+								<i class="fa-regular fa-envelope contact-icon"></i>
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://github.com/irenesj87"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i class="fa-brands fa-github contact-icon"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</section>
-			<section id="curriculum" class="content-section">
-				<article class="cv-section">
-					<h3>Languages and Technologies</h3>
-					<ul>
-						<li>Java</li>
-						<li>
-							Web Development
-							<ul>
-								<li>HTML5</li>
-								<li>CSS3</li>
-								<li>JavaScript</li>
-								<li>React.js, React-Bootstrap, and React Redux</li>
-							</ul>
-						</li>
-						<li>SQL (MySQL)</li>
-						<li>C</li>
-						<li>C++</li>
-						<li>Shell script development in Linux</li>
-						<li>Advanced handling of Linux and Windows</li>
-						<li>Assembly language (Motorola 68000), PIC</li>
-					</ul>
-				</article>
-				<article class="cv-section">
-					<h3>Academic Background</h3>
-					<p>Computer Engineer - Complutense University of Madrid</p>
-				</article>
-				<article class="cv-section">
-					<h3>Courses</h3>
-					<ul>
-						<li>
-							Web design for mobile devices with HTML5, CSS3 and JavaScript
-							(Client) - EUROINNOVA BUSINESS SCHOOL
-						</li>
-						<li>
-							IT security management in the company - EUROINNOVA BUSINESS SCHOOL
-						</li>
-					</ul>
-				</article>
-				<article class="cv-section">
-					<h3>Languages</h3>
-					<ul>
-						<li>Spanish (Native)</li>
-						<li>
-							English: Cambridge English Advanced (CAE) C1 - University of
-							Cambridge
-						</li>
-					</ul>
-				</article>
-			</section>
-			<section id="projects" class="content-section">
-				<article class="project-item">
-					<h3>Excursiones Juntos</h3>
-					<p>
-						A web application created with React.js to plan and share
-						excursions. It allows users to create accounts, sign up for
-						excursions, and search for them by name, difficulty, area, and
-						estimated time to complete the route.
-					</p>
-					<h4 id="project-tech-heading-excursiones">Technologies Used:</h4>
-					<ul
-						class="project-tech-icons-list"
-						aria-labelledby="project-tech-heading-excursiones"
-					>
-						<li>
-							<i
-								class="fa-brands fa-html5 fa-fw tech-icon"
-								title="HTML5"
-								aria-label="HTML5"
-							></i>
-						</li>
-						<li>
-							<i
-								class="fa-brands fa-css3-alt fa-fw tech-icon"
-								title="CSS3"
-								aria-label="CSS3"
-							></i>
-						</li>
-						<li>
-							<i
-								class="fa-brands fa-js fa-fw tech-icon"
-								title="JavaScript"
-								aria-label="JavaScript"
-							></i>
-						</li>
-						<li>
-							<i
-								class="fa-brands fa-react fa-fw tech-icon"
-								title="React"
-								aria-label="React"
-							></i>
-						</li>
-						<li>
-							<i
-								class="fa-brands fa-node-js fa-fw tech-icon"
-								title="Node.js"
-								aria-label="Node.js"
-							></i>
-						</li>
-					</ul>
-					<p class="project-link-container">
-						<a
-							href="https://github.com/irenesj87/excursiones"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="project-link"
-							><span>View on GitHub</span></a
+			<div class="main-content-right">
+				<section id="curriculum" class="content-section">
+					<h3>Education</h3>
+					<article class="cv-section">
+						<h4>Languages and Technologies</h4>
+						<ul>
+							<li>Java</li>
+							<li>
+								Web Development
+								<ul>
+									<li>HTML5</li>
+									<li>CSS3</li>
+									<li>JavaScript</li>
+									<li>React.js, React-Bootstrap, and React Redux</li>
+								</ul>
+							</li>
+							<li>SQL (MySQL)</li>
+							<li>C</li>
+							<li>C++</li>
+							<li>Shell script development in Linux</li>
+							<li>Advanced handling of Linux and Windows</li>
+							<li>Assembly language (Motorola 68000), PIC</li>
+						</ul>
+					</article>
+					<article class="cv-section">
+						<h4>Academic Background</h4>
+						<p>Computer Engineer - Complutense University of Madrid</p>
+					</article>
+					<article class="cv-section">
+						<h4>Courses</h4>
+						<ul>
+							<li>
+								Web design for mobile devices with HTML5, CSS3 and JavaScript
+								(Client) - EUROINNOVA BUSINESS SCHOOL
+							</li>
+							<li>
+								IT security management in the company - EUROINNOVA BUSINESS
+								SCHOOL
+							</li>
+						</ul>
+					</article>
+					<article class="cv-section">
+						<h4>Languages</h4>
+						<ul>
+							<li>Spanish (Native)</li>
+							<li>
+								English: Cambridge English Advanced (CAE) C1 - University of
+								Cambridge
+							</li>
+						</ul>
+					</article>
+				</section>
+				<section id="projects" class="content-section">
+					<h3>Projects</h3>
+					<article class="project-item">
+						<h4>Excursiones Juntos</h4>
+						<p>
+							A web application created with React.js to plan and share
+							excursions. It allows users to create accounts, sign up for
+							excursions, and search for them by name, difficulty, area, and
+							estimated time to complete the route.
+						</p>
+						<h4 id="project-tech-heading-excursiones">Technologies Used:</h4>
+						<ul
+							class="project-tech-icons-list"
+							aria-labelledby="project-tech-heading-excursiones"
 						>
-					</p>
-				</article>
-			</section>
-		</main>
-		<footer>
-			<div class="contact-methods">
-				<ul>
-					<li>
-						<a href="mailto:isjv87@gmail.com">
-							<i class="fa-regular fa-envelope contact-icon"></i>
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://github.com/irenesj87"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<i class="fa-brands fa-github contact-icon"></i>
-						</a>
-					</li>
-				</ul>
+							<li>
+								<i
+									class="fa-brands fa-html5 fa-fw tech-icon"
+									title="HTML5"
+									aria-label="HTML5"
+								></i>
+							</li>
+							<li>
+								<i
+									class="fa-brands fa-css3-alt fa-fw tech-icon"
+									title="CSS3"
+									aria-label="CSS3"
+								></i>
+							</li>
+							<li>
+								<i
+									class="fa-brands fa-js fa-fw tech-icon"
+									title="JavaScript"
+									aria-label="JavaScript"
+								></i>
+							</li>
+							<li>
+								<i
+									class="fa-brands fa-react fa-fw tech-icon"
+									title="React"
+									aria-label="React"
+								></i>
+							</li>
+							<li>
+								<i
+									class="fa-brands fa-node-js fa-fw tech-icon"
+									title="Node.js"
+									aria-label="Node.js"
+								></i>
+							</li>
+						</ul>
+						<p class="project-link-container">
+							<a
+								href="https://github.com/irenesj87/excursiones"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="project-link"
+								><span>View on GitHub</span></a
+							>
+						</p>
+					</article>
+				</section>
 			</div>
-			<p class="copyright">
-				&copy;
-				<span id="current-year"></span>
-				<span>Irene San José. All rights reserved.</span>
-			</p>
-		</footer>
+		</main>
 		<script src="scripts.js"></script>
 	</body>
 </html>

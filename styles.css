@@ -1,47 +1,47 @@
 :root {
-	--bg-html: #f8f9fa;
+	--bg-html: #f1f1f1;
 	--bg-body: #ffffff;
-	--bg-footer: #212529;
-	--text-dark: #212529;
-	--text-medium: #6c757d;
+	--bg-header: #f39c12; /* Naranja primario */
+	--text-dark: #4a3b31; /* Marrón oscuro (para texto sobre fondos claros) */
+	--text-medium: #8c7b70; /* Marrón medio */
 	--text-light: #f8f9fa;
-	--text-footer-muted: #adb5bd;
-	--primary-accent: #17a2b8;
-	--secondary-accent: #148a9d;
-	--border-color: #dee2e6;
-	--hover-bg-light: #e2f5f8;
+	--text-footer-muted: #a1887f; /* Marrón claro para texto de pie de página */
+	--primary-accent: #f39c12; /* Naranja principal (ej. Naranja de Flat UI) */
+	--secondary-accent: #e67e22; /* Naranja secundario, un poco más oscuro/rojo (ej. Zanahoria de Flat UI) */
+	--border-color: #ffe0b2; /* Naranja muy claro para bordes */
+	--hover-bg-light: #fff3e0; /* Naranja extremadamente claro para hover */
 	--button-bg-light: var(--bg-body);
-	--button-text-light: var(--text-medium);
+	--button-text-light: var(--primary-accent); /* Texto naranja en botones claros */
 	--button-hover-bg-light: var(--hover-bg-light);
-	--code-bg-light: #f0f0f0; /* Example: Light gray for code blocks */
+	--code-bg-light: #fdf5e6; /* Crema/Naranja muy pálido para bloques de código */
 	--section-bg-light: var(--bg-body);
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
-	--box-shadow-color: rgba(0, 0, 0, 0.1);
+	--box-shadow-color: rgba(0, 0, 0, 0.08); /* Sombra un poco más sutil */
 	--header-height: 342px;
 }
 
 /* Estilos para el modo oscuro */
 html[data-theme="dark"] {
-	--bg-html: #1a1a1a;
-	--bg-body: #212529;
-	--bg-footer: #111;
+	--bg-html: #2d221b; /* Marrón muy oscuro */
+	--bg-body: #3e2e23; /* Marrón oscuro */
+	--bg-footer: #2d221b; /* Marrón muy oscuro para pie de página */
 	--text-dark: #e0e0e0;
 	--text-medium: #adb5bd;
-	--text-light: #f8f9fa;
+	--text-light: #f5e6d3; /* Crema claro para texto sobre fondos oscuros */
 	--text-footer-muted: #6c757d;
-	--primary-accent: #64b5f6;
-	--secondary-accent: #4294e3;
-	--border-color: #444;
-	--hover-bg-light: #343a40;
-	--button-bg-dark: #444;
-	--button-text-dark: #e0e0e0;
-	--button-hover-bg-dark: #666;
-	--code-bg-dark: #333;
-	--section-bg-dark: #2a2a2a;
-	--link-color-dark: #64b5f6;
-	--link-hover-color-dark: #90caf9;
-	--box-shadow-color: rgba(0, 0, 0, 0.1);
+	--primary-accent: #ffb74d; /* Naranja claro para acento en modo oscuro */
+	--secondary-accent: #e67e22; /* Naranja un poco más brillante para acento secundario */
+	--border-color: #5a4d42; /* Borde marrón medio */
+	--hover-bg-light: #4e3e33; /* Marrón oscuro ligeramente más claro para hover */
+	--button-bg-dark: var(--hover-bg-light);
+	--button-text-dark: var(--primary-accent); /* Texto naranja claro en botones oscuros */
+	--button-hover-bg-dark: #604f43;
+	--code-bg-dark: #4a3b31; /* Marrón oscuro para bloques de código */
+	--section-bg-dark: var(--bg-body); /* Las secciones usarán el fondo del body oscuro */
+	--link-color-dark: var(--primary-accent);
+	--link-hover-color-dark: var(--secondary-accent);
+	--box-shadow-color: rgba(0, 0, 0, 0.12); /* Sombra ligeramente más visible en modo oscuro */
 }
 
 html {
@@ -49,6 +49,11 @@ html {
 	background-color: var(--bg-html);
 	margin: 0;
 	padding: 0;
+}
+
+header {
+	background-color: var(--bg-header);
+	color: var(--text-light); /* Texto claro para contraste con header naranja */
 }
 
 body {
@@ -72,7 +77,7 @@ body {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--text-light); /* Borde claro para contraste con header naranja */
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease,
 		border-color 0.3s ease;
@@ -82,11 +87,12 @@ body {
 	padding: 0;
 	font-size: 1.2em; /* Se ajusta el tamaño del icono */
 	z-index: 10;
-	background-color: var(--button-bg-light);
-	color: var(--button-text-light);
+	background-color: transparent; /* Botón transparente sobre header naranja */
+	color: var(--text-light); /* Icono claro */
 }
 .theme-toggle-button:hover {
-	background-color: var(--button-hover-bg-light);
+	background-color: rgba(255, 255, 255, 0.15); /* Ligero fondo blanco al pasar el ratón */
+	border-color: var(--text-light);
 }
 
 html[data-theme="dark"] .theme-toggle-button {
@@ -101,6 +107,7 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 /* --- Estilos para la cabecera --- */
 .title-container {
 	margin-top: 20px;
+	margin-bottom: 20px;
 	padding-left: 30px;
 	padding-right: 30px;
 	display: flex;
@@ -116,7 +123,7 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	text-transform: uppercase;
 	word-spacing: 1px;
 	letter-spacing: 2px;
-	color: var(--primary-accent);
+	color: var(--text-light); /* Título claro sobre header naranja */
 	position: relative;
 	padding-top: 65px;
 	padding-bottom: 20px;
@@ -131,7 +138,7 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	font-weight: normal;
 	font-style: italic;
 	font-family: "Playfair Display", "Bookman", serif;
-	color: var(--text-medium);
+	color: var(--text-light); /* Subtítulo claro, quizás un poco menos opaco */
 	word-spacing: 1px;
 	letter-spacing: normal;
 	margin-bottom: 5px;
@@ -150,82 +157,42 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 
 .title-container h1:after {
 	width: 45px;
-	background-color: var(--text-medium);
+	background-color: var(--text-light); /* Líneas decorativas claras */
 }
 
 .title-container h1:before {
-	background-color: var(--primary-accent);
+	background-color: var(--secondary-accent); /* Usar naranja secundario para una de las líneas */
 	left: 45px;
 	width: 90px;
 }
 
-/* --- Estilos para la barra de navegación --- */
-.navbar {
-	padding: 10px 30px;
-	background-color: var(--bg-body);
-	width: 100%;
-	box-sizing: border-box;
-}
-
-.navbar ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+/* Estilos para el diseño de dos columnas */
+main#main-content {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	flex-wrap: wrap;
-	gap: 10px;
-	border-bottom: 1px solid var(--border-color);
-	padding-bottom: 10px;
+	gap: 50px; /* Reducido para mejor adaptabilidad inicial */
+	padding: 50px; /* Espaciado alrededor del contenido principal */
 }
 
-.navbar li {
-	margin: 0 10px;
+/* Columna izquierda para "About Me" */
+#aboutMe.content-section {
+	flex: 1 1 300px; /* Crece/decrece, con un ancho base de 300px */
+	/* Podrías usar un porcentaje como flex-basis: 30%; */
+	min-width: 280px; /* Ancho mínimo antes de que se comprima demasiado */
 }
 
-.navbar a {
-	color: var(--text-dark);
-	text-decoration: none;
-	text-transform: uppercase;
-	padding: 8px 10px;
-	display: inline-block;
-	border-radius: 4px;
-	letter-spacing: 5px;
+/* Contenedor para las secciones de la columna derecha */
+.main-content-right {
+	flex: 2 1 700px; /* Ajustado el flex-basis para la columna derecha */
+	/* Podrías usar un porcentaje como flex-basis: 65%; */
+	display: flex;
+	flex-direction: column;
 }
 
-.navbar a:hover,
-.navbar a:focus {
-	background-color: var(--hover-bg-light);
-	color: var(--primary-accent);
-}
-
-/* Estilo para el enlace de navegación activo */
-.navbar a.active-nav-link {
-	background-color: var(--primary-accent); /* Usa el color de acento principal para el fondo */
-	color: var(--text-light); /* Usa un color de texto claro que contraste bien */
-	font-weight: bold; /* Hace el texto un poco más grueso para destacarlo */
-}
-
-main {
-	flex-grow: 1;
-}
-
-/* --- Visibilidad de las secciones de contenido --- */
+/* Nueva regla para asegurar que todas las secciones de contenido sean visibles */
+/* Esto es útil si scripts.js o styles.css ocultan secciones no activas por defecto */
 .content-section {
-	display: none;
-	padding: 40px 30px;
-	min-height: auto;
-	background-color: var(--section-bg-light);
-	border: 1px solid var(--border-color);
-	border-radius: 8px;
-	margin: 20px 30px;
-	transition: background-color 0.3s ease, border-color 0.3s ease;
-	scroll-margin-top: var(--header-height);
-}
-
-.content-section.active-section {
-	display: block;
+	display: block; /* O 'flex', 'grid' si la sección misma necesita ser un contenedor de ese tipo. 'block' es un buen punto de partida. */
 }
 
 /* Modo oscuro para las secciones de contenido */
@@ -234,18 +201,57 @@ html[data-theme="dark"] .content-section {
 	border-color: var(--border-color);
 }
 
-#home {
+#aboutMe {
 	padding-top: 5px;
 	border: none;
 	background: transparent;
 	text-align: justify;
 }
-#home h1 {
-	text-transform: uppercase;
+#aboutMe h1 {
 	color: var(--primary-accent);
 	margin-bottom: 15px;
 	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 5px;
+}
+
+.contact-methods ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+.contact-methods li {
+	display: inline-block;
+	margin: 0 5px;
+}
+.contact-icon {
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.contact-icon:hover {
+	transform: scale(1.1);
+}
+.contact-icon.fa-envelope {
+	background-color: #cccccc;
+}
+.contact-icon.fa-envelope:hover {
+	background-color: #bbbbbb;
+}
+.contact-icon.fa-github {
+	background-color: #6e5494;
+}
+.contact-icon.fa-github:hover {
+	background-color: #59447a;
+}
+/* Asegura que la etiqueta <a> tag no añade sus propios estilos */
+.contact-methods ul li a {
+	text-decoration: none;
+}
+
+.contact-methods a:hover,
+.contact-methods a:focus {
+	color: var(--secondary-accent);
 }
 
 /* --- Estilos para el currículum --- */
@@ -255,16 +261,16 @@ html[data-theme="dark"] .content-section {
 	background-color: transparent;
 }
 
-.cv-section {
-	margin-bottom: 30px;
-}
-
-.cv-section h3 {
+#curriculum h3 {
 	font-size: 1.4em;
 	color: var(--primary-accent);
 	margin-bottom: 15px;
 	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 5px;
+}
+
+.cv-section {
+	margin-bottom: 30px;
 }
 
 .cv-section ul {
@@ -303,29 +309,24 @@ html[data-theme="dark"] .content-section {
 
 /* --- Estilos para los proyectos --- */
 #projects {
-	padding-top: 20px;
 	padding-bottom: 0;
 	margin-bottom: 0;
 	border: none;
-	border-radius: 0;
 	background-color: transparent;
 }
 
 .project-item {
-	border: 1px solid var(--border-color);
 	padding: 20px;
 	margin-bottom: 30px;
-	border-radius: 8px;
 	background-color: var(--bg-body);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.project-item h3 {
+#projects h3 {
+	font-size: 1.4em;
 	color: var(--primary-accent);
-	margin-top: 0;
-	margin-bottom: 30px;
-	text-align: center;
-	transition: color 0.3s ease;
+	margin-bottom: 15px;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 5px;
 }
 
 .project-item h4 {
@@ -367,6 +368,11 @@ html[data-theme="dark"] .content-section {
 	font-size: 25px;
 }
 
+.tech-icon.fa-js,
+.tech-icon.fa-react {
+	color: #212529; /* Asegurar contraste para estos iconos específicos */
+}
+
 .tech-icon.fa-html5 {
 	background-color: #e34f26;
 }
@@ -374,12 +380,10 @@ html[data-theme="dark"] .content-section {
 	background-color: #1572b6;
 }
 .tech-icon.fa-js {
-	background-color: #f7df1e;
-	color: #212529;
+	background-color: #f7df1e; 
 }
 .tech-icon.fa-react {
-	background-color: #61dafb;
-	color: #212529;
+	background-color: #61dafb; 
 }
 .tech-icon.fa-node-js {
 	background-color: #339933;
@@ -397,7 +401,7 @@ html[data-theme="dark"] .project-item {
 .project-link {
 	display: inline-block;
 	background-color: var(--link-color-light);
-	color: var(--text-light);
+	color: #ffffff; /* Texto blanco para mejor contraste con botones naranjas */
 	padding: 8px 15px;
 	text-decoration: none;
 	border-radius: 4px;
@@ -409,155 +413,114 @@ html[data-theme="dark"] .project-item {
 .project-link:hover,
 .project-link:focus {
 	background-color: var(--link-hover-color-light);
-	color: var(--text-light);
+	color: #ffffff;
 }
 
 html[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
-	color: var(--text-dark);
+	color: var(--bg-body); /* Texto oscuro (color del fondo del body) para contraste con botón naranja claro */
 }
 
 html[data-theme="dark"] .project-link:hover,
 html[data-theme="dark"] .project-link:focus {
 	background-color: var(--link-hover-color-dark);
-	color: var(--text-dark);
-}
-
-/* --- Estilos para el footer --- */
-footer {
-	flex-shrink: 0;
-	color: var(--text-light);
-	background-color: var(--bg-footer);
-	text-align: center;
-	padding: 30px 30px;
-	box-sizing: border-box;
-	margin-top: 40px;
-	transition: background-color 0.3s ease, color 0.3s ease;
-}
-footer h2 {
-	margin-bottom: 20px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-size: 1.6em;
-	font-weight: normal;
-	color: var(--text-light);
-}
-
-.contact-methods ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 0 20px 0;
-}
-.contact-methods li {
-	display: inline-block;
-	margin: 0 5px;
-}
-.contact-icon {
-	width: 50px;
-	height: 50px;
-	font-size: 31px;
-	transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.contact-icon:hover {
-	transform: scale(1.1);
-}
-.contact-icon.fa-envelope {
-	background-color: #cccccc;
-}
-.contact-icon.fa-envelope:hover {
-	background-color: #bbbbbb;
-}
-.contact-icon.fa-github {
-	background-color: #6e5494;
-}
-.contact-icon.fa-github:hover {
-	background-color: #59447a;
-}
-/* Asegura que la etiqueta <a> tag no añade sus propios estilos */
-footer .contact-methods ul li a {
-	text-decoration: none;
-}
-.contact-methods a:hover,
-.contact-methods a:focus {
-	color: var(--secondary-accent);
-}
-
-.copyright {
-	font-size: 0.9em;
-	color: var(--text-footer-muted);
-	margin-top: 20px;
-	transition: color 0.3s ease;
+	color: var(--bg-body);
 }
 
 /* --- Media Queries para responsividad--- */
+
+/* Breakpoint para pantallas grandes/medianas */
+@media (max-width: 1200px) {
+	main#main-content {
+		gap: 40px;
+		padding: 40px;
+	}
+}
+
 /* Breakpoints medios */
 @media (max-width: 1024px) {
-	.title-container,
-	.navbar,
-	.content-section,
-	footer {
+	.title-container {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
+	/* Ajustamos el padding del contenedor principal en lugar de márgenes en las secciones */
+	main#main-content {
+		padding: 30px;
+		gap: 30px;
+	}
+	#aboutMe.content-section {
+		flex-basis: 280px; /* Ajustar base de la columna "About Me" */
+		padding-left: 15px; /* Padding interno para la sección */
+		padding-right: 15px;
+	}
+	.main-content-right {
+		flex-basis: calc(
+			100% - 280px - 30px
+		); /* Ajustar base de la columna derecha */
+	}
 	.content-section {
-		margin-left: 25px;
-		margin-right: 25px;
+		/* Padding interno para las secciones de la columna derecha */
+		padding-left: 20px;
+		padding-right: 20px;
 		padding-top: 40px;
 		padding-bottom: 40px;
-	}
-	footer {
-		padding-top: 30px;
-		padding-bottom: 30px;
-		margin-left: 0;
-		margin-right: 0;
 	}
 }
 
 /* Breakpoints pequeños */
+/* Ajustes responsivos: apilar columnas en pantallas más pequeñas */
 @media (max-width: 768px) {
-	body {
-		box-shadow: none;
+	main#main-content {
+		flex-direction: column;
+		padding: 25px; /* Padding para el contenedor principal */
+		gap: 30px; /* Espacio vertical entre secciones apiladas */
 	}
-	.title-container,
-	.navbar,
-	.content-section,
-	footer {
+	/* Hacemos que ambas columnas ocupen todo el ancho disponible cuando están apiladas */
+	#aboutMe.content-section, /* Corregido para consistencia */
+	.main-content-right {
+		flex-basis: 100%;
+		min-width: auto; /* Resetear min-width */
+	}
+	#aboutMe.content-section,
+	.content-section {
+		/* Padding interno uniforme para todas las secciones */
 		padding-left: 20px;
 		padding-right: 20px;
 	}
-	.content-section {
-		margin-left: 20px;
-		margin-right: 20px;
-		padding-top: 30px;
-		padding-bottom: 30px;
+	.cv-section h3,
+	.project-item h3 {
+		font-size: 1.2em;
 	}
-	footer {
-		padding-top: 30px;
-		padding-bottom: 30px;
-		margin-left: 0;
-		margin-right: 0;
+	.theme-toggle-button {
+		top: 15px; /* Ajustar posición */
+		right: 20px;
+		width: 35px;
+		height: 35px;
+		font-size: 1.1em;
 	}
 }
 
 /* Breakpoints muy pequeños */
 @media (max-width: 480px) {
 	.title-container,
-	.navbar,
-	.content-section,
 	footer {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+	main#main-content {
+		padding: 20px; /* Padding para el contenedor principal */
+		gap: 25px; /* Espacio vertical entre secciones apiladas */
+	}
+	#aboutMe.content-section,
 	.content-section {
-		margin-left: 15px;
-		margin-right: 15px;
+		/* Padding interno uniforme para todas las secciones */
+		padding-left: 15px;
+		padding-right: 15px;
 		padding-top: 25px;
 		padding-bottom: 25px;
 	}
-	footer {
-		padding-top: 25px;
-		padding-bottom: 25px;
-		margin-left: 0;
-		margin-right: 0;
+	.theme-toggle-button {
+		top: 10px;
+		right: 15px;
 	}
 }
