@@ -22,23 +22,37 @@
 
 /* Estilos para el modo oscuro */
 html[data-theme="dark"] {
-	--bg-html: #1f2e2e;
-	--bg-body: #243838;
-	--text-dark: #e0e0e0;
-	--text-medium: #adb5bd;
-	--text-light: #e6f0f0;
-	--primary-accent: #558163;
-	--secondary-accent: #5f8c6b;
-	--border-color: #3a5454;
-	--hover-bg-light: #2e4a4a;
-	--button-bg-dark: var(--hover-bg-light);
-	--button-text-dark: var(--primary-accent);
-	--button-hover-bg-dark: #385a5a;
-	--code-bg-dark: #2a4040; /* Verde oscuro para bloques de código */
-	--section-bg-dark: var(--bg-body);
-	--link-color-dark: var(--primary-accent);
-	--link-hover-color-dark: var(--secondary-accent);
-	--box-shadow-color: rgba(0, 0, 0, 0.12);
+	--bg-html: #1e221e; /* Versión más oscura de --bg-html claro */
+	--bg-body: #121212; /* Versión muy oscura de --bg-body claro */
+	--bg-header: #30524d; /* Versión más oscura de --bg-header claro, añadido para modo oscuro */
+	--text-dark: #e0e0e0; /* Texto claro para contraste */
+	--text-medium: #adb5bd; /* Texto medio-claro para contraste */
+	--text-light: #f5f5f5; /* Texto muy claro para contraste */
+	--primary-accent: #40736b; /* Versión más oscura de --primary-accent claro */
+	--secondary-accent: #528c7f; /* Versión más oscura de --secondary-accent claro */
+	--border-color: #353c3c; /* Versión más oscura de --border-color claro */
+	--hover-bg-light: #283030; /* Redefinido para modo oscuro: versión más oscura de --hover-bg-light claro */
+	--button-bg-dark: var(
+		--hover-bg-light
+	); /* Usa el --hover-bg-light redefinido */
+	--button-text-dark: var(
+		--primary-accent
+	); /* Usa el --primary-accent de modo oscuro */
+	--button-hover-bg-dark: #333e3e; /* Ligeramente más oscuro/saturado que --button-bg-dark */
+	--code-bg-dark: #1c231c; /* Verde muy oscuro para bloques de código, versión más oscura de --code-bg-light */
+	--section-bg-dark: var(--bg-body); /* Usa el --bg-body de modo oscuro */
+	--link-color-dark: var(
+		--primary-accent
+	); /* Usa el --primary-accent de modo oscuro */
+	--link-hover-color-dark: var(
+		--secondary-accent
+	); /* Usa el --secondary-accent de modo oscuro */
+	--box-shadow-color: rgba(
+		0,
+		0,
+		0,
+		0.25
+	); /* Sombra un poco más pronunciada para fondos muy oscuros */
 }
 
 html {
@@ -84,7 +98,7 @@ body {
 	padding: 0;
 	font-size: 1.2em; /* Se ajusta el tamaño del icono */
 	z-index: 10;
-	background-color: transparent; 
+	background-color: transparent;
 	color: var(--text-light);
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.15);
@@ -96,9 +110,9 @@ html[data-theme="dark"] .theme-toggle-button {
 	background: var(--button-bg-dark);
 	color: var(--button-text-dark);
 	border-color: var(--border-color);
-}
-html[data-theme="dark"] .theme-toggle-button:hover {
-	background-color: var(--button-hover-bg-dark);
+	&:hover {
+		background-color: var(--button-hover-bg-dark);
+	}
 }
 
 /* --- Estilos para la cabecera --- */
@@ -201,15 +215,18 @@ html[data-theme="dark"] .content-section {
 	}
 }
 
-.contact-methods ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 0 20px 0;
+.contact-methods {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 20px 0;
+	}
+	li {
+		display: inline-block;
+		margin-right: 0 5px;
+	}
 }
-.contact-methods li {
-	display: inline-block;
-	margin: 0 5px;
-}
+
 .contact-icon {
 	width: 40px;
 	height: 40px;
