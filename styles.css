@@ -138,7 +138,7 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	font-weight: normal;
 	font-style: italic;
 	font-family: "Playfair Display", "Bookman", serif;
-	color: var(--text-light); /* Subtítulo claro, quizás un poco menos opaco */
+	color: var(--text-light);
 	word-spacing: 1px;
 	letter-spacing: normal;
 	margin-bottom: 5px;
@@ -157,11 +157,11 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 
 .title-container h1:after {
 	width: 45px;
-	background-color: var(--text-light); /* Líneas decorativas claras */
+	background-color: var(--text-light);
 }
 
 .title-container h1:before {
-	background-color: var(--secondary-accent); /* Usar naranja secundario para una de las líneas */
+	background-color: var(--secondary-accent);
 	left: 45px;
 	width: 90px;
 }
@@ -184,7 +184,6 @@ main#main-content {
 /* Contenedor para las secciones de la columna derecha */
 .main-content-right {
 	flex: 2 1 700px; /* Ajustado el flex-basis para la columna derecha */
-	/* Podrías usar un porcentaje como flex-basis: 65%; */
 	display: flex;
 	flex-direction: column;
 }
