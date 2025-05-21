@@ -331,6 +331,7 @@ html[data-theme="dark"] .content-section {
 .project-item h4 {
 	margin-top: 20px;
 	margin-bottom: 15px;
+	padding-top: 15px;
 	font-size: 1em;
 	color: var(--text-dark);
 	transition: color 0.3s ease;
