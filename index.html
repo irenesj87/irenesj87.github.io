@@ -11,7 +11,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
-		<title>My Personal WebPage</title>
+		<title>Irene San José - Computer Engineer</title>
 		<style>
 			/* Se esconde el body para evitar el FOUC (Flash of Unstyled Content) */
 			body {
@@ -42,6 +42,7 @@
 					id="theme-toggle"
 					class="theme-toggle-button"
 					aria-label="Switch to dark theme"
+					aria-live="polite"
 				>
 					<i class="fa-solid fa-moon"></i>
 				</button>
@@ -53,8 +54,12 @@
 		</header>
 
 		<main id="main-content">
-			<section id="aboutMe" class="content-section">
-				<h1>About Me</h1>
+			<section
+				id="aboutMe"
+				class="content-section"
+				aria-labelledby="about-me-heading"
+			>
+				<h2 id="about-me-heading">About Me</h2>
 				<p>
 					I am a Computer Engineer, a background that has provided me with a
 					foundation in the principles of computing, software architecture, and
@@ -73,13 +78,14 @@
 				<div class="contact-methods">
 					<ul>
 						<li>
-							<a href="mailto:isjv87@gmail.com">
+							<a href="mailto:isjv87@gmail.com" aria-label="Send me an email">
 								<i class="fa-solid fa-envelope contact-icon"></i>
 							</a>
 						</li>
 						<li>
 							<a
 								href="https://github.com/irenesj87"
+								aria-label="View my GitHub profile"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
@@ -90,10 +96,14 @@
 				</div>
 			</section>
 			<div class="main-content-right">
-				<section id="curriculum" class="content-section">
-					<h3>Education</h3>
-					<article class="cv-section">
-						<h4>Languages and Technologies</h4>
+				<section
+					id="curriculum"
+					class="content-section"
+					aria-labelledby="curriculum-heading"
+				>
+					<h2 id="curriculum-heading">Curriculum</h2>
+					<article class="cv-section" aria-labelledby="tech-skills-heading">
+						<h3 id="academic-background-heading">Languages and Technologies</h3>
 						<ul>
 							<li>Java</li>
 							<li>
@@ -102,7 +112,7 @@
 									<li>HTML5</li>
 									<li>CSS3</li>
 									<li>JavaScript</li>
-									<li>React.js, React-Bootstrap, and React Redux</li>
+									<li>React.js, React-Bootstrap, and Redux</li>
 								</ul>
 							</li>
 							<li>SQL (MySQL)</li>
@@ -113,12 +123,15 @@
 							<li>Assembly language (Motorola 68000), PIC</li>
 						</ul>
 					</article>
-					<article class="cv-section">
-						<h4>Academic Background</h4>
+					<article
+						class="cv-section"
+						aria-labelledby="academic-background-heading"
+					>
+						<h3 id="academic-background-heading">Academic Background</h3>
 						<p>Computer Engineer - Complutense University of Madrid</p>
 					</article>
-					<article class="cv-section">
-						<h4>Courses</h4>
+					<article class="cv-section" aria-labelledby="courses-heading">
+						<h3 id="courses-heading">Courses</h3>
 						<ul>
 							<li>
 								Web design for mobile devices with HTML5, CSS3 and JavaScript
@@ -130,8 +143,8 @@
 							</li>
 						</ul>
 					</article>
-					<article class="cv-section">
-						<h4>Languages</h4>
+					<article class="cv-section" aria-labelledby="languages-heading">
+						<h3 id="languages-heading">Spoken Languages</h3>
 						<ul>
 							<li>Spanish (Native)</li>
 							<li>
@@ -141,10 +154,14 @@
 						</ul>
 					</article>
 				</section>
-				<section id="projects" class="content-section">
-					<h3>Projects</h3>
+				<section
+					id="projects"
+					class="content-section"
+					aria-labelledby="projects-heading"
+				>
+					<h2 id="projects-heading">Projects</h2>
 					<article class="project-item">
-						<h4>Excursiones Juntos</h4>
+						<h3>Excursiones Juntos</h3>
 						<p>
 							A web application created with React.js to plan and share
 							excursions. It allows users to create accounts, sign up for

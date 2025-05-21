@@ -18,18 +18,15 @@
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
 	--box-shadow-color: rgba(0, 0, 0, 0.08);
-	--header-height: 342px;
 }
 
 /* Estilos para el modo oscuro */
 html[data-theme="dark"] {
 	--bg-html: #1f2e2e;
 	--bg-body: #243838;
-	--bg-footer: #1f2e2e;
 	--text-dark: #e0e0e0;
 	--text-medium: #adb5bd;
 	--text-light: #e6f0f0;
-	--text-footer-muted: #6c757d;
 	--primary-accent: #558163;
 	--secondary-accent: #5f8c6b;
 	--border-color: #3a5454;
@@ -38,17 +35,10 @@ html[data-theme="dark"] {
 	--button-text-dark: var(--primary-accent);
 	--button-hover-bg-dark: #385a5a;
 	--code-bg-dark: #2a4040; /* Verde oscuro para bloques de código */
-	--section-bg-dark: var(
-		--bg-body
-	); /* Las secciones usarán el fondo del body oscuro */
+	--section-bg-dark: var(--bg-body);
 	--link-color-dark: var(--primary-accent);
 	--link-hover-color-dark: var(--secondary-accent);
-	--box-shadow-color: rgba(
-		0,
-		0,
-		0,
-		0.12
-	); /* Sombra ligeramente más visible en modo oscuro */
+	--box-shadow-color: rgba(0, 0, 0, 0.12);
 }
 
 html {
@@ -84,27 +74,22 @@ body {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	border: 1px solid var(--text-light); /* Borde claro para contraste con header verde */
+	border: 1px solid var(--text-light);
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease,
 		border-color 0.3s ease;
 	display: flex;
-	align-items: center; /* Centra el icono verticalmente */
-	justify-content: center; /* Centra el icono horizontalmente */
+	align-items: center;
+	justify-content: center;
 	padding: 0;
 	font-size: 1.2em; /* Se ajusta el tamaño del icono */
 	z-index: 10;
 	background-color: transparent; /* Botón transparente sobre header verde */
 	color: var(--text-light); /* Icono claro */
-}
-.theme-toggle-button:hover {
-	background-color: rgba(
-		255,
-		255,
-		255,
-		0.15
-	); /* Ligero fondo blanco al pasar el ratón */
-	border-color: var(--text-light);
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.15);
+		border-color: var(--text-light);
+	}
 }
 
 html[data-theme="dark"] .theme-toggle-button {
@@ -126,34 +111,32 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-}
-
-.title-container h1 {
-	text-align: center;
-	font-size: 30px;
-	font-weight: 400;
-	text-transform: uppercase;
-	word-spacing: 1px;
-	letter-spacing: 2px;
-	color: var(--text-light); /* Título claro sobre header verde */
-	position: relative;
-	padding-top: 65px;
-	padding-bottom: 20px;
-	margin-bottom: 15px;
-}
-
-.title-container h1 span {
-	display: block;
-	line-height: 1.5em;
-	text-transform: none;
-	font-size: 0.7em;
-	font-weight: normal;
-	font-style: italic;
-	font-family: "Playfair Display", "Bookman", serif;
-	color: var(--text-light);
-	word-spacing: 1px;
-	letter-spacing: normal;
-	margin-bottom: 5px;
+	h1 {
+		text-align: center;
+		font-size: 30px;
+		font-weight: 400;
+		text-transform: uppercase;
+		word-spacing: 1px;
+		letter-spacing: 2px;
+		color: var(--text-light);
+		position: relative;
+		padding-top: 65px;
+		padding-bottom: 20px;
+		margin-bottom: 15px;
+		span {
+			display: block;
+			line-height: 1.5em;
+			text-transform: none;
+			font-size: 0.7em;
+			font-weight: normal;
+			font-style: italic;
+			font-family: "Playfair Display", "Bookman", serif;
+			color: var(--text-light);
+			word-spacing: 1px;
+			letter-spacing: normal;
+			margin-bottom: 5px;
+		}
+	}
 }
 
 .title-container h1:after,
@@ -188,7 +171,7 @@ main#main-content {
 
 /* Columna izquierda para "About Me" */
 #aboutMe.content-section {
-	flex: 1 1 290px; /* Crece/decrece, con un ancho base de 300px */
+	flex: 1 1 290px; /* Crece/decrece, con un ancho base de 280px */
 	min-width: 280px; /* Ancho mínimo antes de que se comprima demasiado */
 }
 
@@ -210,12 +193,12 @@ html[data-theme="dark"] .content-section {
 	border: none;
 	background: transparent;
 	text-align: justify;
-}
-#aboutMe h1 {
-	color: var(--primary-accent);
-	margin-bottom: 15px;
-	border-bottom: 1px solid var(--border-color);
-	padding-bottom: 5px;
+	h2 {
+		color: var(--primary-accent);
+		margin-bottom: 15px;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: 5px;
+	}
 }
 
 .contact-methods ul {
@@ -263,53 +246,46 @@ html[data-theme="dark"] .content-section {
 	padding-top: 5px;
 	border: none;
 	background-color: transparent;
-}
-
-#curriculum h3 {
-	font-size: 1.4em;
-	color: var(--primary-accent);
-	margin-bottom: 15px;
-	border-bottom: 1px solid var(--border-color);
-	padding-bottom: 5px;
+	h2 {
+		font-size: 1.5em;
+		color: var(--primary-accent);
+		margin-bottom: 15px;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: 5px;
+	}
 }
 
 .cv-section {
 	margin-bottom: 30px;
+	color: var(--text-dark);
+	ul {
+		list-style-type: disc;
+		padding-left: 25px;
+		margin-top: 0;
+		padding: 10px 15px 10px 30px;
+		li {
+			margin-bottom: 8px;
+			line-height: 1.5;
+		}
+		ul {
+			list-style-type: circle;
+			margin-top: 8px;
+			padding-left: 20px;
+		}
+	}
+	h3 {
+		font-size: 1.05em;
+		font-weight: 600;
+		color: var(--text-dark);
+	}
+	p {
+		line-height: 1.6;
+		margin-bottom: 10px;
+	}
 }
 
-.cv-section ul {
-	list-style-type: disc;
-	padding-left: 25px;
+.cv-section h2 + p {
 	margin-top: 0;
-	padding: 10px 15px 10px 30px;
-}
-
-.cv-section ul li {
-	margin-bottom: 8px;
-	line-height: 1.5;
-	color: var(--text-dark);
-}
-
-.cv-section ul ul {
-	list-style-type: circle;
-	margin-top: 8px;
-	padding-left: 20px;
-}
-
-.cv-section p {
-	line-height: 1.6;
-	margin-bottom: 10px;
-	color: var(--text-dark);
-}
-
-.cv-section h3 + p {
-	margin-top: 0;
-}
-
-.cv-section h4 {
-	font-size: 1.05em;
-	font-weight: 600;
-	color: var(--text-dark);
 }
 
 /* --- Estilos para los proyectos --- */
@@ -318,14 +294,13 @@ html[data-theme="dark"] .content-section {
 	margin-bottom: 0;
 	border: none;
 	background-color: transparent;
-}
-
-#projects h3 {
-	font-size: 1.4em;
-	color: var(--primary-accent);
-	margin-bottom: 15px;
-	border-bottom: 1px solid var(--border-color);
-	padding-bottom: 5px;
+	h2 {
+		font-size: 1.5em;
+		color: var(--primary-accent);
+		margin-bottom: 15px;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: 5px;
+	}
 }
 
 .project-item {
@@ -333,13 +308,17 @@ html[data-theme="dark"] .content-section {
 	background-color: var(--bg-body);
 }
 
-.project-item h4 {
+.project-item h3 {
 	margin-top: 20px;
 	margin-bottom: 15px;
 	padding-top: 15px;
 	font-size: 1em;
 	color: var(--text-dark);
 	transition: color 0.3s ease;
+}
+
+.project-item h4 {
+	color: var(--text-muted);
 }
 
 /* Contenedor para los iconos de tecnologías de los proyectos */
@@ -406,13 +385,13 @@ html[data-theme="dark"] .project-item {
 .project-link {
 	display: inline-block;
 	background-color: var(--link-color-light);
-	color: #ffffff; /* Texto blanco para mejor contraste con botones verdes */
+	color: #ffffff;
 	padding: 8px 15px;
 	text-decoration: none;
 	border-radius: 4px;
 	transition: background-color 0.3s ease, color 0.3s ease;
 	margin-right: 10px;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 .project-link:hover,
@@ -423,7 +402,7 @@ html[data-theme="dark"] .project-item {
 
 html[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
-	color: #ffffff; /* Texto oscuro (color del fondo del body) para contraste con botón verde claro */
+	color: #ffffff;
 }
 
 html[data-theme="dark"] .project-link:hover,
@@ -457,14 +436,14 @@ html[data-theme="dark"] .project-link:focus {
 		flex-basis: 280px; /* Ajustar base de la columna "About Me" */
 		padding-left: 15px; /* Padding interno para la sección */
 		padding-right: 15px;
-		padding-top: 15px; /* Padding top aún más reducido */
-		padding-bottom: 15px; /* Padding bottom aún más reducido */
+		padding-top: 15px;
+		padding-bottom: 15px;
 	}
 	.main-content-right {
 		flex-basis: calc(
 			100% - 280px - 30px
 		); /* Ajustar base de la columna derecha */
-		gap: 10px; /* Gap aún más reducido entre Curriculum y Projects */
+		gap: 15px; /* Gap aún más reducido entre Curriculum y Projects */
 	}
 	.content-section {
 		/* Padding interno para las secciones de la columna derecha */
@@ -474,10 +453,10 @@ html[data-theme="dark"] .project-link:focus {
 		padding-bottom: 10px; /* Padding bottom aún más reducido */
 	}
 	.cv-section {
-		margin-bottom: 10px; /* Margen inferior aún más reducido */
+		margin-bottom: 10px;
 	}
 	.project-item {
-		margin-bottom: 10px; /* Margen inferior aún más reducido */
+		margin-bottom: 10px;
 	}
 }
 
@@ -492,7 +471,7 @@ html[data-theme="dark"] .project-link:focus {
 	#aboutMe.content-section,
 	.main-content-right {
 		flex-basis: 100%;
-		min-width: auto; /* Resetear min-width */
+		min-width: auto;
 	}
 	#aboutMe.content-section,
 	.content-section {
