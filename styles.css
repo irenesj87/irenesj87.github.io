@@ -446,24 +446,33 @@ html[data-theme="dark"] .project-link:focus {
 	/* Ajustamos el padding del contenedor principal en lugar de márgenes en las secciones */
 	main#main-content {
 		padding: 30px;
-		gap: 30px;
+		gap: 15px; /* Gap aún más reducido entre columnas */
 	}
 	#aboutMe.content-section {
 		flex-basis: 280px; /* Ajustar base de la columna "About Me" */
 		padding-left: 15px; /* Padding interno para la sección */
 		padding-right: 15px;
+		padding-top: 15px;    /* Padding top aún más reducido */
+		padding-bottom: 15px; /* Padding bottom aún más reducido */
 	}
 	.main-content-right {
 		flex-basis: calc(
 			100% - 280px - 30px
 		); /* Ajustar base de la columna derecha */
+		gap: 10px; /* Gap aún más reducido entre Curriculum y Projects */
 	}
 	.content-section {
 		/* Padding interno para las secciones de la columna derecha */
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 40px;
-		padding-bottom: 40px;
+		padding-top: 10px;    /* Padding top aún más reducido */
+		padding-bottom: 10px; /* Padding bottom aún más reducido */
+	}
+	.cv-section {
+		margin-bottom: 10px; /* Margen inferior aún más reducido */
+	}
+	.project-item {
+		margin-bottom: 10px; /* Margen inferior aún más reducido */
 	}
 }
 
@@ -473,7 +482,7 @@ html[data-theme="dark"] .project-link:focus {
 	main#main-content {
 		flex-direction: column;
 		padding: 25px; /* Padding para el contenedor principal */
-		gap: 30px; /* Espacio vertical entre secciones apiladas */
+		gap: 10px; /* Espacio vertical aún más reducido entre secciones apiladas */
 	}
 	/* Hacemos que ambas columnas ocupen todo el ancho disponible cuando están apiladas */
 	#aboutMe.content-section, /* Corregido para consistencia */
@@ -486,6 +495,8 @@ html[data-theme="dark"] .project-link:focus {
 		/* Padding interno uniforme para todas las secciones */
 		padding-left: 20px;
 		padding-right: 20px;
+		padding-top: 10px;    /* Padding top aún más reducido */
+		padding-bottom: 10px; /* Padding bottom aún más reducido */
 	}
 	.cv-section h3,
 	.project-item h3 {
@@ -498,6 +509,15 @@ html[data-theme="dark"] .project-link:focus {
 		height: 35px;
 		font-size: 1.1em;
 	}
+	.main-content-right {
+		gap: 10px; /* Gap aún más reducido entre Curriculum y Projects */
+	}
+	.cv-section {
+		margin-bottom: 10px; /* Margen inferior aún más reducido */
+	}
+	.project-item {
+		margin-bottom: 10px; /* Margen inferior aún más reducido */
+	}
 }
 
 /* Breakpoints muy pequeños */
@@ -508,19 +528,28 @@ html[data-theme="dark"] .project-link:focus {
 		padding-right: 15px;
 	}
 	main#main-content {
-		padding: 20px; /* Padding para el contenedor principal */
-		gap: 25px; /* Espacio vertical entre secciones apiladas */
+		padding: 15px; /* Padding reducido para el contenedor principal */
+		gap: 0;    /* Gap reducido entre secciones apiladas */
 	}
 	#aboutMe.content-section,
 	.content-section {
 		/* Padding interno uniforme para todas las secciones */
 		padding-left: 15px;
 		padding-right: 15px;
-		padding-top: 25px;
-		padding-bottom: 25px;
+		padding-top: 5px;    /* Padding top reducido */
+		padding-bottom: 5px; /* Padding bottom reducido */
 	}
 	.theme-toggle-button {
 		top: 10px;
 		right: 15px;
+	}
+	.main-content-right {
+		gap: 5px; /* Gap reducido entre Curriculum y Projects */
+	}
+	.cv-section {
+		margin-bottom: 10px; /* Margen inferior reducido */
+	}
+	.project-item {
+		margin-bottom: 10px; /* Margen inferior reducido */
 	}
 }
