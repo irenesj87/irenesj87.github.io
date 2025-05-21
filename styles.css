@@ -1,19 +1,19 @@
 :root {
-	--bg-html: #f1f1f1;
+	--bg-html: #f0f4f0; /* Verde muy pálido / Gris verdoso claro */
 	--bg-body: #ffffff;
-	--bg-header: #f39c12; /* Naranja primario */
-	--text-dark: #4a3b31; /* Marrón oscuro (para texto sobre fondos claros) */
-	--text-medium: #8c7b70; /* Marrón medio */
+	--bg-header: #7fccc4; /* Verde claro principal más suave (ej. un verde menta claro) */
+	--text-dark: #3e4444; /* Gris oscuro / Verde muy oscuro desaturado */
+	--text-medium: #798080; /* Gris medio */
 	--text-light: #f8f9fa;
-	--text-footer-muted: #a1887f; /* Marrón claro para texto de pie de página */
-	--primary-accent: #f39c12; /* Naranja principal (ej. Naranja de Flat UI) */
-	--secondary-accent: #e67e22; /* Naranja secundario, un poco más oscuro/rojo (ej. Zanahoria de Flat UI) */
-	--border-color: #ffe0b2; /* Naranja muy claro para bordes */
-	--hover-bg-light: #fff3e0; /* Naranja extremadamente claro para hover */
+	--text-footer-muted: #9aa0a0; /* Gris claro para texto de pie de página */
+	--primary-accent: #7fccc4; /* Verde claro principal más suave */
+	--secondary-accent: #a2d5c6; /* Verde claro secundario, aún más pálido */
+	--border-color: #dce4e4; /* Verde muy claro / Gris verdoso para bordes */
+	--hover-bg-light: #e6efef; /* Verde extremadamente claro para hover */
 	--button-bg-light: var(--bg-body);
-	--button-text-light: var(--primary-accent); /* Texto naranja en botones claros */
+	--button-text-light: var(--primary-accent); /* Texto verde en botones claros */
 	--button-hover-bg-light: var(--hover-bg-light);
-	--code-bg-light: #fdf5e6; /* Crema/Naranja muy pálido para bloques de código */
+	--code-bg-light: #f5f8f5; /* Verde muy pálido para bloques de código */
 	--section-bg-light: var(--bg-body);
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
@@ -23,21 +23,21 @@
 
 /* Estilos para el modo oscuro */
 html[data-theme="dark"] {
-	--bg-html: #2d221b; /* Marrón muy oscuro */
-	--bg-body: #3e2e23; /* Marrón oscuro */
-	--bg-footer: #2d221b; /* Marrón muy oscuro para pie de página */
+	--bg-html: #1f2e2e; /* Verde bosque muy oscuro, casi negro */
+	--bg-body: #243838; /* Verde oscuro profundo */
+	--bg-footer: #1f2e2e; 
 	--text-dark: #e0e0e0;
 	--text-medium: #adb5bd;
-	--text-light: #f5e6d3; /* Crema claro para texto sobre fondos oscuros */
+	--text-light: #e6f0f0; /* Blanco verdoso muy claro para texto sobre fondos oscuros */
 	--text-footer-muted: #6c757d;
-	--primary-accent: #ffb74d; /* Naranja claro para acento en modo oscuro */
-	--secondary-accent: #e67e22; /* Naranja un poco más brillante para acento secundario */
-	--border-color: #5a4d42; /* Borde marrón medio */
-	--hover-bg-light: #4e3e33; /* Marrón oscuro ligeramente más claro para hover */
+	--primary-accent: #558163; /* Verde musgo oscuro para acento principal */
+	--secondary-accent: #5f8c6b; /* Verde musgo un poco más claro para acento secundario */
+	--border-color: #3a5454; /* Borde verde oscuro más sutil */
+	--hover-bg-light: #2e4a4a; /* Verde oscuro para hover de botones */
 	--button-bg-dark: var(--hover-bg-light);
-	--button-text-dark: var(--primary-accent); /* Texto naranja claro en botones oscuros */
-	--button-hover-bg-dark: #604f43;
-	--code-bg-dark: #4a3b31; /* Marrón oscuro para bloques de código */
+	--button-text-dark: var(--primary-accent); /* Texto verde claro en botones oscuros */
+	--button-hover-bg-dark: #385a5a; /* Hover de botón un poco más claro que el fondo del botón */
+	--code-bg-dark: #2a4040; /* Verde oscuro para bloques de código */
 	--section-bg-dark: var(--bg-body); /* Las secciones usarán el fondo del body oscuro */
 	--link-color-dark: var(--primary-accent);
 	--link-hover-color-dark: var(--secondary-accent);
@@ -53,7 +53,7 @@ html {
 
 header {
 	background-color: var(--bg-header);
-	color: var(--text-light); /* Texto claro para contraste con header naranja */
+	color: var(--text-light); /* Texto claro para contraste con header verde */
 }
 
 body {
@@ -77,7 +77,7 @@ body {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	border: 1px solid var(--text-light); /* Borde claro para contraste con header naranja */
+	border: 1px solid var(--text-light); /* Borde claro para contraste con header verde */
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease,
 		border-color 0.3s ease;
@@ -87,7 +87,7 @@ body {
 	padding: 0;
 	font-size: 1.2em; /* Se ajusta el tamaño del icono */
 	z-index: 10;
-	background-color: transparent; /* Botón transparente sobre header naranja */
+	background-color: transparent; /* Botón transparente sobre header verde */
 	color: var(--text-light); /* Icono claro */
 }
 .theme-toggle-button:hover {
@@ -123,7 +123,7 @@ html[data-theme="dark"] .theme-toggle-button:hover {
 	text-transform: uppercase;
 	word-spacing: 1px;
 	letter-spacing: 2px;
-	color: var(--text-light); /* Título claro sobre header naranja */
+	color: var(--text-light); /* Título claro sobre header verde */
 	position: relative;
 	padding-top: 65px;
 	padding-bottom: 20px;
@@ -401,7 +401,7 @@ html[data-theme="dark"] .project-item {
 .project-link {
 	display: inline-block;
 	background-color: var(--link-color-light);
-	color: #ffffff; /* Texto blanco para mejor contraste con botones naranjas */
+	color: #ffffff; /* Texto blanco para mejor contraste con botones verdes */
 	padding: 8px 15px;
 	text-decoration: none;
 	border-radius: 4px;
@@ -418,13 +418,13 @@ html[data-theme="dark"] .project-item {
 
 html[data-theme="dark"] .project-link {
 	background-color: var(--link-color-dark);
-	color: var(--bg-body); /* Texto oscuro (color del fondo del body) para contraste con botón naranja claro */
+	color: #ffffff /* Texto oscuro (color del fondo del body) para contraste con botón verde claro */
 }
 
 html[data-theme="dark"] .project-link:hover,
 html[data-theme="dark"] .project-link:focus {
 	background-color: var(--link-hover-color-dark);
-	color: var(--bg-body);
+	color: #ffffff;
 }
 
 /* --- Media Queries para responsividad--- */
