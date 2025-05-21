@@ -303,6 +303,7 @@ html[data-theme="dark"] .content-section {
 }
 
 .cv-section h4 {
+	font-size: 1.05em;
 	font-weight: 600;
 	color: var(--text-dark);
 }
@@ -315,12 +316,6 @@ html[data-theme="dark"] .content-section {
 	background-color: transparent;
 }
 
-.project-item {
-	padding: 20px;
-	margin-bottom: 30px;
-	background-color: var(--bg-body);
-}
-
 #projects h3 {
 	font-size: 1.4em;
 	color: var(--primary-accent);
@@ -329,11 +324,16 @@ html[data-theme="dark"] .content-section {
 	padding-bottom: 5px;
 }
 
+.project-item {
+	margin-bottom: 30px;
+	background-color: var(--bg-body);
+}
+
 .project-item h4 {
 	margin-top: 20px;
 	margin-bottom: 15px;
 	font-size: 1em;
-	color: var(--text-medium);
+	color: var(--text-dark);
 	transition: color 0.3s ease;
 }
 
