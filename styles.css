@@ -84,8 +84,8 @@ body {
 	padding: 0;
 	font-size: 1.2em; /* Se ajusta el tamaño del icono */
 	z-index: 10;
-	background-color: transparent; /* Botón transparente sobre header verde */
-	color: var(--text-light); /* Icono claro */
+	background-color: transparent; 
+	color: var(--text-light);
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.15);
 		border-color: var(--text-light);
