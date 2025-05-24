@@ -137,29 +137,26 @@ html[data-theme="dark"] .theme-toggle-button {
 			letter-spacing: normal;
 			margin-bottom: 5px;
 		}
+		&:before,
+		&:after {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 4px;
+			content: "";
+			right: 45px;
+			margin: auto;
+		}
+		&:before {
+			background-color: var(--secondary-accent);
+			left: 45px;
+			width: 90px;
+		}
+		&:after {
+			width: 45px;
+			background-color: var(--text-light);
+		}
 	}
-}
-
-.title-container h1:after,
-.title-container h1:before {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: 4px;
-	content: "";
-	right: 45px;
-	margin: auto;
-}
-
-.title-container h1:after {
-	width: 45px;
-	background-color: var(--text-light);
-}
-
-.title-container h1:before {
-	background-color: var(--secondary-accent);
-	left: 45px;
-	width: 90px;
 }
 
 /* Estilos para el diseño de dos columnas */
