@@ -69,7 +69,7 @@ body {
 
 /* Estilos para el botón del tema */
 .theme-toggle-button {
-	position: absolute;
+	position: absolute; /* Posición del botón */
 	top: 10px;
 	right: 30px;
 	width: 40px;
@@ -79,7 +79,7 @@ body {
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease,
 		border-color 0.3s ease;
-	display: flex;
+	display: flex; /* Posición del icono */
 	align-items: center;
 	justify-content: center;
 	padding: 0;
@@ -200,6 +200,8 @@ html[data-theme="dark"] .content-section {
 }
 
 .contact-methods {
+	display: flex;
+	justify-content: center;
 	ul {
 		list-style: none;
 		padding: 0;
@@ -207,7 +209,8 @@ html[data-theme="dark"] .content-section {
 	}
 	li {
 		display: inline-block;
-		margin-right: 0 5px;
+		margin-top: 15px;
+		margin-right: 2.5px;
 	}
 }
 
@@ -216,10 +219,11 @@ html[data-theme="dark"] .content-section {
 	height: 40px;
 	font-size: 25px;
 	transition: background-color 0.3s ease, transform 0.3s ease;
+	&:hover {
+		transform: scale(1.1);
+	}
 }
-.contact-icon:hover {
-	transform: scale(1.1);
-}
+
 .contact-icon.fa-envelope {
 	background-color: #cccccc;
 }
@@ -274,6 +278,7 @@ html[data-theme="dark"] .content-section {
 			padding-left: 20px;
 		}
 	}
+	/* Selector para etiquetas <p> que siguen inmediatamente a una etiqueta <h2> */
 	h2 + p {
 		margin-top: 0;
 	}
@@ -304,7 +309,12 @@ html[data-theme="dark"] .content-section {
 }
 
 .project-item {
-	margin-bottom: 30px;
+	margin-bottom: 50px;
+	border: 1px solid var(--border-color);
+	border-radius: 10px;
+	padding-top: 5px;
+	padding-left: 20px;
+	padding-bottom: 10px;
 	background-color: var(--bg-body);
 	h3 {
 		margin-top: 20px;
@@ -439,20 +449,20 @@ html[data-theme="dark"] .project-link {
 		flex-basis: calc(
 			100% - 280px - 30px
 		); /* Ajustar base de la columna derecha */
-		gap: 15px; /* Gap aún más reducido entre Curriculum y Projects */
+		gap: 15px; /* Gap entre Curriculum y Projects */
 	}
 	.content-section {
 		/* Padding interno para las secciones de la columna derecha */
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 10px; /* Padding top aún más reducido */
-		padding-bottom: 10px; /* Padding bottom aún más reducido */
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.cv-section {
 		margin-bottom: 10px;
 	}
 	.project-item {
-		margin-bottom: 10px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -495,7 +505,7 @@ html[data-theme="dark"] .project-link {
 		margin-bottom: 10px;
 	}
 	.project-item {
-		margin-bottom: 10px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -515,20 +525,20 @@ html[data-theme="dark"] .project-link {
 		/* Padding interno uniforme para todas las secciones */
 		padding-left: 15px;
 		padding-right: 15px;
-		padding-top: 5px; /* Padding top reducido */
-		padding-bottom: 5px; /* Padding bottom reducido */
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 	.theme-toggle-button {
 		top: 10px;
 		right: 15px;
 	}
 	.main-content-right {
-		gap: 5px; /* Gap reducido entre Education y Projects */
+		gap: 5px;
 	}
 	.cv-section {
-		margin-bottom: 10px; /* Margen inferior reducido */
+		margin-bottom: 10px;
 	}
 	.project-item {
-		margin-bottom: 10px; /* Margen inferior reducido */
+		margin-bottom: 30px;
 	}
 }
