@@ -31,8 +31,8 @@ html[data-theme="dark"] {
 	--primary-accent: #40736b;
 	--secondary-accent: #528c7f;
 	--border-color: #353c3c;
-	--hover-bg-light: #283030;
-	--button-bg-dark: var(--hover-bg-light);
+	--hover-bg-dark: #283030;
+	--button-bg-dark: var(--hover-bg-dark);
 	--button-text-dark: var(--primary-accent);
 	--button-hover-bg-dark: #333e3e;
 	--code-bg-dark: #1c231c;
@@ -47,6 +47,13 @@ html {
 	background-color: var(--bg-html);
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
 }
 
 header {
@@ -59,7 +66,6 @@ body {
 	background-color: var(--bg-body);
 	max-width: 1400px;
 	margin: 0 auto;
-	box-sizing: border-box;
 	box-shadow: 0 4px 15px var(--box-shadow-color);
 	display: flex;
 	flex-direction: column;
@@ -137,8 +143,8 @@ html[data-theme="dark"] .theme-toggle-button {
 			letter-spacing: normal;
 			margin-bottom: 5px;
 		}
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			position: absolute;
 			left: 0;
 			bottom: 0;
@@ -147,12 +153,12 @@ html[data-theme="dark"] .theme-toggle-button {
 			right: 45px;
 			margin: auto;
 		}
-		&:before {
+		&::before {
 			background-color: var(--secondary-accent);
 			left: 45px;
 			width: 90px;
 		}
-		&:after {
+		&::after {
 			width: 45px;
 			background-color: var(--text-light);
 		}
@@ -192,7 +198,10 @@ html[data-theme="dark"] .content-section {
 	background: transparent;
 	text-align: justify;
 	h2 {
+		font-size: 1.5em; /* Tamaño de fuente consistente */
+		line-height: 1.3; /* Altura de línea consistente */
 		color: var(--primary-accent);
+		margin-top: 0; /* Asegurar que no haya margen superior por defecto */
 		margin-bottom: 15px;
 		border-bottom: 1px solid var(--border-color);
 		padding-bottom: 5px;
@@ -252,8 +261,10 @@ html[data-theme="dark"] .content-section {
 	border: none;
 	background-color: transparent;
 	h2 {
-		font-size: 1.5em;
+		font-size: 1.5em; /* Tamaño de fuente consistente */
+		line-height: 1.3; /* Altura de línea consistente */
 		color: var(--primary-accent);
+		margin-top: 0; /* Asegurar que no haya margen superior por defecto */
 		margin-bottom: 15px;
 		border-bottom: 1px solid var(--border-color);
 		padding-bottom: 5px;
@@ -300,8 +311,10 @@ html[data-theme="dark"] .content-section {
 	border: none;
 	background-color: transparent;
 	h2 {
-		font-size: 1.5em;
+		font-size: 1.5em; /* Tamaño de fuente consistente */
+		line-height: 1.3; /* Altura de línea consistente */
 		color: var(--primary-accent);
+		margin-top: 0; /* Asegurar que no haya margen superior por defecto */
 		margin-bottom: 15px;
 		border-bottom: 1px solid var(--border-color);
 		padding-bottom: 5px;
@@ -350,7 +363,6 @@ html[data-theme="dark"] .content-section {
 	text-decoration: none;
 	line-height: 1; /* Ayuda con el centrado vertical de los iconos */
 	padding: 0; /* Asegura que no hay paddings afectando el centrado */
-	box-sizing: border-box;
 }
 
 /* Estilos para los iconos de las tecnologías usadas en los diferentes proyectos */
@@ -437,25 +449,27 @@ html[data-theme="dark"] .project-link {
 	main#main-content {
 		padding: 30px;
 		gap: 15px; /* Gap aún más reducido entre columnas */
+		align-items: flex-start; /* Asegura que los flex items alineen sus inicios */
 	}
 	#aboutMe.content-section {
-		flex-basis: 280px; /* Ajustar base de la columna "About Me" */
+		flex-grow: 0; /* Evita que #aboutMe crezca más allá de su flex-basis. */
+		flex-basis: 280px; /* Establece una base de ancho fija para #aboutMe. */
 		padding-left: 15px; /* Padding interno para la sección */
 		padding-right: 15px;
 		padding-top: 15px;
 		padding-bottom: 15px;
 	}
 	.main-content-right {
-		flex-basis: calc(
-			100% - 280px - 30px
-		); /* Ajustar base de la columna derecha */
-		gap: 15px; /* Gap entre Curriculum y Projects */
+		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su
+		   flex-grow heredado (valor de 2) para ocupar el espacio restante. */
+		flex-basis: 0;
+		gap: 15px; /* Este gap es para los hijos de .main-content-right (Curriculum y Projects) y debe mantenerse. */
 	}
 	.content-section {
 		/* Padding interno para las secciones de la columna derecha */
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 10px;
+		padding-top: 15px; /* Igualar con el padding-top de #aboutMe para alinear títulos */
 		padding-bottom: 10px;
 	}
 	.cv-section {
@@ -484,7 +498,7 @@ html[data-theme="dark"] .project-link {
 		/* Padding interno uniforme para todas las secciones */
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 10px;
+		padding-top: 15px;
 		padding-bottom: 10px;
 	}
 	.cv-section h3,
@@ -500,12 +514,6 @@ html[data-theme="dark"] .project-link {
 	}
 	.main-content-right {
 		gap: 10px; /* Gap entre Education y Projects */
-	}
-	.cv-section {
-		margin-bottom: 10px;
-	}
-	.project-item {
-		margin-bottom: 30px;
 	}
 }
 
@@ -534,11 +542,5 @@ html[data-theme="dark"] .project-link {
 	}
 	.main-content-right {
 		gap: 5px;
-	}
-	.cv-section {
-		margin-bottom: 10px;
-	}
-	.project-item {
-		margin-bottom: 30px;
 	}
 }
