@@ -431,7 +431,7 @@ html[data-theme="dark"] .project-link {
 
 /* --- Media Queries para responsividad--- */
 
-/* Breakpoint para pantallas grandes/medianas */
+/* Breakpoints grandes/medianos */
 @media (max-width: 1200px) {
 	main#main-content {
 		gap: 40px;
@@ -445,31 +445,31 @@ html[data-theme="dark"] .project-link {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
-	/* Ajustamos el padding del contenedor principal en lugar de márgenes en las secciones */
 	main#main-content {
 		padding: 30px;
-		gap: 15px; /* Gap aún más reducido entre columnas */
-		align-items: flex-start; /* Asegura que los flex items alineen sus inicios */
+		gap: 15px; /* Gap entre columnas */
 	}
 	#aboutMe.content-section {
 		flex-grow: 0; /* Evita que #aboutMe crezca más allá de su flex-basis. */
 		flex-basis: 280px; /* Establece una base de ancho fija para #aboutMe. */
-		padding-left: 15px; /* Padding interno para la sección */
+		padding-left: 15px;
 		padding-right: 15px;
 		padding-top: 15px;
 		padding-bottom: 15px;
+	}
+	#curriculum.content-section {
+		margin-top: 10px;
 	}
 	.main-content-right {
 		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su
 		   flex-grow heredado (valor de 2) para ocupar el espacio restante. */
 		flex-basis: 0;
-		gap: 15px; /* Este gap es para los hijos de .main-content-right (Curriculum y Projects) y debe mantenerse. */
+		gap: 15px; /* Este gap es para los hijos de .main-content-right (Curriculum y Projects) */
 	}
 	.content-section {
-		/* Padding interno para las secciones de la columna derecha */
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 15px; /* Igualar con el padding-top de #aboutMe para alinear títulos */
+		padding-top: 15px; 
 		padding-bottom: 10px;
 	}
 	.cv-section {
@@ -485,7 +485,7 @@ html[data-theme="dark"] .project-link {
 	main#main-content {
 		flex-direction: column;
 		padding: 25px; /* Padding para el contenedor principal */
-		gap: 10px; /* Espacio vertical aún más reducido entre secciones apiladas */
+		gap: 10px; /* Espacio vertical entre secciones apiladas */
 	}
 	/* Hacemos que ambas columnas ocupen todo el ancho disponible cuando están apiladas */
 	#aboutMe.content-section,
@@ -513,7 +513,7 @@ html[data-theme="dark"] .project-link {
 		font-size: 1.1em;
 	}
 	.main-content-right {
-		gap: 10px; /* Gap entre Education y Projects */
+		gap: 10px; /* Gap entre Curriculum y Projects */
 	}
 }
 
