@@ -31,12 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function setTheme(theme) {
 		htmlElement.setAttribute("data-theme", theme);
-		localStorage.setItem("theme", theme);
 		try {
 			localStorage.setItem(THEME_STORAGE_KEY, theme);
 		} catch (error) {
 			console.error(
-				"localStorage is not available. The preferred theme will not be saved.",
+				"Error al guardar el tema en localStorage. El tema preferido no se guardará.",
 				error
 			);
 		}
@@ -44,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function toggleTheme() {
-		const newTheme =
-			htmlElement.getAttribute("data-theme") === THEME_DARK
-				? THEME_LIGHT
-				: THEME_DARK;
+		// Se obtiene el tema actual...
+		const currentTheme = htmlElement.getAttribute("data-theme");
+		// ...y luego se determina el nuevo tema
+		const newTheme = currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK;
 		setTheme(newTheme);
 	}
 
@@ -58,7 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		try {
 			savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
 		} catch (error) {
-			console.warn("localStorage is not available. The preferred theme will not be saved", error)
+			console.warn(
+				"localStorage no está disponible. No se pudo cargar el tema guardado y las preferencias no se mantendrán entre sesiones.",
+				error
+			);
 		}
 		// Comprueba si el sistema operativo o navegador del usuario prefiere un esquema de color oscuro
 		// window.matchMedia: API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
@@ -67,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			window.matchMedia &&
 			window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-		// Establece el tema:
 		// 1. Si hay un tema guardado (savedTheme es true), usa ese tema.
 		// 2. Si no hay tema guardado (savedTheme es false), comprueba si el usuario prefiere oscuro.
 		// 3. Si prefiere oscuro, usa 'dark'; de lo contrario, usa 'light'.
