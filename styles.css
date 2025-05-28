@@ -323,8 +323,7 @@ html[data-theme="dark"] .content-section {
 
 .project-item {
 	margin-bottom: 50px;
-	border: 1px solid var(--border-color);
-	border-radius: 10px;
+	border-bottom: 1px solid var(--border-color);
 	padding-top: 5px;
 	padding-left: 20px;
 	padding-bottom: 10px;
@@ -340,6 +339,10 @@ html[data-theme="dark"] .content-section {
 	h4 {
 		color: var(--text-muted);
 	}
+}
+
+.project-item:last-of-type {
+	border-bottom: none;
 }
 
 /* Contenedor para los iconos de tecnologías de los proyectos */
@@ -469,7 +472,7 @@ html[data-theme="dark"] .project-link {
 	.content-section {
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 15px; 
+		padding-top: 15px;
 		padding-bottom: 10px;
 	}
 	.cv-section {
