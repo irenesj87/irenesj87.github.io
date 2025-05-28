@@ -1,3 +1,8 @@
+// Cuando el navegador haya terminado de cargar y analizar la estructura HTML de la página (el DOM esté listo), entonces ejecuta 
+// el código que se encuentra dentro de esta función.
+// DOMContentLoaded: Nombre del evento que el event listener está escuchando. El evento DOMContentLoaded se dispara cuando el 
+// documento HTML inicial ha sido completamente cargado y analizado (parseado) por el navegador. Esto sirve para evitar errores, 
+// ya que si el JavaScript intenta manipular elementos HTML antes de que existan en el DOM será lo que se producirá.
 document.addEventListener("DOMContentLoaded", () => {
 	// --- Selectores de elementos del DOM ---
 	const themeToggleButton = document.getElementById("theme-toggle");
@@ -10,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- FIN CONSTANTES DE TEMA ---
 
 	// --- CAMBIO DE TEMA ---
+	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en modo oscuro
+	// tiene un sol.
 	function updateThemeButtonVisuals(theme) {
 		if (themeToggleButton) {
 			const icon = themeToggleButton.querySelector("i");
@@ -25,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
+	// Se añade el event listener al botón
 	if (themeToggleButton) {
 		themeToggleButton.addEventListener("click", toggleTheme);
 	}
@@ -70,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 		// 1. Si hay un tema guardado (savedTheme es true), usa ese tema.
-		// 2. Si no hay tema guardado (savedTheme es false), comprueba si el usuario prefiere oscuro.
+		// 2. Si no hay un tema guardado (savedTheme es false), comprueba si el usuario prefiere oscuro.
 		// 3. Si prefiere oscuro, usa 'dark'; de lo contrario, usa 'light'.
 		setTheme(savedTheme || (prefersDark ? THEME_DARK : THEME_LIGHT));
 	}
