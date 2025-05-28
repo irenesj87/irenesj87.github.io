@@ -170,20 +170,26 @@ main#main-content {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 50px; /* Reducido para mejor adaptabilidad inicial */
-	padding: 50px; /* Espaciado alrededor del contenido principal */
+	padding: 50px;
 }
 
 /* Columna izquierda para "About Me" */
+/* Propiedad abreviada */
+/* flex-grow: 1 Significa que un elemento flexible puede crecer */
+/* flex-shrink: 1 Significa que un elemento flexible puede encogerse */
+/* flex-basis: Define el tamaño inicial del elemento flexible a lo largo del eje principal (horizontal si flex-direction es row) 
+o vertical si es column */
 #aboutMe.content-section {
 	flex: 1 1 290px; /* Crece/decrece, con un ancho base de 290px */
 	min-width: 280px; /* Ancho mínimo antes de que se comprima demasiado */
 }
 
 /* Contenedor para las secciones de la columna derecha */
+/* flex-grow: 2 Significa que ese elemento intentará ocupar el doble de espacio que el que tenga flex-grow: 1 */
 .main-content-right {
 	flex: 2 1 700px; /* Ajustado el flex-basis para la columna derecha */
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; /* Dice que los elementos se apilen en columnas */
 }
 
 /* Modo oscuro para las secciones de contenido */
@@ -217,22 +223,22 @@ html[data-theme="dark"] .content-section {
 		margin: 0 0 20px 0;
 	}
 	li {
-		display: inline-block;
+		display: inline-block; /* Si hay espacio suficiente, fuerza que los elementos se pongan unos al lado de otros en la misma línea */
 		margin-top: 15px;
 		margin-right: 2.5px;
 	}
 }
-
 .contact-icon {
 	width: 40px;
 	height: 40px;
 	font-size: 25px;
 	transition: background-color 0.3s ease, transform 0.3s ease;
 	&:hover {
-		transform: scale(1.1);
+		transform: scale(
+			1.1
+		); /* Agranda un poco los iconos cuando el ratón pasa por encima */
 	}
 }
-
 .contact-icon.fa-envelope {
 	background-color: #cccccc;
 }
@@ -249,7 +255,6 @@ html[data-theme="dark"] .content-section {
 .contact-methods ul li a {
 	text-decoration: none;
 }
-
 .contact-methods a:hover,
 .contact-methods a:focus {
 	color: var(--secondary-accent);
@@ -276,7 +281,6 @@ html[data-theme="dark"] .content-section {
 	color: var(--text-dark);
 	ul {
 		list-style-type: disc;
-		padding-left: 25px;
 		margin-top: 0;
 		padding: 10px 15px 10px 30px;
 		li {
@@ -324,15 +328,12 @@ html[data-theme="dark"] .content-section {
 .project-item {
 	margin-bottom: 50px;
 	border-bottom: 1px solid var(--border-color);
-	padding-top: 5px;
-	padding-left: 20px;
 	padding-bottom: 10px;
 	background-color: var(--bg-body);
 	h3 {
-		margin-top: 20px;
+		margin-top: 15px;
 		margin-bottom: 15px;
-		padding-top: 15px;
-		font-size: 1em;
+		font-size: 1.05em;
 		color: var(--text-dark);
 		transition: color 0.3s ease;
 	}
@@ -374,12 +375,10 @@ html[data-theme="dark"] .content-section {
 	height: 40px;
 	font-size: 25px;
 }
-
 .tech-icon.fa-js,
 .tech-icon.fa-react {
 	color: #212529; /* Asegurar contraste para estos iconos específicos */
 }
-
 .tech-icon.fa-html5 {
 	background-color: #e34f26;
 }
@@ -404,7 +403,6 @@ html[data-theme="dark"] .project-item {
 .project-link-container {
 	text-align: center;
 }
-
 .project-link {
 	display: inline-block;
 	background-color: var(--link-color-light);
@@ -464,8 +462,8 @@ html[data-theme="dark"] .project-link {
 		margin-top: 10px;
 	}
 	.main-content-right {
-		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su
-		   flex-grow heredado (valor de 2) para ocupar el espacio restante. */
+		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su flex-grow heredado (valor de 2) para ocupar el 
+		espacio restante. */
 		flex-basis: 0;
 		gap: 15px; /* Este gap es para los hijos de .main-content-right (Curriculum y Projects) */
 	}
