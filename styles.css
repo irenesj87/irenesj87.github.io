@@ -1,44 +1,78 @@
 :root {
+
+	/* --- Colores de Fondo --- */ 
 	--bg-html: #f0f4f0;
 	--bg-body: #ffffff;
 	--bg-header: #7fccc4;
+
+	/* --- Colores de texto --- */
 	--text-dark: #3e4444;
 	--text-medium: #798080;
 	--text-light: #f8f9fa;
 	--text-muted: #9aa0a0;
+
+	/* --- Acentos --- */
 	--primary-accent: #7fccc4;
 	--secondary-accent: #a2d5c6;
+
+	/* --- Colores de bordes --- */
 	--border-color: #dce4e4;
+
+	/* --- Colores de botones --- */
+	--button-bg-light: var(--bg-body);
 	--hover-bg-light: #e6efef;
 	--button-bg-light: var(--bg-body);
 	--button-text-light: var(--primary-accent);
 	--button-hover-bg-light: var(--hover-bg-light);
+
+	/* --- Colores de bloques --- */
 	--code-bg-light: #f5f8f5; /* Verde muy pálido para bloques de código */
 	--section-bg-light: var(--bg-body);
+
+	/* --- Colores de enlaces --- */
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
+
+	/* --- Colores de sombra --- */
 	--box-shadow-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Estilos para el modo oscuro */
 html[data-theme="dark"] {
+
+	/* --- Colores de Fondo --- */
 	--bg-html: #1e221e;
 	--bg-body: #121212;
 	--bg-header: #30524d;
+
+	/* --- Colores de texto --- */
 	--text-dark: #e0e0e0;
 	--text-medium: #adb5bd;
 	--text-light: #f5f5f5;
+
+	/* --- Acentos --- */
 	--primary-accent: #40736b;
 	--secondary-accent: #528c7f;
+
+	/* --- Colores de bordes --- */
 	--border-color: #353c3c;
+
+	/* --- Colores de botones --- */
+	--button-bg-dark: var(--bg-body);
 	--hover-bg-dark: #283030;
 	--button-bg-dark: var(--hover-bg-dark);
 	--button-text-dark: var(--primary-accent);
 	--button-hover-bg-dark: #333e3e;
+
+	/* --- Colores de bloques --- */
 	--code-bg-dark: #1c231c;
 	--section-bg-dark: var(--bg-body);
+
+	/* --- Colores de enlaces --- */
 	--link-color-dark: var(--primary-accent);
 	--link-hover-color-dark: var(--secondary-accent);
+
+	/* --- Colores de sombra --- */
 	--box-shadow-color: rgba(0, 0, 0, 0.25);
 }
 
@@ -192,26 +226,21 @@ o vertical si es column */
 	flex-direction: column; /* Dice que los elementos se apilen en columnas */
 }
 
-/* Modo oscuro para las secciones de contenido */
-html[data-theme="dark"] .content-section {
-	background-color: var(--section-bg-dark);
-	border-color: var(--border-color);
+.content-section > h2 {
+	font-size: 1.5em; /* Tamaño de fuente consistente */
+	line-height: 1.3; /* Altura de línea consistente */
+	color: var(--primary-accent);
+	margin-top: 0; /* Asegurar que no haya margen superior por defecto */
+	margin-bottom: 15px;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 5px;
 }
 
 #aboutMe {
 	padding-top: 5px;
 	border: none;
-	background: transparent;
+	background-color: transparent;
 	text-align: justify;
-	h2 {
-		font-size: 1.5em; /* Tamaño de fuente consistente */
-		line-height: 1.3; /* Altura de línea consistente */
-		color: var(--primary-accent);
-		margin-top: 0; /* Asegurar que no haya margen superior por defecto */
-		margin-bottom: 15px;
-		border-bottom: 1px solid var(--border-color);
-		padding-bottom: 5px;
-	}
 }
 
 .contact-methods {
@@ -255,25 +284,12 @@ html[data-theme="dark"] .content-section {
 .contact-methods ul li a {
 	text-decoration: none;
 }
-.contact-methods a:hover,
-.contact-methods a:focus {
-	color: var(--secondary-accent);
-}
 
 /* --- Estilos para el currículum --- */
 #curriculum {
 	padding-top: 5px;
 	border: none;
 	background-color: transparent;
-	h2 {
-		font-size: 1.5em; /* Tamaño de fuente consistente */
-		line-height: 1.3; /* Altura de línea consistente */
-		color: var(--primary-accent);
-		margin-top: 0; /* Asegurar que no haya margen superior por defecto */
-		margin-bottom: 15px;
-		border-bottom: 1px solid var(--border-color);
-		padding-bottom: 5px;
-	}
 }
 
 .cv-section {
@@ -314,15 +330,6 @@ html[data-theme="dark"] .content-section {
 	margin-bottom: 0;
 	border: none;
 	background-color: transparent;
-	h2 {
-		font-size: 1.5em; /* Tamaño de fuente consistente */
-		line-height: 1.3; /* Altura de línea consistente */
-		color: var(--primary-accent);
-		margin-top: 0; /* Asegurar que no haya margen superior por defecto */
-		margin-bottom: 15px;
-		border-bottom: 1px solid var(--border-color);
-		padding-bottom: 5px;
-	}
 }
 
 .project-item {
