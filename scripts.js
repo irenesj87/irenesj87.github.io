@@ -1,13 +1,14 @@
-// Cuando el navegador haya terminado de cargar y analizar la estructura HTML de la página (el DOM esté listo), entonces ejecuta 
+// Cuando el navegador haya terminado de cargar y analizar la estructura HTML de la página (el DOM esté listo), entonces ejecuta
 // el código que se encuentra dentro de esta función.
-// DOMContentLoaded: Nombre del evento que el event listener está escuchando. El evento DOMContentLoaded se dispara cuando el 
-// documento HTML inicial ha sido completamente cargado y analizado (parseado) por el navegador. Esto sirve para evitar errores, 
+// DOMContentLoaded: Nombre del evento que el event listener está escuchando. El evento DOMContentLoaded se dispara cuando el
+// documento HTML inicial ha sido completamente cargado y analizado (parseado) por el navegador. Esto sirve para evitar errores,
 // ya que si el JavaScript intenta manipular elementos HTML antes de que existan en el DOM será lo que se producirá.
 document.addEventListener("DOMContentLoaded", () => {
 	// --- Selectores de elementos del DOM ---
 	const themeToggleButton = document.getElementById("theme-toggle");
 	const htmlElement = document.documentElement;
 	// --- FIN Selectores de elementos del DOM ---
+
 	// --- CONSTANTES DE TEMA ---
 	const THEME_DARK = "dark";
 	const THEME_LIGHT = "light";
@@ -15,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- FIN CONSTANTES DE TEMA ---
 
 	// --- CAMBIO DE TEMA ---
-	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en modo oscuro
-	// tiene un sol.
+	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en
+	// modo oscuro tiene un sol.
 	function updateThemeButtonVisuals(theme) {
 		if (themeToggleButton) {
 			const icon = themeToggleButton.querySelector("i");
@@ -60,31 +61,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Esta función se llama cuando se carga la página para inicializar el tema
 	function initializeTheme() {
+		let themeToApply;
 		// Intenta obtener el tema guardado previamente en el almacenamiento local (localStorage)
-		let savedTheme = null;
+		let savedThemeFromStorage = null;
 		try {
-			savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+			savedThemeFromStorage = localStorage.getItem(THEME_STORAGE_KEY);
 		} catch (error) {
 			console.warn(
 				"localStorage no está disponible. No se pudo cargar el tema guardado y las preferencias no se mantendrán entre sesiones.",
 				error
 			);
 		}
-		// Comprueba si el sistema operativo o navegador del usuario prefiere un esquema de color oscuro
-		// window.matchMedia: API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
-		// .matches: Retorna true si la query coincide.
-		const prefersDark =
-			window.matchMedia &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-		// 1. Si hay un tema guardado (savedTheme es true), usa ese tema.
-		// 2. Si no hay un tema guardado (savedTheme es false), comprueba si el usuario prefiere oscuro.
-		// 3. Si prefiere oscuro, usa 'dark'; de lo contrario, usa 'light'.
-		setTheme(savedTheme || (prefersDark ? THEME_DARK : THEME_LIGHT));
+		// Si hay un tema válido guardado ("dark" o "light"), usa ese tema.
+		if (
+			savedThemeFromStorage === THEME_DARK ||
+			savedThemeFromStorage === THEME_LIGHT
+		) {
+			themeToApply = savedThemeFromStorage;
+		} else {
+			// Si no hay un tema guardado válido, comprueba la preferencia del sistema.
+			// Comprueba si el sistema operativo o navegador del usuario prefiere un esquema de color oscuro
+			// window.matchMedia: API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
+			// .matches: Retorna true si la query coincide.
+			const prefersDark =
+				window.matchMedia &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches;
+			themeToApply = prefersDark ? THEME_DARK : THEME_LIGHT;
+		}
+		setTheme(themeToApply);
 	}
 	// --- FIN CAMBIO DE TEMA ---
 
 	// --- CONFIGURACIÓN INICIAL ---
 	initializeTheme();
 	document.body.style.visibility = "visible"; // Muestra el <body> ahora para evitar el FOUC
-}); // End of DOMContentLoaded
+});
