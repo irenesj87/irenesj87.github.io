@@ -64,7 +64,7 @@ header {
 body {
 	font-family: Arial, sans-serif;
 	background-color: var(--bg-body);
-	max-width: 1400px;
+	max-width: 1300px;
 	margin: 0 auto;
 	box-shadow: 0 4px 15px var(--box-shadow-color);
 	display: flex;
