@@ -1,76 +1,65 @@
 :root {
-
-	/* --- Colores de Fondo --- */ 
-	--bg-html: #f0f4f0;
+	/* --- Modo claro --- */
+	/* Fondos */
+	--bg-html: #f0f2f5;
 	--bg-body: #ffffff;
-	--bg-header: #7fccc4;
+	--bg-header: #2a4365;
 
-	/* --- Colores de texto --- */
-	--text-dark: #3e4444;
-	--text-medium: #798080;
+	/* Textos */
+	--text-dark: #1a202c;
+	--text-medium: #4a5568;
 	--text-light: #f8f9fa;
-	--text-muted: #9aa0a0;
+	--text-muted: #718096;
 
-	/* --- Acentos --- */
-	--primary-accent: #7fccc4;
-	--secondary-accent: #a2d5c6;
+	/* Acentos y enlaces */
+	--primary-accent: #2b6cb0;
+	--secondary-accent: #2c5282;
 
-	/* --- Colores de bordes --- */
-	--border-color: #dce4e4;
+	/* Bordes */
+	--border-color: #e2e8f0;
 
-	/* --- Colores de botones --- */
-	--button-bg-light: var(--bg-body);
-	--hover-bg-light: #e6efef;
-	--button-bg-light: var(--bg-body);
-	--button-text-light: var(--primary-accent);
-	--button-hover-bg-light: var(--hover-bg-light);
-
-	/* --- Colores de bloques --- */
-	--code-bg-light: #f5f8f5; /* Verde muy pálido para bloques de código */
-	--section-bg-light: var(--bg-body);
-
-	/* --- Colores de enlaces --- */
+	/* Enlaces */
 	--link-color-light: var(--primary-accent);
 	--link-hover-color-light: var(--secondary-accent);
 
-	/* --- Colores de sombra --- */
+	/* Bloques */
+	--bg-section-highlight: #f0f2f5;
+
+	/* Sombra */
 	--box-shadow-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Estilos para el modo oscuro */
+/* --- Modo oscuro --- */
 html[data-theme="dark"] {
+	/* Fondos */
+	--bg-html: #0a192f;
+	--bg-body: #112240;
+	--bg-header: #0a192f;
 
-	/* --- Colores de Fondo --- */
-	--bg-html: #1e221e;
-	--bg-body: #121212;
-	--bg-header: #30524d;
+	/* Textos */
+	--text-dark: #ccd6f6;
+	--text-medium: #8892b0;
+	--text-muted: #8892b0;
+	--text-light: #e6f1ff;
 
-	/* --- Colores de texto --- */
-	--text-dark: #e0e0e0;
-	--text-medium: #adb5bd;
-	--text-light: #f5f5f5;
+	/* Acentos */
+	--primary-accent: #58a6ff;
+	--secondary-accent: #79c0ff;
 
-	/* --- Acentos --- */
-	--primary-accent: #40736b;
-	--secondary-accent: #528c7f;
+	/* Bordes */
+	--border-color: #233554;
 
-	/* --- Colores de bordes --- */
-	--border-color: #353c3c;
-
-	/* --- Colores de botones --- */
-	--button-bg-dark: var(--bg-body);
-	--hover-bg-dark: #283030;
-	--button-bg-dark: var(--hover-bg-dark);
+	/* Botones */
+	--button-bg-dark: transparent;
 	--button-text-dark: var(--primary-accent);
-	--button-hover-bg-dark: #333e3e;
+	--button-hover-bg-dark: rgba(88, 166, 255, 0.1);
 
-	/* --- Colores de bloques --- */
-	--code-bg-dark: #1c231c;
-	--section-bg-dark: var(--bg-body);
-
-	/* --- Colores de enlaces --- */
+	/* Enlaces */
 	--link-color-dark: var(--primary-accent);
 	--link-hover-color-dark: var(--secondary-accent);
+
+	/* Bloques */
+	--bg-section-highlight: #172a45; /* Azul oscuro para secciones destacadas */
 
 	/* --- Colores de sombra --- */
 	--box-shadow-color: rgba(0, 0, 0, 0.25);
@@ -131,6 +120,11 @@ body {
 		background-color: rgba(255, 255, 255, 0.15);
 		border-color: var(--text-light);
 	}
+	&:focus-visible {
+		/* Estilo de foco visible para navegación por teclado */
+		outline: 2px solid var(--text-light);
+		outline-offset: 2px;
+	}
 }
 
 html[data-theme="dark"] .theme-toggle-button {
@@ -139,6 +133,9 @@ html[data-theme="dark"] .theme-toggle-button {
 	border-color: var(--border-color);
 	&:hover {
 		background-color: var(--button-hover-bg-dark);
+	}
+	&:focus-visible {
+		outline-color: var(--primary-accent);
 	}
 }
 
@@ -205,6 +202,7 @@ main#main-content {
 	flex-wrap: wrap;
 	gap: 50px; /* Reducido para mejor adaptabilidad inicial */
 	padding: 50px;
+	align-items: flex-start; /* Alinea las columnas en la parte superior */
 }
 
 /* Columna izquierda para "About Me" */
@@ -214,8 +212,11 @@ main#main-content {
 /* flex-basis: Define el tamaño inicial del elemento flexible a lo largo del eje principal (horizontal si flex-direction es row) 
 o vertical si es column */
 #aboutMe.content-section {
-	flex: 1 1 290px; /* Crece/decrece, con un ancho base de 290px */
+	flex: 1 1 290px;
 	min-width: 280px; /* Ancho mínimo antes de que se comprima demasiado */
+	background-color: var(--bg-section-highlight);
+	padding: 20px 25px 25px;
+	border-radius: 8px;
 }
 
 /* Contenedor para las secciones de la columna derecha */
@@ -224,6 +225,11 @@ o vertical si es column */
 	flex: 2 1 700px; /* Ajustado el flex-basis para la columna derecha */
 	display: flex;
 	flex-direction: column; /* Dice que los elementos se apilen en columnas */
+}
+
+.content-section {
+	/* Espaciado superior por defecto para alinear títulos */
+	padding-top: 20px;
 }
 
 .content-section > h2 {
@@ -237,9 +243,6 @@ o vertical si es column */
 }
 
 #aboutMe {
-	padding-top: 5px;
-	border: none;
-	background-color: transparent;
 	text-align: justify;
 }
 
@@ -280,6 +283,12 @@ o vertical si es column */
 .contact-icon.fa-github:hover {
 	background-color: #59447a;
 }
+
+.contact-methods a:focus-visible .contact-icon {
+	outline: 2px solid var(--primary-accent);
+	outline-offset: 2px;
+}
+
 /* Asegura que la etiqueta <a> tag no añade sus propios estilos */
 .contact-methods ul li a {
 	text-decoration: none;
@@ -287,7 +296,6 @@ o vertical si es column */
 
 /* --- Estilos para el currículum --- */
 #curriculum {
-	padding-top: 5px;
 	border: none;
 	background-color: transparent;
 }
@@ -309,10 +317,6 @@ o vertical si es column */
 			padding-left: 20px;
 		}
 	}
-	/* Selector para etiquetas <p> que siguen inmediatamente a una etiqueta <h2> */
-	h2 + p {
-		margin-top: 0;
-	}
 	h3 {
 		font-size: 1.05em;
 		font-weight: 600;
@@ -326,6 +330,7 @@ o vertical si es column */
 
 /* --- Estilos para los proyectos --- */
 #projects {
+	padding-top: 0; /* El espaciado lo da el margen de la sección anterior */
 	padding-bottom: 0;
 	margin-bottom: 0;
 	border: none;
@@ -402,11 +407,6 @@ o vertical si es column */
 	background-color: #339933;
 }
 
-html[data-theme="dark"] .project-item {
-	background-color: var(--bg-body);
-	border-color: var(--border-color);
-}
-
 .project-link-container {
 	text-align: center;
 }
@@ -464,9 +464,6 @@ html[data-theme="dark"] .project-link {
 		padding-right: 15px;
 		padding-top: 15px;
 		padding-bottom: 15px;
-	}
-	#curriculum.content-section {
-		margin-top: 10px;
 	}
 	.main-content-right {
 		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su flex-grow heredado (valor de 2) para ocupar el 
@@ -536,6 +533,9 @@ html[data-theme="dark"] .project-link {
 		padding: 15px; /* Padding reducido para el contenedor principal */
 		gap: 0; /* Gap reducido entre secciones apiladas */
 	}
+	#aboutMe h2 {
+		padding-top: 10px;
+	}
 	#aboutMe.content-section,
 	.content-section {
 		/* Padding interno uniforme para todas las secciones */
@@ -550,5 +550,8 @@ html[data-theme="dark"] .project-link {
 	}
 	.main-content-right {
 		gap: 5px;
+	}
+	#aboutMe {
+		margin-bottom: 20px;
 	}
 }
