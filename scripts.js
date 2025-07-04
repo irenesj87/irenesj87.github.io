@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- FIN CONSTANTES DE TEMA ---
 
 	// --- CAMBIO DE TEMA ---
-	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en
-	// modo oscuro tiene un sol.
+	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en modo oscuro tiene 
+	// un sol.
 	function updateThemeButtonVisuals(theme) {
 		if (themeToggleButton) {
-			const icon = themeToggleButton.querySelector("i");
+			const icon = themeToggleButton.querySelector(".theme-toggle-icon");
 			const isDark = theme === THEME_DARK;
 			const ariaLabel = isDark
 				? "Switch to light theme"
@@ -59,37 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		setTheme(newTheme);
 	}
 
-	// Esta función se llama cuando se carga la página para inicializar el tema
+	// Sincroniza la UI (el botón de tema) con el tema que ya fue establecido por el script en línea en el <head>.
 	function initializeTheme() {
-		let themeToApply;
-		// Intenta obtener el tema guardado previamente en el almacenamiento local (localStorage)
-		let savedThemeFromStorage = null;
-		try {
-			savedThemeFromStorage = localStorage.getItem(THEME_STORAGE_KEY);
-		} catch (error) {
-			console.warn(
-				"localStorage no está disponible. No se pudo cargar el tema guardado y las preferencias no se mantendrán entre sesiones.",
-				error
-			);
+		// El tema se establece en el <head> para evitar FOUC. Aquí solo leemos ese valor.
+		const currentTheme = htmlElement.getAttribute("data-theme");
+		// Nos aseguramos de que el botón refleje el estado inicial correcto.
+		if (currentTheme) {
+			updateThemeButtonVisuals(currentTheme);
 		}
-
-		// Si hay un tema válido guardado ("dark" o "light"), usa ese tema.
-		if (
-			savedThemeFromStorage === THEME_DARK ||
-			savedThemeFromStorage === THEME_LIGHT
-		) {
-			themeToApply = savedThemeFromStorage;
-		} else {
-			// Si no hay un tema guardado válido, comprueba la preferencia del sistema.
-			// Comprueba si el sistema operativo o navegador del usuario prefiere un esquema de color oscuro
-			// window.matchMedia: API para consultar media queries, y "(prefers-color-scheme: dark)" es la query.
-			// .matches: Retorna true si la query coincide.
-			const prefersDark =
-				window.matchMedia &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches;
-			themeToApply = prefersDark ? THEME_DARK : THEME_LIGHT;
-		}
-		setTheme(themeToApply);
 	}
 	// --- FIN CAMBIO DE TEMA ---
 
