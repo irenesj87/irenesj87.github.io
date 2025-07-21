@@ -30,6 +30,10 @@
 
 	/* Colores base */
 	--color-white: #ffffff;
+
+	/* Tooltip */
+	--bg-tooltip: var(--text-dark);
+	--text-tooltip: var(--bg-body);
 }
 
 /* --- Modo oscuro --- */
@@ -262,7 +266,7 @@ o vertical si es column */
 	}
 	li {
 		/* Si hay espacio suficiente, fuerza que los elementos se pongan unos al lado de otros en la misma línea */
-		display: inline-block; 
+		display: inline-block;
 		margin-top: 15px;
 		margin-right: 2.5px;
 	}
@@ -378,6 +382,42 @@ o vertical si es column */
 	gap: 5px;
 }
 
+/* --- Estilos para los Tooltips de Tecnologías --- */
+
+/* Se añade posición relativa al <li> para que el tooltip se posicione respecto a él */
+.project-tech-icons-list li {
+	position: relative;
+}
+
+/* Estilo del cuerpo del tooltip */
+.project-tech-icons-list li[data-tooltip]::after {
+	content: attr(data-tooltip); /* Muestra el texto del atributo data-tooltip */
+	position: absolute;
+	bottom: 125%; /* Posiciona el tooltip encima del icono */
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--bg-tooltip);
+	color: var(--text-tooltip);
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 0.85em;
+	font-weight: 500;
+	font-family: system-ui, -apple-system, sans-serif;
+	white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+	z-index: 20;
+	opacity: 0; /* Oculto por defecto */
+	visibility: hidden;
+	pointer-events: none; /* Evita que el tooltip interfiera con el hover */
+	transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+}
+
+/* Muestra el tooltip al pasar el ratón por encima del <li> */
+.project-tech-icons-list li[data-tooltip]:hover::after {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0.1s; /* Pequeño retardo antes de aparecer */
+}
+
 /* Estilos generales para los botones circulares */
 .tech-icon,
 .contact-icon {
@@ -433,7 +473,6 @@ o vertical si es column */
 	&:hover,
 	&:focus {
 		background-color: var(--link-hover-color-light);
-		transform: scale(1.05);
 	}
 }
 
