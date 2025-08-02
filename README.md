@@ -1,6 +1,6 @@
 ### Hi, I'm Irene 👋🏻
 
-I'm a **Computer Engineer** with a solid foundation in computing principles, software architecture, and complex problem-solving. I'm passionate about technology and currently focusing on **web development**, specializing in creating modern and interactive user interfaces with **React.js**.
+I'm a **Computer Engineer** with a solid foundation in computing principles, software architecture, and complex problem-solving. I'm passionate about technology and I'm currently focusing on **web development**, specializing in creating user interfaces with **React.js**.
 
 - 🌱 I’m currently deepening my knowledge in the **React ecosystem**.
 - 💬 Feel free to ask me about **HTML, CSS, JavaScript, and React**.
