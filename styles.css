@@ -92,6 +92,10 @@ html {
 header {
 	background-color: var(--bg-header);
 	color: var(--text-light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 40px;
 }
 
 body {
@@ -107,10 +111,7 @@ body {
 
 /* Estilos para el botón del tema */
 .theme-toggle-button {
-	position: absolute; /* Posición del botón */
-	top: 10px;
-	right: 30px;
-	width: 40px;
+	width: 40px; /* Se mantiene el tamaño */
 	height: 40px;
 	border-radius: 50%;
 	border: 1px solid var(--text-light);
@@ -122,7 +123,6 @@ body {
 	justify-content: center;
 	padding: 0;
 	font-size: 1.2em; /* Se ajusta el tamaño del icono */
-	z-index: 10;
 	background-color: transparent;
 	color: var(--text-light);
 	&:hover {
@@ -152,14 +152,7 @@ html[data-theme="dark"] .theme-toggle-button {
 
 /* --- Estilos para la cabecera --- */
 .title-container {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding-left: 30px;
-	padding-right: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
+	flex-grow: 1; /* Permite que el contenedor del título ocupe el espacio sobrante */
 	h1 {
 		text-align: center;
 		font-size: 30px;
@@ -168,10 +161,9 @@ html[data-theme="dark"] .theme-toggle-button {
 		word-spacing: 1px;
 		letter-spacing: 2px;
 		color: var(--text-light);
-		position: relative;
-		padding-top: 65px;
-		padding-bottom: 20px;
-		margin-bottom: 20px;
+		position: relative; /* Mantenemos esto para los pseudo-elementos ::before y ::after */
+		padding-bottom: 15px; /* Aumenta el espacio entre el subtítulo y la decoración */
+		margin: 0; /* Se resetea el margen para que el centrado de flexbox funcione bien */
 		span {
 			display: block;
 			line-height: 1.5em;
@@ -183,7 +175,6 @@ html[data-theme="dark"] .theme-toggle-button {
 			color: var(--text-light);
 			word-spacing: 1px;
 			letter-spacing: normal;
-			margin-bottom: 5px;
 		}
 		&::before,
 		&::after {
@@ -415,18 +406,18 @@ html[data-theme="dark"] .tech-heading {
 	gap: 5px;
 }
 
-/* --- Estilos para los Tooltips de Tecnologías --- */
+/* --- Estilos para los Tooltips --- */
 
-/* Se añade posición relativa al <li> para que el tooltip se posicione respecto a él */
-.project-tech-icons-list li {
+/* Se añade posición relativa a cualquier elemento con tooltip para que este se posicione correctamente. */
+[data-tooltip] {
 	position: relative;
 }
 
 /* Estilo del cuerpo del tooltip */
-.project-tech-icons-list li[data-tooltip]::after {
+[data-tooltip]::after {
 	content: attr(data-tooltip); /* Muestra el texto del atributo data-tooltip */
 	position: absolute;
-	bottom: 125%; /* Posiciona el tooltip encima del icono */
+	bottom: 120%; /* Posiciona el tooltip encima del icono */
 	left: 50%;
 	transform: translateX(-50%);
 	background-color: var(--bg-tooltip);
@@ -444,11 +435,19 @@ html[data-theme="dark"] .tech-heading {
 	transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
 }
 
-/* Muestra el tooltip al pasar el ratón por encima del <li> */
-.project-tech-icons-list li[data-tooltip]:hover::after {
+/* Muestra el tooltip al pasar el ratón por encima del elemento */
+[data-tooltip]:hover::after {
 	opacity: 1;
 	visibility: visible;
 	transition-delay: 0.1s; /* Pequeño retardo antes de aparecer */
+}
+
+/* Posiciona el tooltip del botón del tema debajo del botón */
+#theme-toggle[data-tooltip]::after {
+	bottom: auto; /* Anula la posición por defecto */
+	top: calc(100% + 8px); /* Lo posiciona debajo con un margen de 8px */
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 /* Estilos generales para los botones circulares */
@@ -566,14 +565,6 @@ footer {
 
 /* Breakpoints medios */
 @media (max-width: 1024px) {
-	.title-container h1 {
-		margin-bottom: 20px;
-		padding-bottom: 15px;
-	}
-	.title-container {
-		padding-left: 25px;
-		padding-right: 25px;
-	}
 	main#main-content {
 		padding: 30px;
 		gap: 15px; /* Gap entre columnas */
@@ -619,24 +610,26 @@ footer {
 		flex-basis: 100%;
 		min-width: auto;
 	}
-	#aboutMe.content-section,
 	.content-section {
-		/* Padding interno uniforme para todas las secciones */
-		padding-left: 20px;
-		padding-right: 20px;
+		/* Se elimina el padding horizontal para que el padding del main#main-content controle el espaciado */
+		padding-left: 0;
+		padding-right: 0;
 		padding-top: 15px;
 		padding-bottom: 10px;
+	}
+	#aboutMe.content-section {
+		/* Se restaura el padding interno para la caja de "About Me" */
+		padding: 20px 25px;
 	}
 	.cv-section h3,
 	.project-item h3 {
 		font-size: 1.2em;
 	}
 	.theme-toggle-button {
-		top: 15px;
-		right: 20px;
 		width: 35px;
 		height: 35px;
 		font-size: 1.1em;
+		flex-shrink: 0; /* Evita que el botón se encoja */
 	}
 	.main-content-right {
 		gap: 10px; /* Gap entre Curriculum y Projects */
@@ -645,7 +638,9 @@ footer {
 
 /* Breakpoints muy pequeños */
 @media (max-width: 480px) {
-	.title-container,
+	header {
+		padding: 25px 15px; /* Padding reducido para la cabecera en pantallas muy pequeñas */
+	}
 	footer {
 		padding-left: 15px;
 		padding-right: 15px;
@@ -657,17 +652,16 @@ footer {
 	#aboutMe h2 {
 		padding-top: 10px;
 	}
-	#aboutMe.content-section,
 	.content-section {
-		/* Padding interno uniforme para todas las secciones */
-		padding-left: 15px;
-		padding-right: 15px;
+		/* Se mantiene el padding horizontal a 0 para las secciones sin fondo propio */
+		padding-left: 0;
+		padding-right: 0;
 		padding-top: 5px;
 		padding-bottom: 5px;
 	}
-	.theme-toggle-button {
-		top: 10px;
-		right: 15px;
+	#aboutMe.content-section {
+		/* Se restaura un padding más pequeño para la caja de "About Me" en pantallas muy pequeñas */
+		padding: 15px 20px;
 	}
 	.main-content-right {
 		gap: 5px;

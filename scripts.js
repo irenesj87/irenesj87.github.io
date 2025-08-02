@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				icon.classList.toggle("fa-moon", !isDark);
 			}
 			themeToggleButton.setAttribute("aria-label", ariaLabel);
+			themeToggleButton.setAttribute("data-tooltip", ariaLabel);
 		}
 	}
 
