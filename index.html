@@ -23,6 +23,13 @@
 		<script>
 			// Script de bloqueo de renderizado para establecer el tema inicial y evitar FOUC.
 			(function () {
+				// Deshabilita la restauración automática del scroll para que la página siempre cargue en la parte superior.
+				if ("scrollRestoration" in history) {
+					history.scrollRestoration = "manual";
+				}
+				// Se fuerza el scroll a la parte superior de la página de forma inmediata para evitar el "salto".
+				window.scrollTo(0, 0);
+
 				const THEME_STORAGE_KEY = "theme";
 				const THEME_DARK = "dark";
 				const THEME_LIGHT = "light";
@@ -125,24 +132,20 @@
 						aria-labelledby="professional-skills-heading"
 					>
 						<h3 id="professional-skills-heading">Professional Skills</h3>
-						<ul>
-							<li>Java</li>
-							<li>
-								Web Development
-								<ul>
-									<li>HTML5</li>
-									<li>CSS3</li>
-									<li>JavaScript</li>
-									<li>React.js, React-Bootstrap, and Redux</li>
-								</ul>
-							</li>
-							<li>SQL (MySQL)</li>
-							<li>C</li>
-							<li>C++</li>
-							<li>Shell script development in Linux</li>
-							<li>Advanced handling of Linux and Windows</li>
-							<li>Assembly language (Motorola 68000), PIC</li>
-						</ul>
+						<div class="skills-container">
+							<span class="skill-badge">HTML5</span>
+							<span class="skill-badge">CSS3</span>
+							<span class="skill-badge">JavaScript</span>
+							<span class="skill-badge">React.js</span>
+							<span class="skill-badge">Redux</span>
+							<span class="skill-badge">Java</span>
+							<span class="skill-badge">C</span>
+							<span class="skill-badge">C++</span>
+							<span class="skill-badge">SQL (MySQL)</span>
+							<span class="skill-badge">Linux</span>
+							<span class="skill-badge">Shell Scripting</span>
+							<span class="skill-badge">Git</span>
+						</div>
 					</article>
 					<article
 						class="cv-section"
@@ -233,13 +236,18 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								class="project-link"
-								>View on GitHub</a
 							>
+								View on GitHub
+								<i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
+							</a>
 						</p>
 					</article>
 				</section>
 			</div>
 		</main>
+		<footer>
+			<p>&copy; 2024 Irene San José. All rights reserved.</p>
+		</footer>
 		<script src="scripts.js"></script>
 	</body>
 </html>

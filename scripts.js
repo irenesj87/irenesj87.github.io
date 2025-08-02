@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- FIN CONSTANTES DE TEMA ---
 
 	// --- CAMBIO DE TEMA ---
-	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en modo oscuro tiene 
+	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en modo oscuro tiene
 	// un sol.
 	function updateThemeButtonVisuals(theme) {
 		if (themeToggleButton) {
@@ -72,5 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// --- CONFIGURACIÓN INICIAL ---
 	initializeTheme();
+	// Se fuerza el scroll a la parte superior como corrección final antes de mostrar la página.
+	window.scrollTo(0, 0);
 	document.body.style.visibility = "visible"; // Muestra el <body> ahora para evitar el FOUC
 });

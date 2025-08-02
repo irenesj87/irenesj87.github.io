@@ -80,6 +80,7 @@ html {
 	box-sizing: border-box;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, sans-serif;
+	scroll-behavior: smooth;
 }
 
 *,
@@ -170,7 +171,7 @@ html[data-theme="dark"] .theme-toggle-button {
 		position: relative;
 		padding-top: 65px;
 		padding-bottom: 20px;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		span {
 			display: block;
 			line-height: 1.5em;
@@ -336,6 +337,34 @@ o vertical si es column */
 	}
 }
 
+/* --- Estilos para las insignias de habilidades --- */
+.skills-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding-top: 10px;
+}
+
+.skill-badge {
+	background-color: var(--bg-section-highlight);
+	color: var(--text-medium);
+	padding: 6px 12px;
+	border-radius: 16px;
+	font-weight: 500;
+	border: 1px solid var(--border-color);
+}
+
+html[data-theme="dark"] .skill-badge {
+	/* Se ajustan los colores para mejorar el contraste y la legibilidad en modo oscuro. */
+	background-color: var(
+		--border-color
+	); /* Un fondo ligeramente más claro que el de la sección. */
+	color: var(--text-dark); /* Texto más brillante para un contraste alto. */
+	border-color: var(
+		--primary-accent
+	); /* Borde de acento para que destaquen más. */
+}
+
 /* --- Estilos para los proyectos --- */
 #projects {
 	padding-top: 0; /* El espaciado lo da el margen de la sección anterior */
@@ -355,7 +384,6 @@ o vertical si es column */
 		margin-bottom: 15px;
 		font-size: 1.05em;
 		color: var(--text-dark);
-		transition: color 0.3s ease;
 	}
 	h4 {
 		color: var(--text-muted);
@@ -370,6 +398,11 @@ o vertical si es column */
 	font-weight: bold;
 	color: var(--text-muted);
 	margin-bottom: 1em;
+}
+
+html[data-theme="dark"] .tech-heading {
+	/* Se aumenta el contraste del texto para mejorar la legibilidad. */
+	color: var(--text-dark);
 }
 
 /* Contenedor para los iconos de tecnologías de los proyectos */
@@ -470,10 +503,29 @@ o vertical si es column */
 	transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 	margin-right: 10px;
 	margin-top: 20px;
+	font-weight: 500;
+	border: none; /* Resetea el borde por defecto de los botones */
+	font-family: inherit; /* Hereda la fuente para consistencia */
+	cursor: pointer; /* Asegura el cursor de puntero en los botones */
+	i {
+		margin-left: 8px;
+		font-size: 0.8em; /* Make icon slightly smaller than text */
+	}
 	&:hover,
 	&:focus {
 		background-color: var(--link-hover-color-light);
 	}
+}
+
+.project-link:disabled {
+	background-color: #a0aec0; /* Gray background for disabled */
+	color: #e2e8f0;
+	cursor: not-allowed;
+}
+
+html[data-theme="dark"] .project-link:disabled {
+	background-color: var(--border-color);
+	color: var(--text-muted);
 }
 
 html[data-theme="dark"] .project-link {
@@ -491,6 +543,17 @@ html[data-theme="dark"] .tech-icon.fa-react {
 	color: #1a202c;
 }
 
+/* --- Estilos para el footer --- */
+footer {
+	text-align: center;
+	padding: 20px;
+	margin-top: auto; /* Push footer to the bottom */
+	background-color: var(--bg-header);
+	color: var(--text-light);
+	font-size: 0.9em;
+	border-top: 1px solid var(--border-color);
+}
+
 /* --- Media Queries para responsividad--- */
 
 /* Breakpoints grandes/medianos */
@@ -503,6 +566,10 @@ html[data-theme="dark"] .tech-icon.fa-react {
 
 /* Breakpoints medios */
 @media (max-width: 1024px) {
+	.title-container h1 {
+		margin-bottom: 20px;
+		padding-bottom: 15px;
+	}
 	.title-container {
 		padding-left: 25px;
 		padding-right: 25px;
