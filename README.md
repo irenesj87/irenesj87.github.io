@@ -1,4 +1,4 @@
-### Hi, I'm Irene San José 👋🏻
+### Hi, I'm Irene 👋🏻
 
 I'm a **Computer Engineer** with a solid foundation in computing principles, software architecture, and complex problem-solving. I'm passionate about technology and currently focusing on **web development**, specializing in creating modern and interactive user interfaces with **React.js**.
 
@@ -7,11 +7,11 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 
 <br/>
  
-## 🛠️ Languages and Tools
+## 🛠️ Languages and Tools I use
  
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,java,c,cpp,mysql,linux,vscode&theme=light" alt="My Skills"/>
+    <img src="https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,vscode&theme=light" alt="My Skills"/>
   </a>
 </p>
 
@@ -25,6 +25,6 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 </p>
 
 <!---
-irenesjv/irenesjv is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+irenesj87/irenesj87 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
