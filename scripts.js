@@ -39,25 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		themeToggleButton.addEventListener("click", toggleTheme);
 	}
 
-	function setTheme(theme) {
-		htmlElement.setAttribute("data-theme", theme);
+	function toggleTheme() {
+		const currentTheme = htmlElement.getAttribute("data-theme");
+		const newTheme = currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK;
+		htmlElement.setAttribute("data-theme", newTheme);
 		try {
-			localStorage.setItem(THEME_STORAGE_KEY, theme);
+			localStorage.setItem(THEME_STORAGE_KEY, newTheme);
 		} catch (error) {
 			console.error(
 				"Error al guardar el tema en localStorage. El tema preferido no se guardará.",
 				error
 			);
 		}
-		updateThemeButtonVisuals(theme);
-	}
-
-	function toggleTheme() {
-		// Se obtiene el tema actual...
-		const currentTheme = htmlElement.getAttribute("data-theme");
-		// ...y luego se determina el nuevo tema
-		const newTheme = currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK;
-		setTheme(newTheme);
+		updateThemeButtonVisuals(newTheme);
 	}
 
 	// Sincroniza la UI (el botón de tema) con el tema que ya fue establecido por el script en línea en el <head>.
