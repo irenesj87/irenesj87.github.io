@@ -70,8 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	// --- FIN CAMBIO DE TEMA ---
 
+	// --- ACTUALIZACIÓN DINÁMICA DEL AÑO ---
+	function updateCopyrightYear() {
+		const yearSpan = document.getElementById("current-year");
+		if (yearSpan) {
+			yearSpan.textContent = new Date().getFullYear();
+		}
+	}
+	// --- FIN ACTUALIZACIÓN DINÁMICA DEL AÑO ---
+
 	// --- CONFIGURACIÓN INICIAL ---
 	initializeTheme();
+	updateCopyrightYear();
 	// Se fuerza el scroll a la parte superior como corrección final antes de mostrar la página.
 	window.scrollTo(0, 0);
 	document.body.style.visibility = "visible"; // Muestra el <body> ahora para evitar el FOUC
