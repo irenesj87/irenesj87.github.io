@@ -25,6 +25,6 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 </p>
 
 <!---
-irenesj87/irenesj87 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+irenesjv/irenesjv is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
