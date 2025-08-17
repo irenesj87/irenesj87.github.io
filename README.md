@@ -11,7 +11,7 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
  
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,react,redux,nodejs,vscode&theme=light" alt="My Skills"/>
+    <img src="https://skillicons.dev/icons?i=html,css,js,react,vscode&theme=light" alt="My Skills"/>
   </a>
 </p>
 
