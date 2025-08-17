@@ -1,4 +1,4 @@
-### Hi 👋🏻
+### Hi 👋🏻,
 
 I'm a **Computer Engineer** with a solid foundation in computing principles, software architecture, and complex problem-solving.</br> I like technology and I'm currently focusing on **web development**, specializing in creating user interfaces with **React.js**.
 
