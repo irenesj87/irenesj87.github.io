@@ -1,4 +1,4 @@
-### Hi, I'm Irene 👋🏻
+### Hi 👋🏻
 
 I'm a **Computer Engineer** with a solid foundation in computing principles, software architecture, and complex problem-solving.</br> I'm like technology and I'm currently focusing on **web development**, specializing in creating user interfaces with **React.js**.
 
@@ -7,7 +7,7 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 
 <br/>
  
-## Languages and Tools
+## Languages and Tools I use
  
 <p align="center">
   <a href="https://skillicons.dev">
