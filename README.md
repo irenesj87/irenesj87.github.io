@@ -20,7 +20,7 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 ## 📈 My GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=irenesj87&show_icons=true&theme=transparent&hide=contribs,prs" alt="Irene's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=irenesj87&show=discussions_started,discussions_answered&show_icons=true&theme=transparent&hide=contribs,prs" alt="Irene's GitHub Stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=irenesj87&layout=pie&theme=transparent" alt="Top Languages" />
 </p>
 
