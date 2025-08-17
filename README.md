@@ -7,7 +7,7 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 
 <br/>
  
-## Languages and Tools I use
+## 🛠️ Languages and Tools I use
  
 <p align="center">
   <a href="https://skillicons.dev">
@@ -17,7 +17,7 @@ I'm a **Computer Engineer** with a solid foundation in computing principles, sof
 
 <br/>
   
-## My GitHub Stats
+## 📈 My GitHub Stats
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=irenesj87&show_icons=true&hide=contribs&show=reviews,prs_merged&theme=vue&bg_color=00000000" alt="Irene's GitHub Stats" />
