@@ -46,7 +46,7 @@ html[data-theme="dark"] {
 	/* Textos */
 	--text-dark: #ccd6f6;
 	--text-medium: #8892b0;
-	--text-muted: #8892b0;
+	--text-muted: #a8b2d1; /* Aumentado el brillo para mejorar contraste */
 	--text-light: #e6f1ff;
 
 	/* Acentos */
@@ -327,6 +327,14 @@ o vertical si es column */
 		line-height: 1.6;
 		margin-bottom: 10px;
 	}
+}
+
+.course-institution {
+	display: block;
+	margin-top: 4px;
+	color: var(--text-muted);
+	font-style: italic;
+	font-size: 1em;
 }
 
 /* --- Estilos para las insignias de habilidades --- */
