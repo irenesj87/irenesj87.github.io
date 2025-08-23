@@ -1,6 +1,6 @@
 ### Hi 👋🏻,
 
-I'm a **Computer Engineer** with a solid foundation in software architecture and complex problem-solving.<br/> I like technology and now I'm focusing on **web development**, specializing in creating user interfaces with **React.js**.
+I am a **Computer Engineer** with a solid foundation in software architecture and complex problem-solving.<br/> My current focus is **web development**, where I specialize in building user interfaces with **React.js**.
 
 - 🌱 I’m currently learning **React.js**.
 - 💬 Feel free to ask me about **HTML, CSS, JavaScript and React.js**.
