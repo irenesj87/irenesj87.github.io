@@ -550,7 +550,6 @@ footer {
 	margin-top: auto; /* Asegura que el footer se mantenga al final de la página */
 	background-color: var(--bg-header);
 	color: var(--text-light);
-	font-size: 0.9em;
 	border-top: 1px solid var(--border-color);
 }
 
