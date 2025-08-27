@@ -11,7 +11,7 @@ I am a **Computer Engineer** with a solid foundation in software architecture an
  
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,react,redux,vscode&theme=light" alt="My Skills"/>
+    <img src="https://skillicons.dev/icons?i=html,css,js,react,redux,jest,vscode&theme=light" alt="My Skills"/>
   </a>
 </p>
 
