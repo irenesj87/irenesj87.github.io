@@ -9,11 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const htmlElement = document.documentElement;
 	// --- FIN Selectores de elementos del DOM ---
 
-	// --- CONSTANTES DE TEMA ---
-	const THEME_DARK = "dark";
-	const THEME_LIGHT = "light";
-	const THEME_STORAGE_KEY = "theme";
-	// --- FIN CONSTANTES DE TEMA ---
+	// --- CONSTANTES ---
+	const ICON_CLASS_DARK = "fa-sun";
+	const ICON_CLASS_LIGHT = "fa-moon";
+	// --- FIN CONSTANTES ---
 
 	// --- CAMBIO DE TEMA ---
 	// Función que actualiza el botón para cambiar el tema. Si se está en modo claro tiene una luna y si se está en modo oscuro tiene
@@ -21,16 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	function updateThemeButtonVisuals(theme) {
 		if (themeToggleButton) {
 			const icon = themeToggleButton.querySelector(".theme-toggle-icon");
-			const isDark = theme === THEME_DARK;
+			const isDark = theme === window.APP_CONFIG.THEME_DARK;
 			const ariaLabel = isDark
 				? "Switch to light theme"
 				: "Switch to dark theme";
 			if (icon) {
-				icon.classList.toggle("fa-sun", isDark);
-				icon.classList.toggle("fa-moon", !isDark);
+				icon.classList.toggle(ICON_CLASS_DARK, isDark);
+				icon.classList.toggle(ICON_CLASS_LIGHT, !isDark);
 			}
 			themeToggleButton.setAttribute("aria-label", ariaLabel);
-			themeToggleButton.setAttribute("data-tooltip", ariaLabel);
 		}
 	}
 
@@ -41,10 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function toggleTheme() {
 		const currentTheme = htmlElement.getAttribute("data-theme");
-		const newTheme = currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK;
+		const newTheme =
+			currentTheme === window.APP_CONFIG.THEME_DARK
+				? window.APP_CONFIG.THEME_LIGHT
+				: window.APP_CONFIG.THEME_DARK;
 		htmlElement.setAttribute("data-theme", newTheme);
 		try {
-			localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+			// Si localStorage no es accesible, la preferencia de tema no se puede guardar.
+			// El tema seguirá aplicándose para la sesión actual, pero no se recordará
+			// en futuras visitas.
+			localStorage.setItem(window.APP_CONFIG.THEME_STORAGE_KEY, newTheme);
 		} catch (error) {
 			console.error(
 				"Error al guardar el tema en localStorage. El tema preferido no se guardará.",
