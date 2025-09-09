@@ -18,10 +18,6 @@
 	/* Bordes */
 	--border-color: #e2e8f0;
 
-	/* Enlaces */
-	--link-color-light: var(--primary-accent);
-	--link-hover-color-light: var(--secondary-accent);
-
 	/* Bloques */
 	--bg-section-highlight: #f0f2f5;
 
@@ -61,10 +57,6 @@ html[data-theme="dark"] {
 	--button-text-dark: var(--primary-accent);
 	--button-hover-bg-dark: rgba(88, 166, 255, 0.1);
 
-	/* Enlaces */
-	--link-color-dark: var(--primary-accent);
-	--link-hover-color-dark: var(--secondary-accent);
-
 	/* Bloques */
 	--bg-section-highlight: #172a45; /* Azul oscuro para secciones destacadas */
 
@@ -99,7 +91,7 @@ header {
 	padding: 30px 40px;
 }
 
-body {
+.page-wrapper {
 	background-color: var(--bg-body);
 	max-width: 1300px;
 	margin: 0 auto;
@@ -107,6 +99,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+}
+
+body {
+	margin: 0; /* Elimina el margen por defecto del navegador para evitar bordes no deseados. */
 	overflow-x: hidden; /* Solución definitiva para evitar el desbordamiento horizontal en breakpoints xs */
 	color: var(--text-dark);
 }
@@ -244,7 +240,7 @@ o vertical si es column */
 }
 
 #aboutMe {
-	text-align: justify;
+	text-align: left;
 }
 
 .contact-methods {
@@ -420,7 +416,7 @@ html[data-theme="dark"] .tech-heading {
 
 /* Estilo del cuerpo del tooltip */
 [data-tooltip]::after {
-	content: attr(data-tooltip); /* Muestra el texto del atributo data-tooltip */
+	content: attr(aria-label); /* Muestra el texto del atributo aria-label */
 	position: absolute;
 	bottom: 120%; /* Posiciona el tooltip encima del icono */
 	left: 50%;
@@ -429,7 +425,7 @@ html[data-theme="dark"] .tech-heading {
 	color: var(--text-tooltip);
 	padding: 5px 10px;
 	border-radius: 4px;
-	font-size: 0.85em;
+	font-size: 0.85rem; /* Usamos rem para un tamaño consistente y accesible */
 	font-weight: 500;
 	font-family: system-ui, -apple-system, sans-serif;
 	white-space: nowrap; /* Evita que el texto se divida en varias líneas */
@@ -502,7 +498,7 @@ html[data-theme="dark"] .tech-heading {
 }
 .project-link {
 	display: inline-block;
-	background-color: var(--link-color-light);
+	background-color: var(--primary-accent);
 	color: var(--color-white);
 	padding: 8px 15px;
 	text-decoration: none;
@@ -519,21 +515,11 @@ html[data-theme="dark"] .tech-heading {
 		font-size: 0.8em;
 	}
 	&:hover {
-		background-color: var(--link-hover-color-light);
+		background-color: var(--secondary-accent);
 	}
 	&:focus-visible {
 		outline: 2px solid var(--primary-accent);
 		outline-offset: 2px;
-	}
-}
-
-html[data-theme="dark"] .project-link {
-	background-color: var(--link-color-dark);
-	&:hover {
-		background-color: var(--link-hover-color-dark);
-	}
-	&:focus-visible {
-		outline-color: var(--primary-accent);
 	}
 }
 
