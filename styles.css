@@ -230,7 +230,7 @@ o vertical si es column */
 }
 
 .content-section > h2 {
-	font-size: 1.5em;
+	font-size: 1.7em;
 	line-height: 1.3;
 	color: var(--primary-accent);
 	margin-top: 0;
@@ -258,12 +258,23 @@ o vertical si es column */
 		margin-right: 2.5px;
 	}
 }
+
+/* Estilos para los iconos de contacto */
 .contact-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
+	border-radius: 50%;
+	color: var(--color-white);
+	text-decoration: none;
+	line-height: 1;
+	padding: 0;
 	transition: background-color 0.3s ease, transform 0.3s ease;
 	&:hover {
-		transform: scale(
-			1.1
-		); /* Agranda un poco los iconos cuando el ratón pasa por encima */
+		transform: scale(1.1);
 	}
 }
 .contact-icon.fa-envelope {
@@ -305,6 +316,7 @@ o vertical si es column */
 		li {
 			margin-bottom: 8px;
 			line-height: 1.5;
+			font-size: 1.1rem;
 			/* Fuerza el salto de línea en palabras muy largas para evitar desbordamiento */
 			word-break: break-all;
 		}
@@ -315,11 +327,12 @@ o vertical si es column */
 		}
 	}
 	h3 {
-		font-size: 1.05em;
+		font-size: 1.09em;
 		font-weight: 600;
 		color: var(--text-dark);
 	}
 	p {
+		font-size: 1.1rem;
 		line-height: 1.6;
 		margin-bottom: 10px;
 	}
@@ -341,6 +354,7 @@ o vertical si es column */
 	padding-top: 10px;
 }
 
+/* Estilos para las insignias de habilidades */
 .skill-badge {
 	background-color: var(--bg-section-highlight);
 	color: var(--text-medium);
@@ -348,14 +362,85 @@ o vertical si es column */
 	border-radius: 16px;
 	font-weight: 500;
 	border: 1px solid var(--border-color);
+	display: inline-flex; /* Para alinear el icono y el texto */
+	align-items: center;
+	gap: 6px; /* Espacio entre el icono y el texto */
 }
 
-html[data-theme="dark"] .skill-badge {
+/* Modo oscuro para las insignias de habilidad (solo para las que no tienen icono de marca) */
+html[data-theme="dark"] .skill-badge:not([class*="skill-badge-"]) {
 	background-color: var(--border-color);
 	color: var(--text-dark);
 	border-color: var(
 		--primary-accent
 	); /* Borde de acento para que destaquen más. */
+}
+
+/* Estilos específicos para las insignias de habilidades con iconos */
+.skill-badge i {
+	font-size: 1.1em; /* Ajusta el tamaño del icono relativo al texto */
+	line-height: 1;
+}
+
+/* Colores de marca para las insignias con iconos */
+.skill-badge-html5 {
+	background-color: #e34f26;
+	color: var(--color-white);
+	border-color: transparent;
+}
+.skill-badge-css3 {
+	background-color: #1572b6;
+	color: var(--color-white);
+	border-color: transparent;
+}
+.skill-badge-js {
+	background-color: #f7df1e;
+	color: var(--text-dark);
+	border-color: transparent;
+}
+.skill-badge-react {
+	background-color: #61dafb;
+	color: var(--text-dark);
+	border-color: transparent;
+}
+.skill-badge-node {
+	background-color: #339933;
+	color: var(--color-white);
+	border-color: transparent;
+}
+.skill-badge-java {
+	background-color: #007396;
+	color: var(--color-white);
+	border-color: transparent;
+}
+.skill-badge-c {
+	background-color: #00599c;
+	color: var(--color-white);
+	border-color: transparent;
+}
+.skill-badge-github {
+	background-color: #181717;
+	color: var(--color-white);
+	border-color: transparent;
+}
+
+/* Ajustes para el modo oscuro para las insignias con iconos */
+html[data-theme="dark"] .skill-badge-js,
+html[data-theme="dark"] .skill-badge-react {
+	/* Estos tienen fondos claros, así que forzamos un color de texto oscuro para mantener el contraste en modo oscuro. */
+	color: #1a202c;
+}
+
+/* Todas las insignias con iconos deben tener el borde de acento en modo oscuro */
+html[data-theme="dark"] .skill-badge-html5,
+html[data-theme="dark"] .skill-badge-css3,
+html[data-theme="dark"] .skill-badge-js,
+html[data-theme="dark"] .skill-badge-react,
+html[data-theme="dark"] .skill-badge-node,
+html[data-theme="dark"] .skill-badge-java,
+html[data-theme="dark"] .skill-badge-c,
+html[data-theme="dark"] .skill-badge-github {
+	border-color: var(--primary-accent);
 }
 
 /* --- Estilos para los proyectos --- */
@@ -395,16 +480,6 @@ html[data-theme="dark"] .skill-badge {
 
 html[data-theme="dark"] .tech-heading {
 	color: var(--text-dark);
-}
-
-/* Contenedor para los iconos de tecnologías de los proyectos */
-.project-tech-icons-list {
-	list-style-type: none;
-	padding-left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	display: flex;
-	gap: 5px;
 }
 
 /* --- Estilos para los Tooltips --- */
@@ -454,45 +529,6 @@ html[data-theme="dark"] .tech-heading {
 	transform: translateY(-50%); /* Ajusta el centrado vertical */
 }
 
-/* Estilos generales para los botones circulares */
-.tech-icon,
-.contact-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	font-size: 25px;
-	border-radius: 50%;
-	color: var(--color-white); /* Color por defecto del icono */
-	text-decoration: none;
-	line-height: 1; /* Ayuda con el centrado vertical de los iconos */
-	padding: 0; /* Asegura que no hay paddings afectando el centrado */
-}
-
-/* Estilos para los iconos de las tecnologías usadas en los diferentes proyectos */
-.tech-icon.fa-js,
-.tech-icon.fa-react {
-	color: var(
-		--text-dark
-	); /* Asegurar contraste para estos iconos específicos */
-}
-.tech-icon.fa-html5 {
-	background-color: #e34f26;
-}
-.tech-icon.fa-css3-alt {
-	background-color: #1572b6;
-}
-.tech-icon.fa-js {
-	background-color: #f7df1e;
-}
-.tech-icon.fa-react {
-	background-color: #61dafb;
-}
-.tech-icon.fa-node-js {
-	background-color: #339933;
-}
-
 .project-link-container {
 	text-align: center;
 }
@@ -505,7 +541,7 @@ html[data-theme="dark"] .tech-heading {
 	border-radius: 4px;
 	transition: background-color 0.3s ease, color 0.3s ease;
 	margin-right: 10px;
-	margin-top: 20px;
+	margin-top: 30px;
 	font-weight: 500;
 	border: none; /* Resetea el borde por defecto de los botones */
 	font-family: inherit; /* Hereda la fuente para consistencia */
@@ -523,15 +559,10 @@ html[data-theme="dark"] .tech-heading {
 	}
 }
 
-/* En modo oscuro, se fuerza que los iconos de JS y React mantengan el texto oscuro para el contraste */
-html[data-theme="dark"] .tech-icon.fa-js,
-html[data-theme="dark"] .tech-icon.fa-react {
-	color: #1a202c;
-}
-
 /* --- Estilos para el footer --- */
 footer {
 	text-align: center;
+	font-size: 1.2rem;
 	padding: 20px;
 	margin-top: auto; /* Asegura que el footer se mantenga al final de la página */
 	background-color: var(--bg-header);
