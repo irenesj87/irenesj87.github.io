@@ -1,5 +1,10 @@
 # Archivos específicos del editor
 .vscode/
+.idea/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
 
 # Dependencias
 # Aunque no se usen ahora, es una buena práctica para el futuro si se añade npm/yarn.
