@@ -88,7 +88,8 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px 40px;
+	/* Espaciado fluido: min, preferido, max */
+	padding: clamp(25px, 3vw, 30px) clamp(15px, 4vw, 40px);
 }
 
 .page-wrapper {
@@ -197,8 +198,9 @@ html[data-theme="dark"] .theme-toggle-button {
 main#main-content {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 50px; /* Reducido para mejor adaptabilidad inicial */
-	padding: 50px;
+	/* Espaciado fluido para el gap y el padding */
+	gap: clamp(10px, 4vw, 50px);
+	padding: clamp(15px, 5vw, 50px);
 	align-items: flex-start; /* Alinea las columnas en la parte superior */
 }
 
@@ -563,7 +565,8 @@ html[data-theme="dark"] .tech-heading {
 footer {
 	text-align: center;
 	font-size: 1.2rem;
-	padding: 20px;
+	/* Padding vertical fijo, horizontal fluido */
+	padding: 20px clamp(15px, 4vw, 40px);
 	margin-top: auto; /* Asegura que el footer se mantenga al final de la página */
 	background-color: var(--bg-header);
 	color: var(--text-light);
@@ -574,18 +577,11 @@ footer {
 
 /* Breakpoints grandes/medianos */
 @media (max-width: 1200px) {
-	main#main-content {
-		gap: 40px;
-		padding: 40px;
-	}
+	/* Las reglas de espaciado fluido ya no son necesarias aquí */
 }
 
 /* Breakpoints medios */
 @media (max-width: 1024px) {
-	main#main-content {
-		padding: 30px;
-		gap: 15px; /* Gap entre columnas */
-	}
 	#aboutMe.content-section {
 		flex-grow: 0; /* Evita que #aboutMe crezca más allá de su flex-basis. */
 		flex-basis: 280px; /* Establece una base de ancho fija para #aboutMe. */
@@ -617,9 +613,7 @@ footer {
 /* Breakpoints pequeños */
 @media (max-width: 768px) {
 	main#main-content {
-		flex-direction: column;
-		padding: 25px; /* Padding para el contenedor principal */
-		gap: 10px; /* Espacio vertical entre secciones apiladas */
+		flex-direction: column; /* Apila las columnas */
 	}
 	/* Hacemos que ambas columnas ocupen todo el ancho disponible cuando están apiladas */
 	#aboutMe.content-section,
@@ -655,17 +649,8 @@ footer {
 
 /* Breakpoints muy pequeños */
 @media (max-width: 480px) {
-	header {
-		padding: 25px 15px; /* Padding reducido para la cabecera en breakpoints muy pequeños */
-	}
-	footer {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	main#main-content {
-		padding: 15px; /* Padding reducido para el contenedor principal */
-		gap: 0; /* Gap reducido entre secciones apiladas */
-	}
+	/* La mayoría de los ajustes de padding ya son manejados por clamp() */
+	/* Solo se mantienen las reglas que no se pueden hacer fluidas fácilmente */
 	#aboutMe h2 {
 		padding-top: 10px;
 	}
