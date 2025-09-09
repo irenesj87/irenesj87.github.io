@@ -1,1 +1,20 @@
+# Archivos específicos del editor
 .vscode/
+
+# Dependencias
+# Aunque no se usen ahora, es una buena práctica para el futuro si se añade npm/yarn.
+/node_modules
+
+# Archivos de build
+# Común si se añaden herramientas como Vite, Webpack, etc.
+/dist
+/build
+
+# Variables de entorno
+# Nunca se deben subir claves de API o secretos al repositorio.
+.env
+.env.local
+.env.*.local
+
+# Archivos de log
+*.log
