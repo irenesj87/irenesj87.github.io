@@ -81,7 +81,5 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- CONFIGURACIÓN INICIAL ---
 	initializeTheme();
 	updateCopyrightYear();
-	// Se fuerza el scroll a la parte superior como corrección final antes de mostrar la página.
-	window.scrollTo(0, 0);
 	document.body.style.visibility = "visible"; // Muestra el <body> ahora para evitar el FOUC
 });
