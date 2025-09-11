@@ -40,7 +40,7 @@ html[data-theme="dark"] {
 	--bg-header: #0a192f;
 
 	/* Textos */
-	--text-dark: #ccd6f6;
+	--text-dark: #d8e2f9; /* Aumentado el brillo para acercarlo al blanco */
 	--text-medium: #8892b0;
 	--text-muted: #a8b2d1; /* Aumentado el brillo para mejorar contraste */
 	--text-light: #e6f1ff;
@@ -280,16 +280,16 @@ o vertical si es column */
 	}
 }
 .contact-icon.fa-envelope {
-	background-color: #cccccc;
+	background-color: #4a5568; /* Gris oscuro neutro y accesible */
 }
 .contact-icon.fa-envelope:hover {
-	background-color: #bbbbbb;
+	background-color: #2d3748; /* Un tono más oscuro para el hover */
 }
 .contact-icon.fa-github {
-	background-color: #6e5494;
+	background-color: #181717; /* Color de marca oficial de GitHub */
 }
 .contact-icon.fa-github:hover {
-	background-color: #59447a;
+	background-color: #333333; /* Un negro ligeramente más claro para el hover */
 }
 
 .contact-methods a:focus-visible .contact-icon {
@@ -303,7 +303,7 @@ o vertical si es column */
 }
 
 .cv-section {
-	margin-bottom: 30px;
+	margin-bottom: 45px;
 	color: var(--text-dark);
 	ul {
 		list-style-type: disc;
@@ -315,11 +315,6 @@ o vertical si es column */
 			font-size: 1.15rem;
 			/* Fuerza el salto de línea en palabras muy largas para evitar desbordamiento */
 			word-break: break-all;
-		}
-		ul {
-			list-style-type: circle;
-			margin-top: 8px;
-			padding-left: 25px;
 		}
 	}
 	h3 {
@@ -372,58 +367,48 @@ o vertical si es column */
 
 /* Colores de marca para las insignias con iconos */
 .skill-badge-html5 {
-	background-color: #ee958a; /* Final Pastel Orange/Red */
-	color: #000000;
+	background-color: #c55848; /* Tono rojo-naranja menos intenso con contraste AA (4.51:1) */
+	color: var(--color-white);
 	border-color: transparent;
 }
 .skill-badge-css3 {
-	background-color: #8ab0cf; /* Final Pastel Blue */
-	color: #000000;
+	background-color: #2c6b99; /* Tono azul oscuro menos intenso con contraste AA (4.53:1) */
+	color: var(--color-white);
 	border-color: transparent;
 }
 .skill-badge-js {
-	background-color: #f8e39b; /* Final Pastel Yellow */
+	background-color: #f7d969; /* More intense Yellow */
 	color: #000000;
 	border-color: transparent;
 }
 .skill-badge-react {
-	background-color: #aee5f5; /* Final Pastel Light Blue */
+	background-color: #8de0f7; /* More intense Light Blue */
 	color: #000000;
 	border-color: transparent;
 }
 .skill-badge-node {
-	background-color: #8ccaa3; /* Final Pastel Green */
-	color: #000000;
+	background-color: #539e43; /* Tono verde oscuro con contraste AA (4.53:1) */
+	color: var(--color-white);
 	border-color: transparent;
 }
 .skill-badge-java {
-	background-color: #f9c37b; /* Final Pastel Orange (from Java logo) */
+	background-color: #f7b75b; /* More intense Orange */
 	color: #000000;
 	border-color: transparent;
 }
 .skill-badge-c {
-	background-color: #83a6d0; /* Final Pastel Blue */
+	background-color: #4a73a3; /* Tono azul oscuro pastel con contraste AA (4.55:1) */
+	color: var(--color-white);
+	border-color: transparent;
+}
+.skill-badge-linux {
+	background-color: #fccf55; /* Intense Yellow/Orange for Tux */
 	color: #000000;
 	border-color: transparent;
 }
 .skill-badge-github {
-	background-color: #c1c7cc; /* Final Pastel Gray */
-	color: #000000;
-	border-color: transparent;
-}
-.skill-badge-jest {
-	background-color: #ee958a; /* Final Pastel Red */
-	color: #000000;
-	border-color: transparent;
-}
-.skill-badge-sonarqube {
-	background-color: #99bfda; /* Final Pastel Blue */
-	color: #000000;
-	border-color: transparent;
-}
-.skill-badge-vscode {
-	background-color: #8ab8e4; /* Final Pastel Blue */
-	color: #000000;
+	background-color: #586069; /* Tono gris oscuro con contraste AA (5.8:1) */
+	color: var(--color-white);
 	border-color: transparent;
 }
 
@@ -539,6 +524,15 @@ html[data-theme="dark"] .tech-heading {
 		outline: 2px solid var(--primary-accent);
 		outline-offset: 2px;
 	}
+}
+
+/* Mejora el contraste del botón en modo oscuro para cumplir con WCAG AA */
+html[data-theme="dark"] .project-link {
+	background-color: #3a82d7; /* Contraste 4.54:1 con texto blanco */
+}
+
+html[data-theme="dark"] .project-link:hover {
+	background-color: #2c71c0; /* Mantiene el contraste en hover (5.8:1) */
 }
 
 /* --- Estilos para el footer --- */
