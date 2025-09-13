@@ -78,8 +78,49 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	// --- FIN ACTUALIZACIÓN DINÁMICA DEL AÑO ---
 
+	// --- LÓGICA DE NAVEGACIÓN POR PESTAÑAS ---
+	function setupTabNavigation() {
+		const navLinks = document.querySelectorAll(".main-nav a");
+		const curriculumSection = document.getElementById("curriculum");
+		const projectsSection = document.getElementById("projects");
+
+		function switchView(targetId) {
+			// Actualiza la clase 'active' en los enlaces de navegación
+			navLinks.forEach((link) => {
+				link.classList.toggle("active", link.getAttribute("href") === targetId);
+			});
+
+			// Determina si la vista de "Portfolio" (proyectos) debe estar activa.
+			const showProjectsView = targetId === "#projects";
+
+			// Muestra u oculta las secciones de la columna derecha según la vista.
+			// La sección "About Me" de la izquierda permanece siempre visible.
+			if (curriculumSection) {
+				curriculumSection.style.display = showProjectsView ? "none" : "";
+			}
+			if (projectsSection) {
+				projectsSection.style.display = showProjectsView ? "" : "none";
+			}
+		}
+
+		navLinks.forEach((link) => {
+			link.addEventListener("click", (e) => {
+				e.preventDefault(); // Evita el comportamiento de anclaje por defecto
+				const targetId = e.currentTarget.getAttribute("href");
+				switchView(targetId);
+				// Llevamos al usuario a la parte superior de la página al cambiar de vista
+				window.scrollTo(0, 0);
+			});
+		});
+
+		// Establece la vista inicial al cargar la página ("Home")
+		switchView("#aboutMe");
+	}
+	// --- FIN LÓGICA DE NAVEGACIÓN POR PESTAÑAS ---
+
 	// --- CONFIGURACIÓN INICIAL ---
 	initializeTheme();
 	updateCopyrightYear();
+	setupTabNavigation();
 	document.body.style.visibility = "visible"; // Muestra el <body> ahora para evitar el FOUC
 });
