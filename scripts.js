@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const navLinks = document.querySelectorAll(".main-nav a");
 		const curriculumSection = document.getElementById("curriculum");
 		const projectsSection = document.getElementById("projects");
+		const switchableSections = [curriculumSection, projectsSection];
 
 		function switchView(targetId) {
 			// Actualiza la clase 'active' en los enlaces de navegación
@@ -90,17 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				link.classList.toggle("active", link.getAttribute("href") === targetId);
 			});
 
-			// Determina si la vista de "Portfolio" (proyectos) debe estar activa.
-			const showProjectsView = targetId === "#projects";
-
-			// Muestra u oculta las secciones de la columna derecha según la vista.
-			// La sección "About Me" de la izquierda permanece siempre visible.
-			if (curriculumSection) {
-				curriculumSection.style.display = showProjectsView ? "none" : "";
-			}
-			if (projectsSection) {
-				projectsSection.style.display = showProjectsView ? "" : "none";
-			}
+			// Muestra u oculta las secciones de forma explícita y escalable.
+			// Esto es más robusto si se añaden más pestañas en el futuro.
+			switchableSections.forEach((section) => {
+				if (section) {
+					// Compara el ID de la sección (sin #) con el targetId del enlace (con #)
+					section.style.display = `#${section.id}` === targetId ? "" : "none";
+				}
+			});
 		}
 
 		navLinks.forEach((link) => {
@@ -114,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 
 		// Establece la vista inicial al cargar la página ("Home")
-		switchView("#aboutMe");
+		switchView("#curriculum");
 	}
 	// --- FIN LÓGICA DE NAVEGACIÓN POR PESTAÑAS ---
 
