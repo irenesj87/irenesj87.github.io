@@ -73,7 +73,6 @@ html {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, sans-serif;
 	scroll-behavior: smooth;
-	overflow-x: hidden; /* Se aplica también aquí para máxima compatibilidad */
 }
 
 *,
@@ -104,7 +103,6 @@ header {
 
 body {
 	margin: 0; /* Elimina el margen por defecto del navegador para evitar bordes no deseados. */
-	overflow-x: hidden; /* Solución definitiva para evitar el desbordamiento horizontal en breakpoints xs */
 	color: var(--text-dark);
 }
 
@@ -192,6 +190,45 @@ html[data-theme="dark"] .theme-toggle-button {
 			);
 		}
 	}
+}
+
+/* --- Estilos para la navegación principal --- */
+.main-nav {
+	background-color: var(--bg-body);
+	border-bottom: 1px solid var(--border-color);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	/* Sombra sutil para cuando la barra se despega del contenido */
+	box-shadow: 0 2px 4px var(--box-shadow-color);
+}
+
+.main-nav ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: clamp(10px, 4vw, 30px); /* Espaciado fluido entre pestañas */
+}
+
+.main-nav a {
+	display: block;
+	padding: 12px 18px;
+	text-decoration: none;
+	color: var(--text-medium);
+	font-weight: 500;
+	font-size: 1rem;
+	border-bottom: 3px solid transparent;
+	text-align: center;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a.active {
+	color: var(--primary-accent);
+	border-bottom-color: var(--primary-accent);
+	outline: none; /* El borde inferior ya sirve como indicador de foco */
 }
 
 /* Estilos para el diseño de dos columnas */
@@ -419,24 +456,39 @@ o vertical si es column */
 	margin-bottom: 0;
 }
 
+.projects-grid {
+	display: grid;
+	/* Crea columnas que se ajustan automáticamente. Cada columna tendrá un mínimo de 300px y un máximo de 1fr (una fracción del espacio disponible) */
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 30px;
+	margin-top: 20px;
+}
+
 .project-item {
-	margin-bottom: 50px;
-	border-bottom: 1px solid var(--border-color);
-	padding-bottom: 10px;
-	background-color: var(--bg-body);
+	background-color: var(--bg-section-highlight);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 2px 5px var(--box-shadow-color);
+	margin-bottom: 0; /* Se elimina el margen inferior anterior */
 	h3 {
-		margin-top: 15px;
+		margin-top: 0; /* Se ajusta el margen superior del título */
 		margin-bottom: 15px;
-		font-size: 1.05em;
-		color: var(--text-dark);
+		font-size: 1.2em; /* Un poco más grande para destacar */
+		color: var(--primary-accent); /* Se usa el color de acento para el título */
 	}
 	h4 {
 		color: var(--text-muted);
+		font-size: 1em;
+		margin-top: 20px;
 	}
 }
 
 .project-item:last-of-type {
-	border-bottom: none;
+	border-bottom: none; /* Ya no es necesario con el diseño de tarjetas */
 }
 
 .tech-heading {
@@ -497,7 +549,9 @@ html[data-theme="dark"] .tech-heading {
 }
 
 .project-link-container {
-	text-align: center;
+	text-align: right; /* Alinea el botón a la derecha */
+	margin-top: auto; /* Empuja el contenedor del enlace al final de la tarjeta */
+	padding-top: 20px; /* Espacio sobre el botón */
 }
 .project-link {
 	display: inline-block;
@@ -507,8 +561,8 @@ html[data-theme="dark"] .tech-heading {
 	text-decoration: none;
 	border-radius: 4px;
 	transition: background-color 0.3s ease, color 0.3s ease;
-	margin-right: 10px;
-	margin-top: 30px;
+	margin-right: 0; /* Se ajusta el margen para la alineación a la derecha */
+	margin-top: 0; /* Se elimina el margen superior que ya no es necesario */
 	font-weight: 500;
 	border: none; /* Resetea el borde por defecto de los botones */
 	font-family: inherit; /* Hereda la fuente para consistencia */
@@ -533,6 +587,11 @@ html[data-theme="dark"] .project-link {
 
 html[data-theme="dark"] .project-link:hover {
 	background-color: #2c71c0; /* Mantiene el contraste en hover (5.8:1) */
+}
+
+/* Mejora el contraste del texto de la navegación en modo oscuro */
+html[data-theme="dark"] .main-nav a {
+	color: var(--text-dark);
 }
 
 /* --- Estilos para el footer --- */
