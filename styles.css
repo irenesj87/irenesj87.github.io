@@ -486,10 +486,6 @@ o vertical si es column */
 	}
 }
 
-.project-item:last-of-type {
-	border-bottom: none; /* Ya no es necesario con el diseño de tarjetas */
-}
-
 .tech-heading {
 	font-weight: bold;
 	color: var(--text-muted);
@@ -631,9 +627,6 @@ footer {
 	}
 	.cv-section {
 		margin-bottom: 10px;
-	}
-	.project-item {
-		margin-bottom: 30px;
 	}
 }
 
