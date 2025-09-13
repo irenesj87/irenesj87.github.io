@@ -81,9 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	// --- LÓGICA DE NAVEGACIÓN POR PESTAÑAS ---
 	function setupTabNavigation() {
 		const navLinks = document.querySelectorAll(".main-nav a");
-		const curriculumSection = document.getElementById("curriculum");
-		const projectsSection = document.getElementById("projects");
-		const switchableSections = [curriculumSection, projectsSection];
+		// Se seleccionan dinámicamente todas las secciones que se pueden cambiar.
+		// Esto hace que el código sea más escalable. Si se añade una nueva sección
+		// en el HTML dentro de .main-content-right, el script la gestionará automáticamente.
+		const switchableSections = document.querySelectorAll(
+			".main-content-right > .content-section"
+		);
 
 		function switchView(targetId) {
 			// Actualiza la clase 'active' en los enlaces de navegación

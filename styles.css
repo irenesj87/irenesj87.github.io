@@ -396,12 +396,6 @@ o vertical si es column */
 	gap: 5px; /* Espacio entre el icono y el texto */
 }
 
-/* Estilos específicos para las insignias de habilidades con iconos */
-.skill-badge i {
-	font-size: 1.1em; /* Ajusta el tamaño del icono relativo al texto */
-	line-height: 1;
-}
-
 /* Colores de marca para las insignias con iconos */
 .skill-badge-html5 {
 	background-color: #c55848; /* Tono rojo-naranja menos intenso con contraste AA (4.51:1) */
@@ -548,6 +542,10 @@ html[data-theme="dark"] .tech-heading {
 	margin-top: auto; /* Empuja el contenedor del enlace al final de la tarjeta */
 	padding-top: 20px; /* Espacio sobre el botón */
 }
+.project-link i {
+	font-size: 0.8em;
+	margin-left: 8px;
+}
 .project-link {
 	display: inline-block;
 	background-color: var(--primary-accent);
@@ -562,10 +560,6 @@ html[data-theme="dark"] .tech-heading {
 	border: none; /* Resetea el borde por defecto de los botones */
 	font-family: inherit; /* Hereda la fuente para consistencia */
 	cursor: pointer; /* Asegura el cursor de puntero en los botones */
-	i {
-		margin-left: 8px;
-		font-size: 0.8em;
-	}
 	&:hover {
 		background-color: var(--secondary-accent);
 	}
@@ -686,8 +680,5 @@ footer {
 	}
 	.main-content-right {
 		gap: 5px;
-	}
-	#aboutMe {
-		margin-bottom: 20px;
 	}
 }
