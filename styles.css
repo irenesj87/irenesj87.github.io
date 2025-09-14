@@ -40,9 +40,9 @@ html[data-theme="dark"] {
 	--bg-header: #0a192f;
 
 	/* Textos */
-	--text-dark: #d8e2f9; /* Aumentado el brillo para acercarlo al blanco */
+	--text-dark: #d8e2f9;
 	--text-medium: #8892b0;
-	--text-muted: #a8b2d1; /* Aumentado el brillo para mejorar contraste */
+	--text-muted: #a8b2d1;
 	--text-light: #e6f1ff;
 
 	/* Acentos */
@@ -58,7 +58,7 @@ html[data-theme="dark"] {
 	--button-hover-bg-dark: rgba(88, 166, 255, 0.1);
 
 	/* Bloques */
-	--bg-section-highlight: #172a45; /* Azul oscuro para secciones destacadas */
+	--bg-section-highlight: #172a45;
 
 	/* --- Colores de sombra --- */
 	--box-shadow-color: rgba(2, 12, 27, 0.7);
@@ -150,7 +150,7 @@ html[data-theme="dark"] .theme-toggle-button {
 /* --- Estilos para la cabecera --- */
 .title-container {
 	flex-grow: 1; /* Permite que el contenedor del título ocupe el espacio sobrante */
-	h1 {
+	& h1 {
 		text-align: center;
 		font-size: 30px;
 		font-weight: 400;
@@ -161,7 +161,7 @@ html[data-theme="dark"] .theme-toggle-button {
 		position: relative; /* Mantenemos esto para los pseudo-elementos ::before y ::after */
 		padding-bottom: 15px;
 		margin: 0; /* Se resetea el margen para que el centrado de flexbox funcione bien */
-		span {
+		& span {
 			display: block;
 			line-height: 1.5em;
 			text-transform: none;
@@ -185,8 +185,8 @@ html[data-theme="dark"] .theme-toggle-button {
 			background: linear-gradient(
 				to right,
 				var(--secondary-accent) 50%,
-				/* El azul ocupa la mitad */ var(--text-light) 50%
-					/* El blanco ocupa la otra mitad */
+				/* El azul ocupa la primera mitad */ var(--text-light) 50%
+					/* El blanco ocupa la segunda mitad */
 			);
 		}
 	}
@@ -245,8 +245,8 @@ main#main-content {
 /* Propiedad abreviada */
 /* flex-grow: 1 Significa que un elemento flexible puede crecer */
 /* flex-shrink: 1 Significa que un elemento flexible puede encogerse */
-/* flex-basis: Define el tamaño inicial del elemento flexible a lo largo del eje principal (horizontal si flex-direction es row) 
-o vertical si es column */
+/* flex-basis: Define el tamaño inicial del elemento flexible a lo largo del eje principal (horizontal si flex-direction 
+/* es row) o vertical si es column */
 #aboutMe.content-section {
 	flex: 1 1 290px;
 	min-width: 280px; /* Ancho mínimo antes de que se comprima demasiado */
@@ -285,12 +285,12 @@ o vertical si es column */
 .contact-methods {
 	display: flex;
 	justify-content: center;
-	ul {
+	& ul {
 		list-style: none;
 		padding: 0;
 		margin: 0 0 20px 0;
 	}
-	li {
+	& li {
 		/* Si hay espacio suficiente, fuerza que los elementos se pongan unos al lado de otros en la misma línea */
 		display: inline-block;
 		margin-top: 15px;
@@ -342,11 +342,11 @@ o vertical si es column */
 .cv-section {
 	margin-bottom: 45px;
 	color: var(--text-dark);
-	ul {
+	& ul {
 		list-style-type: disc;
 		margin-top: 0;
 		padding: 10px 15px 10px 30px;
-		li {
+		& li {
 			margin-bottom: 10px;
 			line-height: 1.6;
 			font-size: 1.15rem;
@@ -354,12 +354,12 @@ o vertical si es column */
 			word-break: break-all;
 		}
 	}
-	h3 {
+	& h3 {
 		font-size: 1.1em;
 		font-weight: 600;
 		color: var(--text-dark);
 	}
-	p {
+	& p {
 		font-size: 1.1rem;
 		line-height: 1.6;
 		margin-bottom: 10px;
@@ -382,7 +382,6 @@ o vertical si es column */
 	padding-top: 10px;
 }
 
-/* Estilos para las insignias de habilidades */
 .skill-badge {
 	background-color: var(--bg-section-highlight);
 	color: var(--text-medium);
@@ -408,12 +407,12 @@ o vertical si es column */
 	border-color: transparent;
 }
 .skill-badge-js {
-	background-color: #f7d969; /* More intense Yellow */
+	background-color: #f7d969; 
 	color: #000000;
 	border-color: transparent;
 }
 .skill-badge-react {
-	background-color: #8de0f7; /* More intense Light Blue */
+	background-color: #8de0f7; 
 	color: #000000;
 	border-color: transparent;
 }
@@ -423,7 +422,7 @@ o vertical si es column */
 	border-color: transparent;
 }
 .skill-badge-java {
-	background-color: #f7b75b; /* More intense Orange */
+	background-color: #f7b75b; 
 	color: #000000;
 	border-color: transparent;
 }
@@ -433,7 +432,7 @@ o vertical si es column */
 	border-color: transparent;
 }
 .skill-badge-linux {
-	background-color: #fccf55; /* Intense Yellow/Orange for Tux */
+	background-color: #fccf55; 
 	color: #000000;
 	border-color: transparent;
 }
@@ -466,13 +465,13 @@ o vertical si es column */
 	flex-direction: column;
 	box-shadow: 0 2px 5px var(--box-shadow-color);
 	margin-bottom: 0; /* Se elimina el margen inferior anterior */
-	h3 {
-		margin-top: 0; /* Se ajusta el margen superior del título */
+	& h3 {
+		margin-top: 0; 
 		margin-bottom: 15px;
-		font-size: 1.2em; /* Un poco más grande para destacar */
-		color: var(--primary-accent); /* Se usa el color de acento para el título */
+		font-size: 1.2em; 
+		color: var(--primary-accent); 
 	}
-	h4 {
+	& h4 {
 		color: var(--text-muted);
 		font-size: 1em;
 		margin-top: 20px;
@@ -519,7 +518,8 @@ html[data-theme="dark"] .tech-heading {
 }
 
 /* Muestra el tooltip al pasar el ratón por encima del elemento */
-[data-tooltip]:hover::after {
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
 	opacity: 1;
 	visibility: visible;
 	transition-delay: 0.1s; /* Pequeño retardo antes de aparecer */
@@ -557,8 +557,8 @@ html[data-theme="dark"] .tech-heading {
 	margin-top: 0; /* Se elimina el margen superior que ya no es necesario */
 	font-weight: 500;
 	border: none; /* Resetea el borde por defecto de los botones */
-	font-family: inherit; /* Hereda la fuente para consistencia */
-	cursor: pointer; /* Asegura el cursor de puntero en los botones */
+	font-family: inherit; 
+	cursor: pointer; 
 	&:hover {
 		background-color: var(--secondary-accent);
 	}
@@ -577,7 +577,6 @@ html[data-theme="dark"] .project-link:hover {
 	background-color: #2c71c0; /* Mantiene el contraste en hover (5.8:1) */
 }
 
-/* Mejora el contraste del texto de la navegación en modo oscuro */
 html[data-theme="dark"] .main-nav a {
 	color: var(--text-dark);
 }
@@ -607,10 +606,10 @@ footer {
 		padding-bottom: 15px;
 	}
 	.main-content-right {
-		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su flex-grow heredado (valor de 2) para ocupar el 
-		espacio restante. */
+		/* Al establecer flex-basis en 0 (o auto), .main-content-right usará su flex-grow heredado (valor de 2) para 
+		ocupar el espacio restante. */
 		flex-basis: 0;
-		gap: 15px; /* Este gap es para los hijos de .main-content-right (Curriculum y Projects) */
+		gap: 15px; /* Este gap es para los hijos de .main-content-right */
 	}
 	.content-section {
 		padding-left: 20px;
@@ -656,7 +655,7 @@ footer {
 		flex-shrink: 0; /* Evita que el botón se encoja */
 	}
 	.main-content-right {
-		gap: 10px; /* Gap entre Curriculum y Projects */
+		gap: 10px;
 	}
 }
 

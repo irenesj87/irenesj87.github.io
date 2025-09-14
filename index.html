@@ -20,44 +20,29 @@
 				visibility: hidden;
 			}
 		</style>
-		<script>
-			// Script de bloqueo de renderizado para establecer el tema inicial y evitar FOUC.
-			(function () {
-				// Deshabilita la restauración automática del scroll para que la página siempre cargue en la parte superior.
-				if ("scrollRestoration" in history) {
-					history.scrollRestoration = "manual";
-				}
-				// Se fuerza el scroll a la parte superior de la página de forma inmediata para evitar el "salto".
-				window.scrollTo(0, 0);
+		<script type="module">
+			// Script de bloqueo de renderizado para establecer el tema inicial y evitar FOUC. Usando módulos.
+			import { THEME_STORAGE_KEY, THEME_DARK, THEME_LIGHT } from "./config.js";
 
-				// Se crea un espacio de nombres para evitar contaminar el scope global.
-				window.APP_CONFIG = {
-					THEME_STORAGE_KEY: "theme",
-					THEME_DARK: "dark",
-					THEME_LIGHT: "light",
-				};
-				let theme;
+			// Deshabilita la restauración automática del scroll.
+			if ("scrollRestoration" in history) {
+				history.scrollRestoration = "manual";
+			}
+			window.scrollTo(0, 0);
 
-				try {
-					theme = localStorage.getItem(window.APP_CONFIG.THEME_STORAGE_KEY);
-				} catch (e) {
-					// Si localStorage no es accesible (p. ej., en navegación privada),
-					// la preferencia de tema no se puede cargar. El código recurrirá
-					// a la preferencia del sistema.
-					console.warn(
-						"Could not access localStorage. Theme preference will not be loaded.",
-						e
-					);
-				}
+			let theme;
+			try {
+				theme = localStorage.getItem(THEME_STORAGE_KEY);
+			} catch (e) {
+				console.warn("Could not access localStorage.", e);
+			}
 
-				// Si no hay tema guardado, se usa la preferencia del sistema.
-				if (!theme) {
-					theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-						? window.APP_CONFIG.THEME_DARK
-						: window.APP_CONFIG.THEME_LIGHT;
-				}
-				document.documentElement.setAttribute("data-theme", theme);
-			})();
+			if (!theme) {
+				theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+					? THEME_DARK
+					: THEME_LIGHT;
+			}
+			document.documentElement.setAttribute("data-theme", theme);
 		</script>
 	</head>
 	<body>
@@ -298,11 +283,11 @@
 			</main>
 			<footer>
 				<small>
-					&copy; <span id="current-year">2024</span> Irene San José. All rights
+					&copy; <span id="current-year"></span> Irene San José. All rights
 					reserved.
 				</small>
 			</footer>
 		</div>
-		<script src="scripts.js"></script>
+		<script type="module" src="scripts.js"></script>
 	</body>
 </html>
