@@ -30,7 +30,7 @@ function setupThemeToggle() {
 		themeToggleButton.setAttribute("aria-label", ariaLabel);
 	}
 
-	// Función que alterna entre temas y guarda el tema en localStorage. 
+	// Función que alterna entre temas y guarda el tema en localStorage.
 	// Esta función se llama al hacer clic en el botón.
 	function toggle() {
 		const currentTheme = htmlElement.getAttribute("data-theme");
@@ -75,15 +75,15 @@ function updateCopyrightYear() {
 function setupTabNavigation() {
 	const navLinks = document.querySelectorAll(".main-nav a");
 	// Se seleccionan dinámicamente todas las secciones que se pueden cambiar.
-	// Esto hace que el código sea más escalable. Si se añade una nueva sección
-	// en el HTML dentro de .main-content-right, el script la gestionará automáticamente.
 	const switchableSections = document.querySelectorAll(
 		".main-content-right > .content-section"
 	);
 
 	function switchView(targetId) {
-		// Actualiza la clase 'active' en los enlaces de navegación
 		navLinks.forEach((link) => {
+			// targetId: es el href del enlace pulsado (ej: #projects)
+			// link.getAttribute("href"): es el href de cada enlace en la navegación
+			// Compara ambos para añadir o quitar la clase 'active'
 			link.classList.toggle("active", link.getAttribute("href") === targetId);
 		});
 
@@ -97,6 +97,7 @@ function setupTabNavigation() {
 		});
 	}
 
+	// Añade event listeners a todos los enlaces de navegación que se activarán cada vez que se haga clic en uno de ellos.
 	navLinks.forEach((link) => {
 		link.addEventListener("click", (e) => {
 			e.preventDefault(); // Evita el comportamiento de anclaje por defecto
@@ -107,8 +108,13 @@ function setupTabNavigation() {
 		});
 	});
 
-	// Establece la vista inicial al cargar la página ("Home")
-	switchView("#curriculum");
+	// Establece la vista inicial al cargar la página.
+	// Si la URL tiene un hash válido (ej: #projects), lo muestra. Si no, muestra "Home".
+	const initialTarget =
+		window.location.hash && document.querySelector(window.location.hash)
+			? window.location.hash
+			: "#curriculum";
+	switchView(initialTarget);
 }
 // --- FIN LÓGICA DE NAVEGACIÓN POR PESTAÑAS ---
 
