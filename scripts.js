@@ -80,41 +80,47 @@ function setupTabNavigation() {
 	);
 
 	function switchView(targetId) {
+		// Si el targetId es inválido o no existe, se usa #curriculum como fallback.
+		const validTargetId =
+			targetId && document.querySelector(targetId) ? targetId : "#curriculum";
+
 		navLinks.forEach((link) => {
-			// targetId: es el href del enlace pulsado (ej: #projects)
-			// link.getAttribute("href"): es el href de cada enlace en la navegación
-			// Compara ambos para añadir o quitar la clase 'active'
-			link.classList.toggle("active", link.getAttribute("href") === targetId);
+			// Compara el href del enlace con el targetId válido para marcarlo como activo.
+			link.classList.toggle(
+				"active",
+				link.getAttribute("href") === validTargetId
+			);
 		});
 
-		// Muestra u oculta las secciones de forma explícita y escalable.
-		// Esto es más robusto si se añaden más pestañas en el futuro.
+		// Muestra u oculta las secciones según el targetId válido.
 		switchableSections.forEach((section) => {
-			if (section) {
-				// Compara el ID de la sección (sin #) con el targetId del enlace (con #)
-				section.style.display = `#${section.id}` === targetId ? "" : "none";
-			}
+			section.style.display = `#${section.id}` === validTargetId ? "" : "none";
 		});
 	}
 
-	// Añade event listeners a todos los enlaces de navegación que se activarán cada vez que se haga clic en uno de ellos.
+	// Función centralizada para manejar la navegación.
+	function handleNavigation() {
+		const targetId = window.location.hash;
+		switchView(targetId);
+		// Llevamos al usuario a la parte superior de la página al cambiar de vista.
+		window.scrollTo(0, 0);
+	}
+
+	// Añade event listeners a todos los enlaces de navegación.
 	navLinks.forEach((link) => {
 		link.addEventListener("click", (e) => {
-			e.preventDefault(); // Evita el comportamiento de anclaje por defecto
+			e.preventDefault(); // Evita el comportamiento de anclaje por defecto.
 			const targetId = e.currentTarget.getAttribute("href");
-			switchView(targetId);
-			// Llevamos al usuario a la parte superior de la página al cambiar de vista
-			window.scrollTo(0, 0);
+			// Actualizamos el hash, lo que activará el listener 'hashchange'.
+			window.location.hash = targetId;
 		});
 	});
 
+	// Escucha los cambios en el hash para actualizar la vista (navegación historial, URL manual).
+	window.addEventListener("hashchange", handleNavigation);
+
 	// Establece la vista inicial al cargar la página.
-	// Si la URL tiene un hash válido (ej: #projects), lo muestra. Si no, muestra "Home".
-	const initialTarget =
-		window.location.hash && document.querySelector(window.location.hash)
-			? window.location.hash
-			: "#curriculum";
-	switchView(initialTarget);
+	handleNavigation();
 }
 // --- FIN LÓGICA DE NAVEGACIÓN POR PESTAÑAS ---
 

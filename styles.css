@@ -407,12 +407,12 @@ main#main-content {
 	border-color: transparent;
 }
 .skill-badge-js {
-	background-color: #f7d969; 
+	background-color: #f7d969;
 	color: #000000;
 	border-color: transparent;
 }
 .skill-badge-react {
-	background-color: #8de0f7; 
+	background-color: #8de0f7;
 	color: #000000;
 	border-color: transparent;
 }
@@ -422,7 +422,7 @@ main#main-content {
 	border-color: transparent;
 }
 .skill-badge-java {
-	background-color: #f7b75b; 
+	background-color: #f7b75b;
 	color: #000000;
 	border-color: transparent;
 }
@@ -432,7 +432,7 @@ main#main-content {
 	border-color: transparent;
 }
 .skill-badge-linux {
-	background-color: #fccf55; 
+	background-color: #fccf55;
 	color: #000000;
 	border-color: transparent;
 }
@@ -443,7 +443,7 @@ main#main-content {
 }
 
 /* --- Estilos para los proyectos --- */
-#projects {
+#portfolio {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
@@ -457,7 +457,7 @@ main#main-content {
 }
 
 .project-item {
-	background-color: var(--bg-section-highlight);
+	background-color: var(--bg-body);
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	padding: 25px;
@@ -466,10 +466,10 @@ main#main-content {
 	box-shadow: 0 2px 5px var(--box-shadow-color);
 	margin-bottom: 0; /* Se elimina el margen inferior anterior */
 	& h3 {
-		margin-top: 0; 
+		margin-top: 0;
 		margin-bottom: 15px;
-		font-size: 1.2em; 
-		color: var(--primary-accent); 
+		font-size: 1.2em;
+		color: var(--primary-accent);
 	}
 	& h4 {
 		color: var(--text-muted);
@@ -557,8 +557,8 @@ html[data-theme="dark"] .tech-heading {
 	margin-top: 0; /* Se elimina el margen superior que ya no es necesario */
 	font-weight: 500;
 	border: none; /* Resetea el borde por defecto de los botones */
-	font-family: inherit; 
-	cursor: pointer; 
+	font-family: inherit;
+	cursor: pointer;
 	&:hover {
 		background-color: var(--secondary-accent);
 	}
@@ -575,6 +575,11 @@ html[data-theme="dark"] .project-link {
 
 html[data-theme="dark"] .project-link:hover {
 	background-color: #2c71c0; /* Mantiene el contraste en hover (5.8:1) */
+}
+
+html[data-theme="dark"] .project-item {
+	/* Se restaura el color de fondo resaltado para las tarjetas de proyecto en modo oscuro */
+	background-color: var(--bg-section-highlight);
 }
 
 html[data-theme="dark"] .main-nav a {
